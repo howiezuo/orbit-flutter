@@ -3,8 +3,9 @@ library orbit;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'src/theme/colors.dart';
+import 'src/theme.dart';
 
+export 'src/theme.dart';
 export 'src/components/button.dart';
 
 class OrbitApp extends StatelessWidget {
@@ -115,38 +116,5 @@ class OrbitApp extends StatelessWidget {
       ),
       themeData: themeData,
     );
-  }
-}
-
-class OrbitThemeData {
-  final OrbitColors colors;
-
-  final ThemeData materialTheme;
-
-  OrbitThemeData({required this.colors}) : materialTheme = ThemeData();
-
-  factory OrbitThemeData.light() => OrbitThemeData(colors: OrbitColors.light());
-}
-
-class OrbitTheme extends InheritedWidget {
-  final OrbitThemeData _themeData;
-
-  OrbitTheme({
-    Key? key,
-    required Widget child,
-    required OrbitThemeData themeData,
-  })  : this._themeData = themeData,
-        super(key: key, child: child);
-
-  static OrbitThemeData of(BuildContext context) {
-    return context
-            .dependOnInheritedWidgetOfExactType<OrbitTheme>()
-            ?._themeData ??
-        OrbitThemeData.light();
-  }
-
-  @override
-  bool updateShouldNotify(covariant OrbitTheme oldWidget) {
-    throw _themeData != oldWidget._themeData;
   }
 }
