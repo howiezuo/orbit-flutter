@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'src/theme.dart';
 
 export 'src/theme.dart';
+export 'src/components/alert.dart';
 export 'src/components/button.dart';
 
 class OrbitApp extends StatelessWidget {
@@ -81,6 +82,7 @@ class OrbitApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = _currentTheme();
     return OrbitTheme(
+      themeData: themeData,
       child: MaterialApp(
         navigatorKey: this.navigatorKey,
         scaffoldMessengerKey: this.scaffoldMessengerKey,
@@ -114,7 +116,6 @@ class OrbitApp extends StatelessWidget {
         restorationScopeId: this.restorationScopeId,
         scrollBehavior: this.scrollBehavior,
       ),
-      themeData: themeData,
     );
   }
 }

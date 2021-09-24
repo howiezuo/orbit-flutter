@@ -1,16 +1,28 @@
-import 'package:flutter/material.dart';
-import 'package:orbit/src/tokens/button_tokens.dart';
+import 'package:flutter/material.dart' show ThemeData;
+import 'package:flutter/widgets.dart';
+
+import 'tokens/border_radius_tokens.dart';
+import 'tokens/color_tokens.dart';
+import 'tokens/space_token.dart';
 
 class OrbitThemeData {
-  final ButtonTokens buttonTokens;
+  final ColorTokens colorTokens;
+  final SpaceTokens spaceTokens;
+  final BorderRadiusTokens borderRadiusTokens;
 
   final ThemeData materialTheme;
 
-  OrbitThemeData({required this.buttonTokens}) : materialTheme = ThemeData();
+  OrbitThemeData({
+    required this.colorTokens,
+    required this.spaceTokens,
+    required this.borderRadiusTokens,
+  }) : materialTheme = ThemeData();
 
   factory OrbitThemeData.light() => OrbitThemeData(
-    buttonTokens: ButtonStyles.light(),
-  );
+    colorTokens: Colors(),
+        spaceTokens: SpaceStyles(),
+        borderRadiusTokens: BorderRadiusStyles(),
+      );
 }
 
 class OrbitTheme extends InheritedWidget {

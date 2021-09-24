@@ -1,6 +1,7 @@
-import 'package:catalog/src/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import 'routes.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -10,6 +11,10 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Catalog')),
       body: ListView(
         children: [
+          ListTile(
+            title: Text('Alert'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_ALERT),
+          ),
           ListTile(
             title: Text('Button'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BUTTON),

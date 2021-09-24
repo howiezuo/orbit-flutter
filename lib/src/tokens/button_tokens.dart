@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:orbit/src/theme/colors.dart';
+import 'package:orbit/src/foundation/colors.dart';
 
 abstract class ButtonTokens {
   double get height;
@@ -34,8 +34,8 @@ class ButtonStyles extends ButtonTokens {
   });
 
   factory ButtonStyles.light() => ButtonStyles(
-        background: Light.ProductNormal,
-        colorText: Light.White,
+        background: Product.Normal,
+        colorText: White.Normal,
         fontSize: 14,
         height: 44,
         padding: EdgeInsets.symmetric(horizontal: 16),

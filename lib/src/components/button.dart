@@ -21,16 +21,16 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       onPressed: _onPressed,
       child: _child,
-      style: ElevatedButton.styleFrom(
-        primary: theme.buttonTokens.background,
-        onPrimary: theme.buttonTokens.colorText,
-        elevation: 0,
-        textStyle: TextStyle(fontSize: theme.buttonTokens.fontSize),
-        padding: theme.buttonTokens.padding,
-        fixedSize: Size.fromHeight(theme.buttonTokens.height),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(6))),
-      ),
+      // style: ElevatedButton.styleFrom(
+      //   primary: theme.buttonTokens.background,
+      //   onPrimary: theme.buttonTokens.colorText,
+      //   elevation: 0,
+      //   textStyle: TextStyle(fontSize: theme.buttonTokens.fontSize),
+      //   padding: theme.buttonTokens.padding,
+      //   fixedSize: Size.fromHeight(theme.buttonTokens.height),
+      //   shape: RoundedRectangleBorder(
+      //       borderRadius: BorderRadius.all(Radius.circular(6))),
+      // ),
     );
   }
 }
