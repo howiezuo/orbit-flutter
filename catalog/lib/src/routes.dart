@@ -10,7 +10,7 @@ class Routes {
     return {
       ROUTE_HOME: (_) => HomeScreen(),
       ROUTE_ALERT: (_) =>
-          ComponentScreen(title: 'Alert', child: AlertPage()),
+          AlertPage(),
       ROUTE_BUTTON: (_) =>
           ComponentScreen(title: 'Button', child: ButtonPage()),
     };

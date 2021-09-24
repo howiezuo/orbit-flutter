@@ -5,78 +5,78 @@ import 'package:flutter/widgets.dart';
 import 'package:orbit/orbit.dart';
 
 abstract class AlertTokens {
-  Color? get colorBackgroundCritical;
-  Color? get colorBackgroundInfo;
-  Color? get colorBackgroundSucess;
-  Color? get colorBackgroundWarning;
+  Color get colorBackgroundCritical;
+  Color get colorBackgroundInfo;
+  Color get colorBackgroundSuccess;
+  Color get colorBackgroundWarning;
 
-  Color? get colorBorderCritical;
-  Color? get colorBorderInfo;
-  Color? get colorBorderSucess;
-  Color? get colorBorderWarning;
+  Color get colorBorderCritical;
+  Color get colorBorderInfo;
+  Color get colorBorderSuccess;
+  Color get colorBorderWarning;
 
-  Color? get colorIconCritical;
-  Color? get colorIconInfo;
-  Color? get colorIconSuccess;
-  Color? get colorIconWarning;
+  Color get colorIconCritical;
+  Color get colorIconInfo;
+  Color get colorIconSuccess;
+  Color get colorIconWarning;
 
-  Color? get colorTextCritical;
-  Color? get colorTextInfo;
-  Color? get colorTextSuccess;
-  Color? get colorTextWarning;
+  Color get colorTextCritical;
+  Color get colorTextInfo;
+  Color get colorTextSuccess;
+  Color get colorTextWarning;
 
-  EdgeInsets? get padding;
-  EdgeInsets? get paddingWithIcon;
+  EdgeInsets get padding;
+  EdgeInsets get paddingWithIcon;
 }
 
 class AlertStyles extends AlertTokens {
 
   @override
-  final Color? colorBackgroundCritical;
+  final Color colorBackgroundCritical;
   @override
-  final Color? colorBackgroundInfo;
+  final Color colorBackgroundInfo;
   @override
-  final Color? colorBackgroundSucess;
+  final Color colorBackgroundSuccess;
   @override
-  final Color? colorBackgroundWarning;
+  final Color colorBackgroundWarning;
 
   @override
-  final Color? colorBorderCritical;
+  final Color colorBorderCritical;
   @override
-  final Color? colorBorderInfo;
+  final Color colorBorderInfo;
   @override
-  final Color? colorBorderSucess;
+  final Color colorBorderSuccess;
   @override
-  final Color? colorBorderWarning;
+  final Color colorBorderWarning;
 
   @override
-  final Color? colorIconCritical;
+  final Color colorIconCritical;
   @override
-  final Color? colorIconInfo;
+  final Color colorIconInfo;
   @override
-  final Color? colorIconSuccess;
+  final Color colorIconSuccess;
   @override
-  final Color? colorIconWarning;
+  final Color colorIconWarning;
 
   @override
-  final Color? colorTextCritical;
+  final Color colorTextCritical;
   @override
-  final Color? colorTextInfo;
+  final Color colorTextInfo;
   @override
-  final Color? colorTextSuccess;
+  final Color colorTextSuccess;
   @override
-  final Color? colorTextWarning;
+  final Color colorTextWarning;
 
   @override
-  final EdgeInsets? padding;
+  final EdgeInsets padding;
   @override
-  final EdgeInsets? paddingWithIcon;
+  final EdgeInsets paddingWithIcon;
 
   AlertStyles({
-    required this.colorBackgroundSucess,
+    required this.colorBackgroundSuccess,
     required this.colorIconSuccess,
     required this.colorTextSuccess,
-    required this.colorBorderSucess,
+    required this.colorBorderSuccess,
     required this.colorBackgroundInfo,
     required this.colorIconInfo,
     required this.colorTextInfo,
@@ -98,10 +98,10 @@ class AlertStyles extends AlertTokens {
     final colors = theme.colorTokens;
     final spaces = theme.spaceTokens;
     return AlertStyles(
-      colorBackgroundSucess: colors.greenLight,
+      colorBackgroundSuccess: colors.greenLight,
       colorIconSuccess: colors.greenNormal,
       colorTextSuccess: colors.greenDark,
-      colorBorderSucess: colors.greenLightHover,
+      colorBorderSuccess: colors.greenLightHover,
       colorBackgroundInfo: colors.blueLight,
       colorIconInfo: colors.blueNormal,
       colorTextInfo: colors.blueDark,
