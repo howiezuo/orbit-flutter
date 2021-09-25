@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:orbit/orbit.dart';
+import 'package:orbit/src/foundation/icons.dart';
 import 'package:orbit/src/tokens/alert_tokens.dart';
+import 'package:orbit/src/tokens/icon_tokens.dart';
 
 class Alert extends StatelessWidget {
   final String title;
@@ -20,6 +22,8 @@ class Alert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = _resolveStyle(context);
+    final icon = _resolveIcon();
+    final iconSizes = IconStyles.fromDefalut(context);
     return Container(
       padding: style.padding,
       decoration: BoxDecoration(
@@ -29,6 +33,11 @@ class Alert extends StatelessWidget {
       ),
       child: Row(
         children: [
+          Icon(
+            icon,
+            size: iconSizes.sizeMedium,
+            color: style.colorIcon,
+          ),
           Column(
             children: [
               Text(
@@ -133,6 +142,19 @@ class Alert extends StatelessWidget {
       padding: defalutAlertStyles.padding,
       borderRadius: BorderRadius.all(theme.borderRadiusTokens.large),
     );
+  }
+
+  IconData _resolveIcon() {
+    switch (type) {
+      case AlertType.success:
+        return OrbitIcons.check;
+      case AlertType.warning:
+        return OrbitIcons.alert;
+      case AlertType.critical:
+        return OrbitIcons.alertCircle;
+      default:
+        return OrbitIcons.information_circle;
+    }
   }
 }
 

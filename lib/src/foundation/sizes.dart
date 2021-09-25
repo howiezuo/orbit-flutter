@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Size {
+class Sizes {
   static const double Sm = 16;
   static const double Md = 24;
   static const double Lg = 32;
