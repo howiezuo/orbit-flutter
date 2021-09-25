@@ -9,6 +9,7 @@ class Alert extends StatelessWidget {
   final String title;
   final Widget? child;
   final AlertType? type;
+  final bool showIcon;
   final LocalAlertStyle? style;
 
   const Alert({
@@ -16,14 +17,13 @@ class Alert extends StatelessWidget {
     required this.title,
     this.child,
     AlertType this.type = AlertType.info,
+    this.showIcon = false,
     this.style,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final style = _resolveStyle(context);
-    final icon = _resolveIcon();
-    final iconSizes = IconStyles.fromDefalut(context);
     return Container(
       padding: style.padding,
       decoration: BoxDecoration(
@@ -33,11 +33,7 @@ class Alert extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
-            icon,
-            size: iconSizes.sizeMedium,
-            color: style.colorIcon,
-          ),
+          if (showIcon) _icon(context, style.colorIcon),
           Column(
             children: [
               Text(
@@ -51,6 +47,21 @@ class Alert extends StatelessWidget {
             ],
           )
         ],
+      ),
+    );
+  }
+
+  Widget _icon(BuildContext context, Color? iconColor) {
+    final theme = OrbitTheme.of(context);
+    final spaces = theme.spaceTokens;
+    final icon = _resolveIcon();
+    final iconSizes = IconStyles.fromDefalut(context);
+    return Padding(
+      padding: EdgeInsets.only(right: spaces.xSmall),
+      child: Icon(
+        icon,
+        size: iconSizes.sizeSmall,
+        color: iconColor,
       ),
     );
   }

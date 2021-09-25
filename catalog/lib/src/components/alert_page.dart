@@ -57,6 +57,12 @@ class _AlertPageState extends State<AlertPage>
             title: 'Your message – make it short & clear',
             type: type,
           ),
+          SizedBox(height: 8,),
+          Alert(
+            title: 'Your message – make it short & clear',
+            type: type,
+            showIcon: true,
+          ),
         ],
       ),
     );
