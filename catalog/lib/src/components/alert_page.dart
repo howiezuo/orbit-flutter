@@ -54,15 +54,18 @@ class _AlertPageState extends State<AlertPage>
       child: Column(
         children: [
           Alert(
-            title: 'Your message – make it short & clear',
-            type: type,
-          ),
-          SizedBox(height: 8,),
-          Alert(
-            title: 'Your message – make it short & clear',
+            title: 'The quick, brown fox jumps over a lazy dog.',
             type: type,
             showIcon: true,
           ),
+          SizedBox(height: 8,),
+          Alert(
+            title: 'Some additional information',
+            child: 
+              Text('The quick, brown fox jumps over a lazy dog.'),
+            type: type,
+            showIcon: true,
+          ) ,
         ],
       ),
     );

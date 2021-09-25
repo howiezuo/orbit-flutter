@@ -4,7 +4,7 @@ import 'package:orbit/src/tokens/size_tokens.dart';
 
 import 'tokens/border_radius_tokens.dart';
 import 'tokens/color_tokens.dart';
-import 'tokens/space_token.dart';
+import 'tokens/space_tokens.dart';
 
 class OrbitThemeData {
   final ColorTokens colorTokens;

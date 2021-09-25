@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:orbit/orbit.dart';
 import 'package:orbit/src/foundation/icons.dart';
-import 'package:orbit/src/tokens/alert_tokens.dart';
-import 'package:orbit/src/tokens/icon_tokens.dart';
 
 class Alert extends StatelessWidget {
   final String title;
@@ -23,6 +21,8 @@ class Alert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    final spaces = theme.spaceTokens;
     final style = _resolveStyle(context);
     return Container(
       padding: style.padding,
@@ -32,18 +32,28 @@ class Alert extends StatelessWidget {
         borderRadius: style.borderRadius,
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (showIcon) _icon(context, style.colorIcon),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,
                 style: TextStyle(
-                  color: style.colorText,
+                  color: style.colorIcon,
                   // TODO token
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              if (child != null)
+                Padding(
+                  padding: EdgeInsets.only(top: spaces.xXsmall),
+                  child: DefaultTextStyle(
+                    style: TextStyle(color: style.colorText),
+                    child: child!,
+                  ),
+                ),
             ],
           )
         ],
