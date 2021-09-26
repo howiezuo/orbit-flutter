@@ -7,12 +7,14 @@ class BadgePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          for (var type in BadgeType.values) _typedBadge(type),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            for (var type in BadgeType.values) _typedBadge(type),
+          ],
+        ),
       ),
     );
   }
@@ -21,6 +23,7 @@ class BadgePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Badge(
             label: 'Label',

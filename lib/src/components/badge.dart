@@ -143,7 +143,7 @@ class Badge extends StatelessWidget {
           return null;
         default:
           // neutral
-          return defaultStyle.colorTextNeutral;
+          return defaultStyle.borderColorNeutral;
       }
     }
 
