@@ -24,6 +24,10 @@ class HomeScreen extends StatelessWidget {
             onTap: () => {/** TODO */},
           ),
           ListTile(
+            title: Text('BottomSheet (TODO)'),
+            onTap: () => {/** TODO */},
+          ),
+          ListTile(
             title: Text('Button'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BUTTON),
           ),
