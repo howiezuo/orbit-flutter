@@ -20,6 +20,10 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BADGE),
           ),
           ListTile(
+            title: Text('BadgeList (TODO)'),
+            onTap: () => {/** TODO */},
+          ),
+          ListTile(
             title: Text('Button'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BUTTON),
           ),
