@@ -2,85 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:orbit/orbit.dart';
 
-class AlertPage extends StatefulWidget {
+class AlertPage extends StatelessWidget {
   const AlertPage({Key? key}) : super(key: key);
 
   @override
-  _AlertPageState createState() => _AlertPageState();
-}
-
-class _AlertPageState extends State<AlertPage>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _tabController =
-        TabController(length: AlertType.values.length, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Alert'),
-        bottom: TabBar(
-          isScrollable: false,
-          controller: _tabController,
-          tabs: [
-            for (final type in AlertType.values)
-              Tab(text: _resolveTabName(type))
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Alert(
+              title: 'The quick, brown fox jumps over a lazy dog.',
+              showIcon: true,
+            ),
+            SizedBox(height: 8),
+            _typedAlert('Some additional information', AlertType.info),
+            SizedBox(height: 8),
+            _typedAlert('You did it!', AlertType.success),
+            SizedBox(height: 8),
+            _typedAlert('Be careful!', AlertType.warning),
+            SizedBox(height: 8),
+            _typedAlert(
+                'Something has gone horribly wrong', AlertType.critical),
+            SizedBox(height: 8),
+            Alert(
+              title: 'The quick, brown fox jumps over a lazy dog.',
+              showIcon: false,
+            ),
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [for (final type in AlertType.values) _singleView(type)],
-      ),
     );
   }
 
-  Widget _singleView(AlertType type) {
-    return Container(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Alert(
-            title: 'The quick, brown fox jumps over a lazy dog.',
-            type: type,
-            showIcon: true,
-          ),
-          SizedBox(height: 8,),
-          Alert(
-            title: 'Some additional information',
-            child: 
-              Text('The quick, brown fox jumps over a lazy dog.'),
-            type: type,
-            showIcon: true,
-          ) ,
-        ],
-      ),
+  Widget _typedAlert(String title, AlertType type) {
+    return Alert(
+      title: title,
+      child: Text('The quick, brown fox jumps over a lazy dog.'),
+      type: type,
+      showIcon: true,
     );
-  }
-
-  String _resolveTabName(AlertType type) {
-    switch (type) {
-      case AlertType.success:
-        return 'Success';
-      case AlertType.warning:
-        return 'Warning';
-      case AlertType.critical:
-        return 'Critical';
-      default:
-        return 'Info';
-    }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' show ThemeData;
 import 'package:flutter/widgets.dart';
 import 'package:orbit/src/tokens/size_tokens.dart';
+import 'package:orbit/src/tokens/typography_tokens.dart';
 
 import 'tokens/border_radius_tokens.dart';
 import 'tokens/color_tokens.dart';
@@ -8,6 +9,7 @@ import 'tokens/space_tokens.dart';
 
 class OrbitThemeData {
   final ColorTokens colorTokens;
+  final TypographyTokens typographyTokens;
   final SizeTokens sizeTokens;
   final SpaceTokens spaceTokens;
   final BorderRadiusTokens borderRadiusTokens;
@@ -16,6 +18,7 @@ class OrbitThemeData {
 
   OrbitThemeData({
     required this.colorTokens,
+    required this.typographyTokens,
     required this.sizeTokens,
     required this.spaceTokens,
     required this.borderRadiusTokens,
@@ -23,6 +26,7 @@ class OrbitThemeData {
 
   factory OrbitThemeData.light() => OrbitThemeData(
         colorTokens: Colors(),
+        typographyTokens: Typography(),
         sizeTokens: SizeStyles(),
         spaceTokens: SpaceStyles(),
         borderRadiusTokens: BorderRadiusStyles(),

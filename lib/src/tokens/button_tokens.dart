@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:orbit/src/foundation/colors.dart';
+import 'package:orbit/src/foundation/palette.dart';
 
 abstract class ButtonTokens {
   double get height;

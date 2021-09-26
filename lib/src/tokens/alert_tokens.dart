@@ -2,7 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:orbit/orbit.dart';
+
+import '../theme.dart';
 
 abstract class AlertTokens {
   Color get colorBackgroundCritical;

@@ -77,7 +77,7 @@ class Alert extends StatelessWidget {
   }
 
   LocalAlertStyle _resolveStyle(BuildContext context) {
-    final themeStyle = _fromTheme(context, type);
+    final themeStyle = _fromTheme(context);
     final iconColor = style?.colorIcon ?? themeStyle.colorIcon!;
     final textColor = style?.colorText ?? themeStyle.colorText!;
     final backgroundColor =
@@ -94,7 +94,7 @@ class Alert extends StatelessWidget {
     );
   }
 
-  LocalAlertStyle _fromTheme(BuildContext context, AlertType? type) {
+  LocalAlertStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final defalutAlertStyles = AlertStyles.fromDefault(context);
 
@@ -187,7 +187,7 @@ class LocalAlertStyle {
   final EdgeInsets? padding;
   final BorderRadius? borderRadius;
 
-  LocalAlertStyle({
+  const LocalAlertStyle({
     this.colorIcon,
     this.colorText,
     this.colorBackground,

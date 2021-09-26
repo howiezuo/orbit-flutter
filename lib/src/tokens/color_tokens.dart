@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:orbit/src/foundation/colors.dart';
+import 'package:orbit/src/foundation/palette.dart';
 
 abstract class ColorTokens {
   // product
@@ -10,6 +10,13 @@ abstract class ColorTokens {
 
   // white
   Color get whiteNormal;
+
+  // cloud
+  Color get cloudLight;
+  Color get cloudDark;
+
+  // ink
+  Color get inkNormal;
 
   // green
   Color get greenLight;
@@ -46,6 +53,14 @@ class Colors implements ColorTokens {
 
   @override
   Color get whiteNormal => White.Normal;
+
+  @override
+  Color get cloudLight => Cloud.Light;
+  @override
+  Color get cloudDark => Cloud.Dark;
+
+  @override
+  Color get inkNormal => Ink.Normal;
 
   @override
   Color get greenLight => Green.Light;

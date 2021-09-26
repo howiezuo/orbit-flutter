@@ -16,6 +16,17 @@ class White {
 }
 
 @immutable
+class Cloud {
+  static const Light = Color(0xFFF5F7F9);
+  static const Dark = Color(0xFFE8EDF1);
+}
+
+@immutable
+class Ink {
+  static const Normal = Color(0xFF252A31);
+}
+
+@immutable
 class Green {
   static const Light = Color(0xFFEBF4EC);
   static const LightHover = Color(0xFFD7EAD9);
