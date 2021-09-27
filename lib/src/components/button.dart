@@ -2,39 +2,92 @@ import 'package:flutter/material.dart';
 import 'package:orbit/orbit.dart';
 
 class Button extends StatelessWidget {
-  final Widget _child;
-  final VoidCallback? _onPressed;
+  final String? label;
+  final IconData? iconLeft;
+  final IconData? iconRight;
+  final VoidCallback? onPressed;
   final ButtonType? type;
   final ButtonSize? size;
+  final bool? isFullWidth;
+  final Widget? child;
 
-  const Button({
+  Button({
     Key? key,
-    required Widget child,
-    required VoidCallback? onPressed,
+    required String this.label,
+    required this.onPressed,
+    this.iconLeft,
+    this.iconRight,
     ButtonType this.type = ButtonType.primary,
     ButtonSize this.size = ButtonSize.normal,
-  })  : this._child = child,
-        this._onPressed = onPressed,
+    bool this.isFullWidth = true,
+  })  : this.child = null,
+        super(key: key);
+
+  const Button.raw({
+    Key? key,
+    required Widget this.child,
+    required this.onPressed,
+    ButtonType this.type = ButtonType.primary,
+    ButtonSize this.size = ButtonSize.normal,
+    bool this.isFullWidth = true,
+  })  : this.label = null,
+        this.iconLeft = null,
+        this.iconRight = null,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final style = _fromTheme(context);
+
+    final content = _buildContent(context);
     return ElevatedButton(
-      onPressed: _onPressed,
-      child: _child,
+      onPressed: onPressed,
+      child: content,
       style: ElevatedButton.styleFrom(
         primary: style.background,
         onPrimary: style.textColor,
         elevation: 0,
         textStyle: TextStyle(fontSize: style.fontSize),
         padding: style.padding,
-        minimumSize: Size(double.infinity, style.height!),
+        minimumSize: isFullWidth == true
+            ? Size.fromHeight(style.height!)
+            : Size(double.minPositive, style.height!),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal)),
       ),
     );
+  }
+
+  Widget _buildContent(BuildContext context) {
+    if (child != null) return child!;
+
+    if (label != null) {
+      MainAxisAlignment resolveAlign() {
+        if (iconRight != null || iconLeft != null) {
+          return MainAxisAlignment.spaceBetween;
+        } else {
+          return MainAxisAlignment.center;
+        }
+      }
+      var aligment = resolveAlign();
+
+      return Row(
+        mainAxisAlignment: aligment,
+        mainAxisSize: isFullWidth == true ? MainAxisSize.max : MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              if (iconLeft != null) Icon(iconLeft),
+              Text(label!),
+            ],
+          ),
+          if (iconRight != null) Icon(iconRight),
+        ],
+      );
+    }
+
+    throw Exception('Either a child widget or a label need to be applied');
   }
 
   LocalButtonStyle _fromTheme(BuildContext context) {

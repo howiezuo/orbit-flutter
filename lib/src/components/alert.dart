@@ -172,7 +172,7 @@ class Alert extends StatelessWidget {
       case AlertType.warning:
         return OrbitIcons.alert;
       case AlertType.critical:
-        return OrbitIcons.alertCircle;
+        return OrbitIcons.alert_circle;
       default:
         return OrbitIcons.information_circle;
     }

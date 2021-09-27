@@ -11,35 +11,85 @@ class ButtonPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _typedButton(ButtonType.primary),
-            _typedButton(ButtonType.secondary),
-            _typedButton(ButtonType.critical),
-            _typedButton(ButtonType.white),
-            _typedButton(ButtonType.primarySubtle),
-            _typedButton(ButtonType.ciritcalSubtle),
+            for (var type in ButtonType.values) _styledButton(type),
           ],
         ),
       ),
     );
   }
 
-  Widget _typedButton(ButtonType type) {
+  Widget _styledButton(ButtonType type) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Button(child: Text('Label'), onPressed: () => {}, type: type),
+        Button(label: 'Label', onPressed: () => {}, type: type),
         SizedBox(height: 8),
         Button(
-          child: Text('Label'),
+          label: 'Label',
           onPressed: () => {},
           type: type,
           size: ButtonSize.small,
         ),
         SizedBox(height: 8),
         Button(
-          child: Text('Label'),
+          label: 'Label',
           onPressed: () => {},
           type: type,
           size: ButtonSize.large,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          iconLeft: OrbitIcons.airplane,
+          onPressed: () => {},
+          type: type,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          iconRight: OrbitIcons.chevron_right,
+          onPressed: () => {},
+          type: type,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          iconLeft: OrbitIcons.airplane,
+          iconRight: OrbitIcons.chevron_right,
+          onPressed: () => {},
+          type: type,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          onPressed: () => {},
+          type: type,
+          isFullWidth: false,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          iconLeft: OrbitIcons.airplane,
+          onPressed: () => {},
+          type: type,
+          isFullWidth: false,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          iconRight: OrbitIcons.chevron_right,
+          onPressed: () => {},
+          type: type,
+          isFullWidth: false,
+        ),
+        SizedBox(height: 8),
+        Button(
+          label: 'Label',
+          iconLeft: OrbitIcons.airplane,
+          iconRight: OrbitIcons.chevron_right,
+          onPressed: () => {},
+          type: type,
+          isFullWidth: false,
         ),
         SizedBox(height: 8),
       ],
