@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:orbit/orbit.dart';
 
+/**
+ * TODO
+ * shdow
+ * ripple
+ */
 class Button extends StatelessWidget {
   final String? label;
   final IconData? iconLeft;
@@ -127,6 +132,7 @@ class Button extends StatelessWidget {
   LocalButtonStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final defaultStyle = ButtonStyles.fromDefault(context);
+    final iconStyle = IconStyles.fromDefalut(context);
     final colors = theme.colorTokens;
 
     Color resolveTextColor() {
@@ -187,7 +193,7 @@ class Button extends StatelessWidget {
 
     EdgeInsets resolvePadding() {
       if (_onlyIcon) return defaultStyle.paddingWithoutText;
-      
+
       switch (size) {
         case ButtonSize.small:
           if (_hasIcons) {
@@ -219,6 +225,16 @@ class Button extends StatelessWidget {
       }
     }
 
+    double resolveIconSize() {
+      switch (size) {
+        case ButtonSize.small:
+          return iconStyle.sizeSmall;
+        case ButtonSize.large:
+        default:
+          return iconStyle.sizeMedium;
+      }
+    }
+
     double resolveGap() {
       switch (size) {
         case ButtonSize.large:
@@ -235,9 +251,9 @@ class Button extends StatelessWidget {
     final fontSize = resolveFontSize();
     final fontWeight = theme.typographyTokens.fontWeightMedium;
     final padding = resolvePadding();
+    final iconSize = resolveIconSize();
     final gap = resolveGap();
 
-    // TODO icon size
     return LocalButtonStyle.raw(
       background: background,
       textColor: textColor,
@@ -245,6 +261,7 @@ class Button extends StatelessWidget {
       fontSize: fontSize,
       fontWeight: fontWeight,
       padding: padding,
+      iconSize: iconSize,
       gap: gap,
     );
   }
@@ -257,6 +274,7 @@ class LocalButtonStyle {
   final double? fontSize;
   final FontWeight? fontWeight;
   final EdgeInsets? padding;
+  final double? iconSize;
   final double? gap;
 
   const LocalButtonStyle({
@@ -266,6 +284,7 @@ class LocalButtonStyle {
     this.fontSize,
     this.fontWeight,
     this.padding,
+    this.iconSize,
     this.gap,
   });
 
@@ -276,6 +295,7 @@ class LocalButtonStyle {
     required double this.fontSize,
     required FontWeight this.fontWeight,
     required EdgeInsets this.padding,
+    required double this.iconSize,
     required double this.gap,
   });
 }
