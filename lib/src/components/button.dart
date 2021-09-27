@@ -73,7 +73,7 @@ class Button extends StatelessWidget {
         padding: style.padding,
         minimumSize: isFullWidth == true
             ? Size.fromHeight(style.height!)
-            : Size(double.minPositive, style.height!),
+            : Size(style.height!, style.height!),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal)),
       ),
@@ -186,6 +186,8 @@ class Button extends StatelessWidget {
     }
 
     EdgeInsets resolvePadding() {
+      if (_onlyIcon) return defaultStyle.paddingWithoutText;
+      
       switch (size) {
         case ButtonSize.small:
           if (_hasIcons) {
