@@ -11,6 +11,7 @@ class Button extends StatelessWidget {
   final bool? isFullWidth;
   final Widget? child;
 
+  bool get _onlyIcon => iconLeft != null && label == null && iconRight == null;
   bool get _hasIcons => iconLeft != null && iconRight != null;
   bool get _hasLeftIcon => iconLeft != null;
   bool get _hasRightIcon => iconLeft == null;
@@ -25,6 +26,19 @@ class Button extends StatelessWidget {
     ButtonSize this.size = ButtonSize.normal,
     bool this.isFullWidth = true,
   })  : this.child = null,
+        super(key: key);
+
+  const Button.icon({
+    Key? key,
+    required IconData icon,
+    required this.onPressed,
+    ButtonType this.type = ButtonType.primary,
+    ButtonSize this.size = ButtonSize.normal,
+    bool this.isFullWidth = true,
+  })  : this.iconLeft = icon,
+        this.child = null,
+        this.label = null,
+        this.iconRight = null,
         super(key: key);
 
   const Button.raw({
@@ -67,7 +81,11 @@ class Button extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context) {
+    final style = _fromTheme(context);
+
     if (child != null) return child!;
+
+    if (_onlyIcon) return Icon(iconLeft);
 
     if (label != null) {
       MainAxisAlignment resolveAlign() {
@@ -86,11 +104,19 @@ class Button extends StatelessWidget {
         children: [
           Row(
             children: [
-              if (iconLeft != null) Icon(iconLeft),
+              if (iconLeft != null)
+                Padding(
+                  padding: EdgeInsets.only(right: style.gap!),
+                  child: Icon(iconLeft),
+                ),
               Text(label!),
             ],
           ),
-          if (iconRight != null) Icon(iconRight),
+          if (iconRight != null)
+            Padding(
+              padding: EdgeInsets.only(left: style.gap!),
+              child: Icon(iconRight),
+            ),
         ],
       );
     }
@@ -191,12 +217,23 @@ class Button extends StatelessWidget {
       }
     }
 
+    double resolveGap() {
+      switch (size) {
+        case ButtonSize.large:
+          return theme.spaceTokens.small;
+        case ButtonSize.small:
+        default:
+          return theme.spaceTokens.xSmall;
+      }
+    }
+
     final textColor = resolveTextColor();
     final background = resolveBackground();
     final height = resolveHeight();
     final fontSize = resolveFontSize();
     final fontWeight = theme.typographyTokens.fontWeightMedium;
     final padding = resolvePadding();
+    final gap = resolveGap();
 
     // TODO icon size
     return LocalButtonStyle.raw(
@@ -206,6 +243,7 @@ class Button extends StatelessWidget {
       fontSize: fontSize,
       fontWeight: fontWeight,
       padding: padding,
+      gap: gap,
     );
   }
 }
@@ -217,6 +255,7 @@ class LocalButtonStyle {
   final double? fontSize;
   final FontWeight? fontWeight;
   final EdgeInsets? padding;
+  final double? gap;
 
   const LocalButtonStyle({
     this.background,
@@ -225,6 +264,7 @@ class LocalButtonStyle {
     this.fontSize,
     this.fontWeight,
     this.padding,
+    this.gap,
   });
 
   const LocalButtonStyle.raw({
@@ -234,6 +274,7 @@ class LocalButtonStyle {
     required double this.fontSize,
     required FontWeight this.fontWeight,
     required EdgeInsets this.padding,
+    required double this.gap,
   });
 }
 

@@ -60,6 +60,8 @@ class ButtonPage extends StatelessWidget {
           type: type,
         ),
         SizedBox(height: 8),
+        Button.icon(icon: OrbitIcons.airplane, onPressed: () => {}, type: type),
+        SizedBox(height: 8),
         Button(
           label: 'Label',
           onPressed: () => {},
@@ -87,6 +89,13 @@ class ButtonPage extends StatelessWidget {
           label: 'Label',
           iconLeft: OrbitIcons.airplane,
           iconRight: OrbitIcons.chevron_right,
+          onPressed: () => {},
+          type: type,
+          isFullWidth: false,
+        ),
+        SizedBox(height: 8),
+        Button.icon(
+          icon: OrbitIcons.airplane,
           onPressed: () => {},
           type: type,
           isFullWidth: false,
