@@ -48,7 +48,10 @@ class Button extends StatelessWidget {
         primary: style.background,
         onPrimary: style.textColor,
         elevation: 0,
-        textStyle: TextStyle(fontSize: style.fontSize),
+        textStyle: TextStyle(
+          fontSize: style.fontSize,
+          fontWeight: style.fontWeight,
+        ),
         padding: style.padding,
         minimumSize: isFullWidth == true
             ? Size.fromHeight(style.height!)
@@ -70,6 +73,7 @@ class Button extends StatelessWidget {
           return MainAxisAlignment.center;
         }
       }
+
       var aligment = resolveAlign();
 
       return Row(
@@ -167,6 +171,7 @@ class Button extends StatelessWidget {
     final background = resolveBackground();
     final height = resolveHeight();
     final fontSize = resolveFontSize();
+    final fontWeight = theme.typographyTokens.fontWeightMedium;
     final padding = resolvePadding();
 
     // TODO icon size
@@ -175,6 +180,7 @@ class Button extends StatelessWidget {
       textColor: textColor,
       height: height,
       fontSize: fontSize,
+      fontWeight: fontWeight,
       padding: padding,
     );
   }
@@ -185,6 +191,7 @@ class LocalButtonStyle {
   final Color? textColor;
   final double? height;
   final double? fontSize;
+  final FontWeight? fontWeight;
   final EdgeInsets? padding;
 
   const LocalButtonStyle({
@@ -192,6 +199,7 @@ class LocalButtonStyle {
     this.textColor,
     this.height,
     this.fontSize,
+    this.fontWeight,
     this.padding,
   });
 
@@ -200,6 +208,7 @@ class LocalButtonStyle {
     required Color this.textColor,
     required double this.height,
     required double this.fontSize,
+    required FontWeight this.fontWeight,
     required EdgeInsets this.padding,
   });
 }
