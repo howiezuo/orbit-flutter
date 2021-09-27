@@ -1,5 +1,5 @@
 import 'package:flutter/painting.dart' show Radius;
-import 'package:orbit/src/foundation/radius.dart';
+import 'package:orbit/src/foundation/base.dart';
 
 abstract class BorderRadiusTokens {
   Radius get normal;
@@ -8,8 +8,8 @@ abstract class BorderRadiusTokens {
 
 class BorderRadiusStyles extends BorderRadiusTokens {
   @override
-  Radius large = BorderRadius.Normal;
+  Radius large = Base.BorderRadiusNormal;
 
   @override
-  Radius normal = BorderRadius.Large;
+  Radius normal = Base.BorderRadiusLarge;
 }
