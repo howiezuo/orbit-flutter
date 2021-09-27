@@ -11,6 +11,10 @@ class Button extends StatelessWidget {
   final bool? isFullWidth;
   final Widget? child;
 
+  bool get _hasIcons => iconLeft != null && iconRight != null;
+  bool get _hasLeftIcon => iconLeft != null;
+  bool get _hasRightIcon => iconLeft == null;
+
   Button({
     Key? key,
     required String this.label,
@@ -155,14 +159,34 @@ class Button extends StatelessWidget {
       }
     }
 
-// TODO with icons
     EdgeInsets resolvePadding() {
       switch (size) {
         case ButtonSize.small:
+          if (_hasIcons) {
+            return defaultStyle.paddingSmallWithIcons;
+          } else if (_hasLeftIcon) {
+            return defaultStyle.paddingSmallWithLeftIcon;
+          } else if (_hasRightIcon) {
+            return defaultStyle.paddingSmallWithRightIcon;
+          }
           return defaultStyle.paddingSmall;
         case ButtonSize.large:
+          if (_hasIcons) {
+            return defaultStyle.paddingLargeWithIcons;
+          } else if (_hasLeftIcon) {
+            return defaultStyle.paddingLargeWithLeftIcon;
+          } else if (_hasRightIcon) {
+            return defaultStyle.paddingLargeWithRightIcon;
+          }
           return defaultStyle.paddingLarge;
         default:
+          if (_hasIcons) {
+            return defaultStyle.paddingNormalWithIcons;
+          } else if (_hasLeftIcon) {
+            return defaultStyle.paddingNormalWithLeftIcon;
+          } else if (_hasRightIcon) {
+            return defaultStyle.paddingNormalWithRightIcon;
+          }
           return defaultStyle.paddingNormal;
       }
     }
