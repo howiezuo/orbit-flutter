@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orbit/orbit.dart';
 
 class ComponentScreen extends StatelessWidget {
   final String _title;
@@ -13,6 +14,7 @@ class ComponentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(_title),),
+      backgroundColor: Palette.CloudLight,
       body: _child,
     );
   }

@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:orbit/orbit.dart';
-import 'package:orbit/src/foundation/icons.dart';
 
 class Alert extends StatelessWidget {
   final String title;

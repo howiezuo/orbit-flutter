@@ -13,6 +13,7 @@ abstract class ColorTokens {
 
   // cloud
   Color get cloudLight;
+  Color get cloudNormal;
   Color get cloudDark;
 
   // ink
@@ -45,56 +46,58 @@ abstract class ColorTokens {
 
 class Colors implements ColorTokens {
   @override
-  Color get productLight => Product.Light;
+  Color get productLight => Palette.ProductLight;
   @override
-  Color get productNormal => Product.Normal;
+  Color get productNormal => Palette.ProductNormal;
   @override
-  Color get productDark => Product.Dark;
+  Color get productDark => Palette.ProductDark;
 
   @override
-  Color get whiteNormal => White.Normal;
+  Color get whiteNormal => Palette.WhiteNormal;
 
   @override
-  Color get cloudLight => Cloud.Light;
+  Color get cloudLight => Palette.CloudLight;
   @override
-  Color get cloudDark => Cloud.Dark;
+  Color get cloudNormal => Palette.CloudNormal;
+  @override
+  Color get cloudDark => Palette.CloudDark;
 
   @override
-  Color get inkNormal => Ink.Normal;
+  Color get inkNormal => Palette.InkNormal;
 
   @override
-  Color get greenLight => Green.Light;
+  Color get greenLight => Palette.GreenLight;
   @override
-  Color get greenLightHover => Green.LightHover;
+  Color get greenLightHover => Palette.GreenLightHover;
   @override
-  Color get greenNormal => Green.Normal;
+  Color get greenNormal => Palette.GreenNormal;
   @override
-  Color get greenDark => Green.Dark;
+  Color get greenDark => Palette.GreenDark;
 
   @override
-  Color get orangeLight => Orange.Light;
+  Color get orangeLight => Palette.OrangeLight;
   @override
-  Color get orangeLightHover => Orange.LightHover;
+  Color get orangeLightHover => Palette.OrangeLightHover;
   @override
-  Color get orangeNormal => Orange.Normal;
+  Color get orangeNormal => Palette.OrangeNormal;
   @override
-  Color get orangeDark => Orange.Dark;
+  Color get orangeDark => Palette.OrangeDark;
 
   @override
-  Color get redLight => Red.Light;
+  Color get redLight => Palette.RedLight;
   @override
-  Color get redLightHover => Red.LightHover;
+  Color get redLightHover => Palette.RedLightHover;
   @override
-  Color get redNormal => Red.Normal;
+  Color get redNormal => Palette.RedNormal;
   @override
-  Color get redDark => Red.Dark;
+  Color get redDark => Palette.RedDark;
 
   @override
-  Color get blueLight => Blue.Light;
+  Color get blueLight => Palette.BlueLight;
   @override
-  Color get blueLightHover => Blue.LightHover;
+  Color get blueLightHover => Palette.BlueLightHover;
   @override
-  Color get blueNormal => Blue.Normal;
+  Color get blueNormal => Palette.BlueNormal;
   @override
-  Color get blueDark => Blue.Dark;
+  Color get blueDark => Palette.BlueDark;
 }

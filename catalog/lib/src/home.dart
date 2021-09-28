@@ -6,7 +6,7 @@ import 'routes.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO apply orbit to home
+    // TODO apply orbit theme
     return Scaffold(
       appBar: AppBar(title: Text('Catalog')),
       body: ListView(
@@ -30,6 +30,14 @@ class HomeScreen extends StatelessWidget {
           ListTile(
             title: Text('Button'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BUTTON),
+          ),
+          ListTile(
+            title: Text('ButtonLink (TODO)'),
+            onTap: () => {/** TODO */},
+          ),
+          ListTile(
+            title: Text('Card'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_CARD),
           ),
         ],
       ),
