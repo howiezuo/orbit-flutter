@@ -16,6 +16,12 @@ class Base {
 
   static const double LineHeight = 1.4;
 
+  static const double SpaceXxs = 4;
+  static const double SpaceXs = 8;
+  static const double SpaceSm = 12;
+  static const double SpaceMd = 16;
+  static const double SpaceLg = 24;
+
   /// use for all basic elements like buttons, inputs, content containers
   static const BorderRadiusNormal = const Radius.circular(6);
 

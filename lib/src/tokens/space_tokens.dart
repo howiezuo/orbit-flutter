@@ -1,22 +1,26 @@
-import 'package:orbit/src/foundation/spaces.dart';
+import 'package:orbit/src/foundation/base.dart';
 
 abstract class SpaceTokens {
   double get xXsmall;
   double get xSmall;
   double get small;
   double get medium;
+  double get large;
 }
 
 class SpaceStyles extends SpaceTokens {
   @override
-  double get xXsmall => Spaces.Xxs;
+  double get xXsmall => Base.SpaceXxs;
 
   @override
-  double get xSmall => Spaces.Xs;
+  double get xSmall => Base.SpaceXs;
 
   @override
-  double get small => Spaces.Sm;
+  double get small => Base.SpaceSm;
 
   @override
-  double get medium => Spaces.Md;
+  double get medium => Base.SpaceMd;
+
+  @override
+  double get large => Base.SpaceLg;
 }

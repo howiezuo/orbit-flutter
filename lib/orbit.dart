@@ -11,6 +11,7 @@ export 'src/foundation/palette.dart';
 export 'src/components/alert.dart';
 export 'src/components/badge.dart';
 export 'src/components/button.dart';
+export 'src/components/bottom_sheet.dart';
 export 'src/components/card.dart';
 export 'src/tokens/alert_tokens.dart';
 export 'src/tokens/border_radius_tokens.dart';
