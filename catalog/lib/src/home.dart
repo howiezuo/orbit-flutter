@@ -43,6 +43,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('CheckBox'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_CHECKBOX),
           ),
+          ListTile(
+            title: Text('Dialog'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_DIALOG),
+          ),
         ],
       ),
     );

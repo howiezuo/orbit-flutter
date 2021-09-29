@@ -8,6 +8,7 @@ import 'components/bottom_sheet_page.dart';
 import 'components/button_page.dart';
 import 'components/card_page.dart';
 import 'components/checkbox_page.dart';
+import 'components/dialog_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -22,6 +23,8 @@ class Routes {
       ROUTE_CARD: (_) => ComponentScreen(title: 'Card', child: CardPage()),
       ROUTE_CHECKBOX: (_) =>
           ComponentScreen(title: 'CheckBox', child: CheckBoxPage()),
+      ROUTE_DIALOG: (_) =>
+          ComponentScreen(title: 'Dialog', child: DialogPage()),
     };
   }
 
@@ -32,4 +35,5 @@ class Routes {
   static const ROUTE_BOTTOM_SHEET = '/bottom_sheet';
   static const ROUTE_CARD = '/card';
   static const ROUTE_CHECKBOX = '/checkbox';
+  static const ROUTE_DIALOG = '/dialog';
 }

@@ -4,16 +4,19 @@ import 'package:orbit/orbit.dart';
 class Heading extends StatelessWidget {
   final String data;
   final HeadingType type;
+  final TextAlign? textAlign;
 
   const Heading(
     this.data, {
     Key? key,
     required this.type,
+    this.textAlign,
   }) : super(key: key);
 
   const Heading.title3(
     this.data, {
     Key? key,
+    this.textAlign,
   })  : type = HeadingType.title3,
         super(key: key);
 
@@ -23,6 +26,7 @@ class Heading extends StatelessWidget {
     return Text(
       data,
       style: style,
+      textAlign: textAlign,
     );
   }
 
@@ -33,7 +37,8 @@ class Heading extends StatelessWidget {
         return TextStyle(
           fontSize: typography.fontSizeHeadingTitle3,
           fontWeight: typography.fontWeightHeadingTitle3,
-          height: typography.lineHeightHeadingTitle3 / typography.fontSizeHeadingTitle3,
+          height: typography.lineHeightHeadingTitle3 /
+              typography.fontSizeHeadingTitle3,
         );
       default:
         // TODO
