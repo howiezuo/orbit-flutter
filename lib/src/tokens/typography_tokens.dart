@@ -16,6 +16,7 @@ abstract class TypographyTokens {
   FontWeight get fontWeightHeadingTitle3;
 
   double get lineHeightHeadingTitle3;
+  double get lineHeightTextSmall;
 }
 
 class Typography implements TypographyTokens {
@@ -39,4 +40,6 @@ class Typography implements TypographyTokens {
 
   @override
   double get lineHeightHeadingTitle3 => 24;
+  @override
+  double get lineHeightTextSmall => 16;
 }
