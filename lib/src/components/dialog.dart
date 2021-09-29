@@ -62,7 +62,6 @@ class Dialog extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                   top: spaces.xSmall,
-                  bottom: spaces.medium,
                 ),
                 child: Text(
                   description!,
@@ -70,6 +69,7 @@ class Dialog extends StatelessWidget {
                   style: TextStyle(color: textTokens.colorSecondary),
                 ),
               ),
+            SizedBox(height: spaces.medium),
             Wrap(
               runSpacing: spaces.xSmall,
               children: [
