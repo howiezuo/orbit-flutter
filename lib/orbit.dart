@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 
 import 'src/theme.dart';
 
+export 'package:flutter/material.dart'
+    hide BottomSheet, Card, Colors, Typography;
 export 'src/theme.dart';
 export 'src/foundation/icons.dart';
 export 'src/foundation/palette.dart';
@@ -13,6 +15,7 @@ export 'src/components/badge.dart';
 export 'src/components/button.dart';
 export 'src/components/bottom_sheet.dart';
 export 'src/components/card.dart';
+export 'src/components/checkbox.dart';
 export 'src/tokens/alert_tokens.dart';
 export 'src/tokens/border_radius_tokens.dart';
 export 'src/tokens/button_tokens.dart';

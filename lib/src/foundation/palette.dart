@@ -14,6 +14,7 @@ class Palette {
   static const CloudLight = Color(0xFFF5F7F9);
   static const CloudNormal = Color(0xFFEFF2F5);
   static const CloudDark = Color(0xFFE8EDF1);
+  static const CloudDarker = Color(0xFFBAC7D5);
 
   static const InkNormal = Color(0xFF252A31);
 

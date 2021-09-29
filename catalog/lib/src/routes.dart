@@ -1,12 +1,13 @@
-import 'package:catalog/src/component_screen.dart';
 import 'package:catalog/src/home.dart';
 import 'package:flutter/widgets.dart';
 
+import 'component_screen.dart';
 import 'components/alert_page.dart';
 import 'components/badge_page.dart';
 import 'components/bottom_sheet_page.dart';
 import 'components/button_page.dart';
 import 'components/card_page.dart';
+import 'components/checkbox_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -19,6 +20,8 @@ class Routes {
       ROUTE_BOTTOM_SHEET: (_) =>
           ComponentScreen(title: 'BottomSheet', child: BottomSheetPage()),
       ROUTE_CARD: (_) => ComponentScreen(title: 'Card', child: CardPage()),
+      ROUTE_CHECKBOX: (_) =>
+          ComponentScreen(title: 'CheckBox', child: CheckBoxPage()),
     };
   }
 
@@ -28,4 +31,5 @@ class Routes {
   static const ROUTE_BUTTON = '/button';
   static const ROUTE_BOTTOM_SHEET = '/bottom_sheet';
   static const ROUTE_CARD = '/card';
+  static const ROUTE_CHECKBOX = '/checkbox';
 }
