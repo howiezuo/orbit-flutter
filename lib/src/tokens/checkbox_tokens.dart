@@ -5,12 +5,14 @@ class CheckBoxTokens {
   final Color colorIconRadio;
   final Color borderColorRadio;
   final double size;
+  final double opcityDisable;
 
   CheckBoxTokens({
     required this.colorInfoRadio,
     required this.colorIconRadio,
     required this.borderColorRadio,
     required this.size,
+    required this.opcityDisable,
   });
 
   static CheckBoxTokens fromDefault(BuildContext context) {
@@ -22,6 +24,7 @@ class CheckBoxTokens {
       colorIconRadio: colors.productNormal,
       borderColorRadio: colors.cloudDarker,
       size: 20,
+      opcityDisable: theme.opacityTokens.medium,
     );
   }
 }

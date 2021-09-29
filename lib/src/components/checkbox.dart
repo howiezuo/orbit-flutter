@@ -2,10 +2,12 @@ import 'package:orbit/orbit.dart';
 import 'package:orbit/src/foundation/icons.dart';
 import 'package:orbit/src/tokens/checkbox_tokens.dart';
 import 'package:orbit/src/tokens/form_tokens.dart';
+import 'package:orbit/src/tokens/input_tokens.dart';
 
 class CheckBox extends StatelessWidget {
   final bool value;
   final ValueChanged<bool?>? onChanged;
+  final bool disabled;
   final String? label;
   final String? info;
 
@@ -13,6 +15,7 @@ class CheckBox extends StatelessWidget {
     Key? key,
     required this.value,
     required this.onChanged,
+    this.disabled = false,
     this.label,
     this.info,
   })  : assert((label == null && info == null) ||
@@ -28,73 +31,87 @@ class CheckBox extends StatelessWidget {
 
     return InkWell(
       onTap: () => onChanged?.call(!value),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: style.background,
-              border: Border.all(color: style.borderColor!, width: 2),
-              borderRadius: BorderRadius.all(style.borderRadius!),
-            ),
-            child: SizedBox(
-              width: style.size,
-              height: style.size,
-              child: Icon(
-                OrbitIcons.check,
-                color: style.iconColor,
-                // TODO token?
-                size: 16,
+      child: Opacity(
+        opacity: style.disabledOpcity,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: style.background,
+                border: Border.all(color: style.borderColor!, width: 2),
+                borderRadius: BorderRadius.all(style.borderRadius!),
+              ),
+              child: SizedBox(
+                width: style.size,
+                height: style.size,
+                child: Icon(
+                  OrbitIcons.check,
+                  color: style.iconColor,
+                  // TODO token?
+                  size: 16,
+                ),
               ),
             ),
-          ),
-          if (label != null)
-            SizedBox(
-              width: theme.spaceTokens.small,
+            if (label != null) SizedBox(width: theme.spaceTokens.small),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (label != null)
+                  Text(
+                    label!,
+                    style: TextStyle(
+                      fontSize: formTokens.fontSizeLabel,
+                      fontWeight: theme.typographyTokens.fontWeightNormal,
+                      color: formTokens.colorLabel,
+                      height: style.size! / formTokens.fontSizeLabel,
+                    ),
+                  ),
+                if (info != null)
+                  Text(
+                    info!,
+                    style: TextStyle(
+                      fontSize: formTokens.fontSizeFeedback,
+                      color: style.infoColor,
+                      height: theme.typographyTokens.lineHeightTextSmall /
+                          formTokens.fontSizeFeedback,
+                    ),
+                  ),
+              ],
             ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (label != null)
-                Text(
-                  label!,
-                  style: TextStyle(
-                    fontSize: formTokens.fontSizeLabel,
-                    fontWeight: theme.typographyTokens.fontWeightNormal,
-                    color: formTokens.colorLabel,
-                    height: style.size! / formTokens.fontSizeLabel,
-                  ),
-                ),
-              if (info != null)
-                Text(
-                  info!,
-                  style: TextStyle(
-                    fontSize: formTokens.fontSizeFeedback,
-                    color: style.infoColor,
-                    height: theme.typographyTokens.lineHeightTextSmall /
-                        formTokens.fontSizeFeedback,
-                  ),
-                ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
   CheckBoxStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final colors = theme.colorTokens;
     final defaultStyles = CheckBoxTokens.fromDefault(context);
+    final inputStyles = InputTokens.fromDefault(context);
 
-    final background =
-        value ? theme.colorTokens.blueNormal : theme.colorTokens.cloudNormal;
-    final borderColor =
-        value ? theme.colorTokens.blueNormal : defaultStyles.borderColorRadio;
-    final iconColor = value ? theme.colorTokens.whiteNormal : background;
+    Color resolveBackground() {
+      if (disabled) return value ? colors.cloudDarker : colors.cloudNormal;
+
+      return value ? colors.blueNormal : inputStyles.background;
+    }
+
+    Color resolveBorderColor() {
+      if (disabled) return colors.cloudDarker;
+      if (value) return theme.colorTokens.blueNormal;
+
+      return defaultStyles.borderColorRadio;
+    }
+
+    final background = resolveBackground();
+    final borderColor = resolveBorderColor();
+    final iconColor = disabled ? colors.cloudNormal : colors.whiteNormal;
     final infoColor = defaultStyles.colorInfoRadio;
     final size = defaultStyles.size;
     final borderRadius = theme.borderRadiusTokens.large;
+    final opacity = disabled ? defaultStyles.opcityDisable : 1.0;
 
     return CheckBoxStyle.raw(
       background: background,
@@ -103,6 +120,7 @@ class CheckBox extends StatelessWidget {
       infoColor: infoColor,
       size: size,
       borderRadius: borderRadius,
+      disabledOpcity: opacity,
     );
   }
 }
@@ -114,6 +132,7 @@ class CheckBoxStyle {
   final Color? infoColor;
   final double? size;
   final Radius? borderRadius;
+  final double disabledOpcity;
 
   const CheckBoxStyle({
     this.background,
@@ -122,6 +141,7 @@ class CheckBoxStyle {
     this.infoColor,
     this.size,
     this.borderRadius,
+    this.disabledOpcity = 1,
   });
 
   const CheckBoxStyle.raw({
@@ -131,5 +151,6 @@ class CheckBoxStyle {
     required Color this.infoColor,
     required double this.size,
     required Radius this.borderRadius,
+    required this.disabledOpcity,
   });
 }

@@ -21,11 +21,7 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
               children: [
                 CheckBox(
                   value: isChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      isChecked = value!;
-                    });
-                  },
+                  onChanged: (value) => setState(() => isChecked = value!),
                 ),
                 SizedBox(width: 8),
                 CheckBox(
@@ -37,16 +33,24 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                   value: false,
                   onChanged: (value) {},
                 ),
+                SizedBox(width: 8),
+                CheckBox(
+                  value: true,
+                  onChanged: (value) {},
+                  disabled: true,
+                ),
+                SizedBox(width: 8),
+                CheckBox(
+                  value: false,
+                  onChanged: (value) {},
+                  disabled: true,
+                ),
               ],
             ),
             SizedBox(height: 16),
             CheckBox(
               value: isChecked,
-              onChanged: (value) {
-                setState(() {
-                  isChecked = value!;
-                });
-              },
+              onChanged: (value) => setState(() => isChecked = value!),
               label: 'Label',
             ),
             SizedBox(height: 8),
@@ -60,15 +64,25 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
               value: false,
               onChanged: (value) {},
               label: 'Label',
+            ),
+            SizedBox(height: 8),
+            CheckBox(
+              value: true,
+              onChanged: (value) {},
+              label: 'Label',
+              disabled: true,
+            ),
+            SizedBox(height: 8),
+            CheckBox(
+              value: false,
+              onChanged: (value) {},
+              label: 'Label',
+              disabled: true,
             ),
             SizedBox(height: 16),
             CheckBox(
               value: isChecked,
-              onChanged: (value) {
-                setState(() {
-                  isChecked = value!;
-                });
-              },
+              onChanged: (value) => setState(() => isChecked = value!),
               label: 'Label',
               info: 'Additional information for this choice',
             ),
@@ -85,6 +99,22 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
               onChanged: (value) {},
               label: 'Label',
               info: 'Additional information for this choice',
+            ),
+            SizedBox(height: 8),
+            CheckBox(
+              value: true,
+              onChanged: (value) {},
+              label: 'Label',
+              info: 'Additional information for this choice',
+              disabled: true,
+            ),
+            SizedBox(height: 8),
+            CheckBox(
+              value: false,
+              onChanged: (value) {},
+              label: 'Label',
+              info: 'Additional information for this choice',
+              disabled: true,
             ),
           ],
         ),
