@@ -8,6 +8,7 @@ class CheckBox extends StatelessWidget {
   final bool value;
   final ValueChanged<bool?>? onChanged;
   final bool disabled;
+  final bool hasError;
   final String? label;
   final String? info;
 
@@ -16,6 +17,7 @@ class CheckBox extends StatelessWidget {
     required this.value,
     required this.onChanged,
     this.disabled = false,
+    this.hasError = false,
     this.label,
     this.info,
   })  : assert((label == null && info == null) ||
@@ -100,9 +102,9 @@ class CheckBox extends StatelessWidget {
 
     Color resolveBorderColor() {
       if (disabled) return colors.cloudDarker;
-      if (value) return theme.colorTokens.blueNormal;
+      if (hasError) return defaultStyles.borderColorRadioError;
 
-      return defaultStyles.borderColorRadio;
+      return value ? colors.blueNormal : defaultStyles.borderColorRadio;
     }
 
     final background = resolveBackground();
