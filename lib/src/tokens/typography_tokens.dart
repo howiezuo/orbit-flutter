@@ -10,6 +10,7 @@ abstract class TypographyTokens {
 
   double get fontSizeHeadingTitle3;
 
+  FontWeight get fontWeightNormal;
   FontWeight get fontWeightMedium;
 
   FontWeight get fontWeightHeadingTitle3;
@@ -28,6 +29,8 @@ class Typography implements TypographyTokens {
   @override
   double get fontSizeHeadingTitle3 => 16;
 
+  @override
+  FontWeight get fontWeightNormal => Base.FontWeightNormal;
   @override
   FontWeight get fontWeightMedium => Base.FontWeightMedium;
 
