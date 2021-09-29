@@ -1,3 +1,4 @@
+import 'package:catalog/src/components/empty_state_page.dart';
 import 'package:catalog/src/home.dart';
 import 'package:flutter/widgets.dart';
 
@@ -25,6 +26,8 @@ class Routes {
           ComponentScreen(title: 'CheckBox', child: CheckBoxPage()),
       ROUTE_DIALOG: (_) =>
           ComponentScreen(title: 'Dialog', child: DialogPage()),
+      ROUTE_EMPTY_STATE: (_) =>
+          ComponentScreen(title: 'EmptyState', child: EmptyStatePage()),
     };
   }
 
@@ -36,4 +39,5 @@ class Routes {
   static const ROUTE_CARD = '/card';
   static const ROUTE_CHECKBOX = '/checkbox';
   static const ROUTE_DIALOG = '/dialog';
+  static const ROUTE_EMPTY_STATE = '/empty_state';
 }

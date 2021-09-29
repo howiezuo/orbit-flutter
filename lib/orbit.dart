@@ -17,6 +17,7 @@ export 'src/components/bottom_sheet.dart';
 export 'src/components/card.dart';
 export 'src/components/checkbox.dart';
 export 'src/components/dialog.dart';
+export 'src/components/empty_state.dart';
 export 'src/tokens/alert_tokens.dart';
 export 'src/tokens/border_radius_tokens.dart';
 export 'src/tokens/button_tokens.dart';
