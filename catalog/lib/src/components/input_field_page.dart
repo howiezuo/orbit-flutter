@@ -26,6 +26,11 @@ class _InputFieldPageState extends State<InputFieldPage> {
               icon: OrbitIcons.search,
             ),
             InputField(
+              label: 'Label',
+              inlineLable: true,
+              placeholder: 'Placeholder',
+            ),
+            InputField(
               placeholder: 'Placeholder',
             ),
             InputField(

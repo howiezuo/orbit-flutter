@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
+/**
+ * disabled
+ */
 class InputField extends StatefulWidget {
   final TextEditingController? controller;
   final String? label;
+  final bool inlineLable;
   final String? placeholder;
   final IconData? icon;
   // TODO better naming?
@@ -14,6 +18,7 @@ class InputField extends StatefulWidget {
     Key? key,
     this.controller,
     this.label,
+    this.inlineLable = false,
     this.placeholder,
     this.icon,
     InputFieldState? state,
@@ -60,7 +65,7 @@ class _InputFieldState extends State<InputField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.label != null)
+        if (widget.label != null && !widget.inlineLable)
           Padding(
             padding: EdgeInsets.only(bottom: theme.spaceTokens.xXsmall),
             child: Text(
@@ -93,6 +98,17 @@ class _InputFieldState extends State<InputField> {
                     widget.icon!,
                     color: style.colorIcon,
                     size: iconStyles.sizeMedium,
+                  ),
+                ),
+              if (widget.label != null && widget.inlineLable)
+                Padding(
+                  padding: EdgeInsets.only(right: theme.spaceTokens.small),
+                  child: Text(
+                    widget.label!,
+                    style: TextStyle(
+                      color: formStyles.colorLabel,
+                      fontSize: style.fontSizeNormal,
+                    ),
                   ),
                 ),
               Expanded(
