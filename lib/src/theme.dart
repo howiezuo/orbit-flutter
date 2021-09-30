@@ -6,6 +6,16 @@ import 'tokens/opacity_tokens.dart';
 import 'tokens/size_tokens.dart';
 import 'tokens/space_tokens.dart';
 import 'tokens/typography_tokens.dart';
+export 'foundation/icons.dart';
+export 'foundation/palette.dart';
+export 'tokens/alert_tokens.dart';
+export 'tokens/badge_tokens.dart';
+export 'tokens/border_radius_tokens.dart';
+export 'tokens/button_tokens.dart';
+export 'tokens/color_tokens.dart';
+export 'tokens/icon_tokens.dart';
+export 'tokens/input_tokens.dart';
+export 'tokens/space_tokens.dart';
 
 class OrbitThemeData {
   final ColorTokens colorTokens;
@@ -25,10 +35,10 @@ class OrbitThemeData {
     required this.borderRadiusTokens,
     required this.opacityTokens,
   }) : materialTheme = ThemeData(
-    colorScheme: ColorScheme.light(
-      primary: colorTokens.productNormal,
-    ),
-  );
+          colorScheme: ColorScheme.light(
+            primary: colorTokens.productNormal,
+          ),
+        );
 
   factory OrbitThemeData.light() => OrbitThemeData(
         colorTokens: Colors(),

@@ -18,6 +18,7 @@ abstract class ColorTokens {
   Color get cloudDarker;
 
   // ink
+  Color get inkLighter;
   Color get inkLight;
   Color get inkNormal;
 
@@ -67,10 +68,11 @@ class Colors implements ColorTokens {
   Color get cloudDarker => Palette.CloudDarker;
 
   @override
+  Color get inkLighter => Palette.InkLighter;
+  @override
   Color get inkLight => Palette.InkLight;
   @override
   Color get inkNormal => Palette.InkNormal;
-
   @override
   Color get greenLight => Palette.GreenLight;
   @override

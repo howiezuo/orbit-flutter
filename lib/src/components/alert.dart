@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:orbit/orbit.dart';
+
+import '../theme.dart';
 
 class Alert extends StatelessWidget {
   final String title;
@@ -63,7 +64,7 @@ class Alert extends StatelessWidget {
     final theme = OrbitTheme.of(context);
     final spaces = theme.spaceTokens;
     final icon = _resolveIcon();
-    final iconSizes = IconStyles.fromDefalut(context);
+    final iconSizes = IconTokens.fromDefalut(context);
     return Padding(
       padding: EdgeInsets.only(right: spaces.xSmall),
       child: Icon(

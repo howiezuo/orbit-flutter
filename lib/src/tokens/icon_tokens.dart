@@ -1,23 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:orbit/orbit.dart';
 
-abstract class IconTokens {
-  double get sizeSmall;
-  double get sizeMedium;
-  double get sizeLarge;
-}
-
-class IconStyles extends IconTokens {
-  @override
+class IconTokens {
   final double sizeSmall;
-
-  @override
   final double sizeMedium;
-
-  @override
   final double sizeLarge;
 
-  IconStyles({
+  IconTokens({
     required this.sizeSmall,
     required this.sizeMedium,
     required this.sizeLarge,
@@ -26,7 +15,7 @@ class IconStyles extends IconTokens {
   static IconTokens fromDefalut(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final sizes = theme.sizeTokens;
-    return IconStyles(
+    return IconTokens(
       sizeSmall: sizes.small,
       sizeMedium: sizes.medium,
       sizeLarge: sizes.large,

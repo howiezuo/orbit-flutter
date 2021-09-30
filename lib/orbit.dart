@@ -8,8 +8,6 @@ import 'src/theme.dart';
 export 'package:flutter/material.dart'
     hide BottomSheet, Card, Colors, Dialog, Typography;
 export 'src/theme.dart';
-export 'src/foundation/icons.dart';
-export 'src/foundation/palette.dart';
 export 'src/components/alert.dart';
 export 'src/components/badge.dart';
 export 'src/components/button.dart';
@@ -18,13 +16,7 @@ export 'src/components/card.dart';
 export 'src/components/checkbox.dart';
 export 'src/components/dialog.dart';
 export 'src/components/empty_state.dart';
-export 'src/tokens/alert_tokens.dart';
-export 'src/tokens/border_radius_tokens.dart';
-export 'src/tokens/button_tokens.dart';
-export 'src/tokens/color_tokens.dart';
-export 'src/tokens/icon_tokens.dart';
-export 'src/tokens/space_tokens.dart';
-export 'src/tokens/badge_tokens.dart';
+export 'src/components/input_field.dart';
 
 class OrbitApp extends StatelessWidget {
   final OrbitThemeData? theme;

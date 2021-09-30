@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:orbit/orbit.dart';
+import 'package:flutter/widgets.dart';
+
+import '../theme.dart';
 
 class Badge extends StatelessWidget {
   final String? label;
@@ -38,7 +39,7 @@ class Badge extends StatelessWidget {
   Widget _icon(BuildContext context, Color? color) {
     final theme = OrbitTheme.of(context);
     final spaces = theme.spaceTokens;
-    final iconSizes = IconStyles.fromDefalut(context);
+    final iconSizes = IconTokens.fromDefalut(context);
     return Padding(
       padding: label != null
           ? EdgeInsets.only(right: spaces.xXsmall)

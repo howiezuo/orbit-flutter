@@ -51,6 +51,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('EmptyState'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_EMPTY_STATE),
           ),
+          ListTile(
+            title: Text('InputField'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_INPUT_FIELD),
+          ),
         ],
       ),
     );

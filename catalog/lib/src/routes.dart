@@ -1,4 +1,3 @@
-import 'package:catalog/src/components/empty_state_page.dart';
 import 'package:catalog/src/home.dart';
 import 'package:flutter/widgets.dart';
 
@@ -10,6 +9,8 @@ import 'components/button_page.dart';
 import 'components/card_page.dart';
 import 'components/checkbox_page.dart';
 import 'components/dialog_page.dart';
+import 'components/empty_state_page.dart';
+import 'components/input_field_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -28,6 +29,8 @@ class Routes {
           ComponentScreen(title: 'Dialog', child: DialogPage()),
       ROUTE_EMPTY_STATE: (_) =>
           ComponentScreen(title: 'EmptyState', child: EmptyStatePage()),
+      ROUTE_INPUT_FIELD: (_) =>
+          ComponentScreen(title: 'InputField', child: InputFieldPage()),
     };
   }
 
@@ -40,4 +43,5 @@ class Routes {
   static const ROUTE_CHECKBOX = '/checkbox';
   static const ROUTE_DIALOG = '/dialog';
   static const ROUTE_EMPTY_STATE = '/empty_state';
+  static const ROUTE_INPUT_FIELD = '/input_field';
 }
