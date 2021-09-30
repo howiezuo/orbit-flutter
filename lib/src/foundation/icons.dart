@@ -14,6 +14,8 @@ class OrbitIcons {
   static const chevron_right = OrbitIconData(0xe01f);
 
   static const information_circle = OrbitIconData(0x0052);
+
+  static const search = OrbitIconData(0xe07c);
 }
 
 class OrbitIconData extends IconData {

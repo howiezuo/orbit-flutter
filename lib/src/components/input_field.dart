@@ -6,12 +6,14 @@ class InputField extends StatefulWidget {
   final TextEditingController? controller;
   final String? label;
   final String? placeholder;
+  final IconData? icon;
 
   const InputField({
     Key? key,
     this.controller,
     this.label,
     this.placeholder,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -37,6 +39,7 @@ class _InputFieldState extends State<InputField> {
     final theme = OrbitTheme.of(context);
     final style = InputTokens.fromDefault(context);
     final formStyles = FormTokens.fromDefault(context);
+    final iconStyles = IconTokens.fromDefalut(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,29 +68,40 @@ class _InputFieldState extends State<InputField> {
             ),
             borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
           ),
-          child: Column(
+          child: Row(
             children: [
-              TextField(
-                controller: widget.controller,
-                focusNode: _focus,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
+              if (widget.icon != null)
+                Padding(
+                  padding: EdgeInsets.only(right: theme.spaceTokens.small),
+                  child: Icon(
+                    widget.icon!,
+                    color: style.colorIcon,
+                    size: iconStyles.sizeMedium,
                   ),
-                  contentPadding: EdgeInsets.all(0),
-                  hintText: widget.placeholder,
-                  hintStyle: TextStyle(
-                    color: style.colorPlaceholder,
+                ),
+              Expanded(
+                child: TextField(
+                  controller: widget.controller,
+                  focusNode: _focus,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: EdgeInsets.all(0),
+                    hintText: widget.placeholder,
+                    hintStyle: TextStyle(
+                      color: style.colorPlaceholder,
+                      fontSize: style.fontSizeNormal,
+                      fontWeight: theme.typographyTokens.fontWeightNormal,
+                    ),
+                  ),
+                  style: TextStyle(
+                    color: style.colorText,
                     fontSize: style.fontSizeNormal,
                     fontWeight: theme.typographyTokens.fontWeightNormal,
                   ),
                 ),
-                style: TextStyle(
-                  color: style.colorText,
-                  fontSize: style.fontSizeNormal,
-                  fontWeight: theme.typographyTokens.fontWeightNormal,
-                ),
-              )
+              ),
             ],
           ),
         ),

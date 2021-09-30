@@ -3,6 +3,7 @@ import 'package:orbit/orbit.dart';
 class InputTokens {
   final Color colorText;
   final Color colorTextDisabled;
+  final Color colorIcon;
   final Color colorPlaceholder;
   final Color background;
 
@@ -19,6 +20,7 @@ class InputTokens {
   InputTokens({
     required this.colorText,
     required this.colorTextDisabled,
+    required this.colorIcon,
     required this.colorPlaceholder,
     required this.background,
     required this.fontSizeNormal,
@@ -36,6 +38,7 @@ class InputTokens {
     return InputTokens(
       colorText: colors.inkNormal,
       colorTextDisabled: colors.inkLighter,
+      colorIcon: colors.cloudDarker,
       colorPlaceholder: colors.inkLighter,
       background: colors.cloudNormal,
       fontSizeNormal: theme.typographyTokens.fontSizeMedium,
