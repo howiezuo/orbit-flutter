@@ -11,6 +11,8 @@ class InputTokens {
 
   final Color borderColor;
   final Color borderColorFocus;
+  final Color borderColorError;
+  final Color borderColorErrorFocus;
   final double borderWidth;
 
   final double heightNormal;
@@ -26,6 +28,8 @@ class InputTokens {
     required this.fontSizeNormal,
     required this.borderColor,
     required this.borderColorFocus,
+    required this.borderColorError,
+    required this.borderColorErrorFocus,
     required this.borderWidth,
     required this.heightNormal,
     required this.paddingNormal,
@@ -44,6 +48,8 @@ class InputTokens {
       fontSizeNormal: theme.typographyTokens.fontSizeMedium,
       borderColor: colors.cloudDarker,
       borderColorFocus: colors.blueNormal,
+      borderColorError: colors.redNormal,
+      borderColorErrorFocus: colors.redNormal,
       borderWidth: 1,
       heightNormal: theme.sizeTokens.xlarge,
       paddingNormal: EdgeInsets.symmetric(horizontal: theme.spaceTokens.small),

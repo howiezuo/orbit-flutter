@@ -7,14 +7,18 @@ class InputField extends StatefulWidget {
   final String? label;
   final String? placeholder;
   final IconData? icon;
+  // TODO better naming?
+  final InputFieldState state;
 
-  const InputField({
+  InputField({
     Key? key,
     this.controller,
     this.label,
     this.placeholder,
     this.icon,
-  }) : super(key: key);
+    InputFieldState? state,
+  })  : this.state = state ?? InputFieldStateNormal(),
+        super(key: key);
 
   @override
   _InputFieldState createState() => _InputFieldState();
@@ -41,6 +45,18 @@ class _InputFieldState extends State<InputField> {
     final formStyles = FormTokens.fromDefault(context);
     final iconStyles = IconTokens.fromDefalut(context);
 
+    Color resolveBorderColor() {
+      if (widget.state is InputFieldStateError)
+        return _isFocused
+            ? style.borderColorErrorFocus
+            : style.borderColorError;
+
+      if (widget.state is InputFieldStateHelp) return style.borderColorFocus;
+
+      return _isFocused ? style.borderColorFocus : style.borderColor;
+    }
+
+    final borderColor = resolveBorderColor();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -63,7 +79,7 @@ class _InputFieldState extends State<InputField> {
           decoration: BoxDecoration(
             color: style.background,
             border: Border.all(
-              color: _isFocused ? style.borderColorFocus : style.background,
+              color: borderColor,
               width: style.borderWidth,
             ),
             borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
@@ -105,7 +121,74 @@ class _InputFieldState extends State<InputField> {
             ],
           ),
         ),
+        if (widget.state is! InputFieldStateNormal)
+          Padding(
+            padding: EdgeInsets.only(top: theme.spaceTokens.xXsmall),
+            child: _message(context),
+          ),
       ],
     );
   }
+
+  Widget _message(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    final style = InputTokens.fromDefault(context);
+    final iconStyles = IconTokens.fromDefalut(context);
+
+    if (widget.state is InputFieldStateError) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            OrbitIcons.alert_circle,
+            color: style.borderColorErrorFocus,
+            size: iconStyles.sizeSmall,
+          ),
+          SizedBox(width: theme.spaceTokens.xXsmall),
+          Text(
+            widget.state.message!,
+            style: TextStyle(color: style.borderColorErrorFocus),
+          ),
+        ],
+      );
+    } else {
+      return Row(
+        children: [
+          Icon(
+            OrbitIcons.information_circle,
+            color: style.borderColorFocus,
+            size: iconStyles.sizeSmall,
+          ),
+          SizedBox(width: theme.spaceTokens.xXsmall),
+          Text(
+            widget.state.message!,
+            style: TextStyle(color: style.borderColorFocus),
+          ),
+        ],
+      );
+    }
+  }
+}
+
+abstract class InputFieldState {
+  String? get message;
+}
+
+class InputFieldStateNormal extends InputFieldState {
+  @override
+  final String? message = null;
+}
+
+class InputFieldStateHelp extends InputFieldState {
+  @override
+  final String message;
+
+  InputFieldStateHelp({required this.message});
+}
+
+class InputFieldStateError extends InputFieldState {
+  @override
+  final String message;
+
+  InputFieldStateError({required this.message});
 }
