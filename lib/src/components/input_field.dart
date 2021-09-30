@@ -4,11 +4,13 @@ import '../theme.dart';
 
 class InputField extends StatefulWidget {
   final TextEditingController? controller;
+  final String? label;
   final String? placeholder;
 
   const InputField({
     Key? key,
     this.controller,
+    this.label,
     this.placeholder,
   }) : super(key: key);
 
@@ -34,11 +36,24 @@ class _InputFieldState extends State<InputField> {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final style = InputTokens.fromDefault(context);
+    final formStyles = FormTokens.fromDefault(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Label'),
+        if (widget.label != null)
+          Padding(
+            padding: EdgeInsets.only(bottom: theme.spaceTokens.xXsmall),
+            child: Text(
+              widget.label!,
+              style: TextStyle(
+                color: formStyles.colorLabel,
+                fontSize: formStyles.fontSizeLabel,
+                height: theme.typographyTokens.lineHeightTextSmall /
+                    formStyles.fontSizeLabel,
+              ),
+            ),
+          ),
         Container(
           // height: style.heightNormal,
           padding: style.paddingNormal,

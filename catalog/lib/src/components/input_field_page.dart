@@ -13,7 +13,12 @@ class _InputFieldPageState extends State<InputFieldPage> {
     return SingleChildScrollView(
       child: Padding(padding: const EdgeInsets.all(16),
       child: Wrap(
+        runSpacing: 16,
         children: [
+          InputField(
+            label: 'Label',
+            placeholder: 'Placeholder',
+          ),
           InputField(
             placeholder: 'Placeholder',
           ),
