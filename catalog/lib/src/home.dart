@@ -63,6 +63,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('Loading (TODO)'),
             onTap: () => {},
           ),
+          ListTile(
+            title: Text('ModalSheet (TODO)'),
+            onTap: () => {},
+          ),
         ],
       ),
     );
