@@ -44,6 +44,15 @@ class _RadioPageState extends State<RadioPage> {
               label: 'Label',
               info: 'Additional information for this choice',
             ),
+            SizedBox(height: 8),
+            Radio(
+              value: Radios.hasError,
+              groupValue: _selected,
+              onChanged: (value) => setState(() => _selected = Radios.hasError),
+              label: 'Label',
+              info: 'Additional information for this choice',
+              hasError: true,
+            ),
           ],
         ),
       ),
@@ -51,4 +60,4 @@ class _RadioPageState extends State<RadioPage> {
   }
 }
 
-enum Radios { single, withLable, withInfo }
+enum Radios { single, withLable, withInfo, hasError }

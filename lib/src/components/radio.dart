@@ -8,6 +8,7 @@ class Radio<T> extends StatelessWidget {
   final ValueChanged<T?>? onChanged;
   final String? label;
   final String? info;
+  final bool hasError;
 
   bool get _isChecked => value == groupValue;
 
@@ -18,10 +19,8 @@ class Radio<T> extends StatelessWidget {
     required this.onChanged,
     this.label,
     this.info,
-  })  : assert((label == null && info == null) ||
-            (label != null && info == null) ||
-            (label != null && info != null)),
-        super(key: key);
+    this.hasError = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +35,7 @@ class Radio<T> extends StatelessWidget {
     }
 
     Color resolveBorderColor() {
+      if (hasError) return styles.borderColorError;
       return _isChecked ? colors.blueNormal : styles.borderColor;
     }
 
