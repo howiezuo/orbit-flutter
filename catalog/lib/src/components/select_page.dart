@@ -61,6 +61,36 @@ class _SelectPageState extends State<SelectPage> {
                 },
               ).toList(),
             ),
+            Select<String>(
+              value: _selected,
+              label: 'Field Label',
+              placeholder: 'Placeholder',
+              state: SelectStateHelp(message: 'Help message'),
+              onChanged: (value) => setState(() => _selected = value!),
+              items: items.map<DropdownMenuItem<String>>(
+                (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                },
+              ).toList(),
+            ),
+            Select<String>(
+              value: _selected,
+              label: 'Field Label',
+              placeholder: 'Placeholder',
+              state: SelectStateError(message: 'Error message'),
+              onChanged: (value) => setState(() => _selected = value!),
+              items: items.map<DropdownMenuItem<String>>(
+                (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                },
+              ).toList(),
+            ),
           ],
         ),
       ),

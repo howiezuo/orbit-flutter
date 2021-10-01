@@ -9,8 +9,10 @@ class Select<T> extends StatelessWidget {
   final String? label;
   final String? placeholder;
   final Widget? prefix;
+  // TODO better naming?
+  final SelectState state;
 
-  const Select({
+  Select({
     Key? key,
     required this.items,
     this.value,
@@ -18,13 +20,21 @@ class Select<T> extends StatelessWidget {
     this.label,
     this.placeholder,
     this.prefix,
-  }) : super(key: key);
+    SelectState? state,
+  })  : this.state = state ?? SelectStateNormal(),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final inputStyles = InputTokens.fromDefault(context);
     final formStyles = FormTokens.fromDefault(context);
+
+    Color resolveBorderColor() {
+      if (state is SelectStateError) return inputStyles.borderColorError;
+      if (state is SelectStateHelp) return inputStyles.borderColorFocus;
+      return Palette.Transparent;
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,12 +59,20 @@ class Select<T> extends StatelessWidget {
           padding: EdgeInsets.all(theme.spaceTokens.small),
           decoration: BoxDecoration(
             color: inputStyles.background,
+            border: Border.all(
+              color: resolveBorderColor(),
+              width: inputStyles.borderWidth,
+            ),
             borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              if (prefix != null) prefix!,
+              if (prefix != null)
+                Padding(
+                  padding: EdgeInsets.only(right: theme.spaceTokens.small),
+                  child: prefix!,
+                ),
               Expanded(
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton(
@@ -83,7 +101,74 @@ class Select<T> extends StatelessWidget {
             ],
           ),
         ),
+        if (state.message != null)
+          Padding(
+            padding: EdgeInsets.only(top: theme.spaceTokens.xXsmall),
+            child: _message(context),
+          ),
       ],
     );
   }
+
+  Widget _message(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    final inputStyles = InputTokens.fromDefault(context);
+    final iconStyles = IconTokens.fromDefalut(context);
+
+    if (state is SelectStateError) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            OrbitIcons.alert_circle,
+            color: inputStyles.borderColorErrorFocus,
+            size: iconStyles.sizeSmall,
+          ),
+          SizedBox(width: theme.spaceTokens.xXsmall),
+          Text(
+            state.message!,
+            style: TextStyle(color: inputStyles.borderColorErrorFocus),
+          ),
+        ],
+      );
+    } else {
+      return Row(
+        children: [
+          Icon(
+            OrbitIcons.information_circle,
+            color: inputStyles.borderColorFocus,
+            size: iconStyles.sizeSmall,
+          ),
+          SizedBox(width: theme.spaceTokens.xXsmall),
+          Text(
+            state.message!,
+            style: TextStyle(color: inputStyles.borderColorFocus),
+          ),
+        ],
+      );
+    }
+  }
+}
+
+abstract class SelectState {
+  String? get message;
+}
+
+class SelectStateNormal extends SelectState {
+  @override
+  final String? message = null;
+}
+
+class SelectStateHelp extends SelectState {
+  @override
+  final String message;
+
+  SelectStateHelp({required this.message});
+}
+
+class SelectStateError extends SelectState {
+  @override
+  final String message;
+
+  SelectStateError({required this.message});
 }
