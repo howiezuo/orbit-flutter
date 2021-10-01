@@ -59,6 +59,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('ListChoice'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_LIST_CHOICE),
           ),
+          ListTile(
+            title: Text('Loading (TODO)'),
+            onTap: () => {},
+          ),
         ],
       ),
     );
