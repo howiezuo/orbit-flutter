@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'src/theme.dart';
 
 export 'package:flutter/material.dart'
-    hide BottomSheet, Card, Colors, Dialog, Typography;
+    hide BottomSheet, Card, Colors, Dialog, Radio, Typography;
 export 'src/theme.dart';
 export 'src/components/alert.dart';
 export 'src/components/badge.dart';
@@ -18,6 +18,7 @@ export 'src/components/dialog.dart';
 export 'src/components/empty_state.dart';
 export 'src/components/input_field.dart';
 export 'src/components/list_choice.dart';
+export 'src/components/radio.dart';
 
 class OrbitApp extends StatelessWidget {
   final OrbitThemeData? theme;

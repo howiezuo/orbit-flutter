@@ -1,8 +1,6 @@
-import 'package:orbit/orbit.dart';
-import 'package:orbit/src/foundation/icons.dart';
-import 'package:orbit/src/tokens/checkbox_tokens.dart';
-import 'package:orbit/src/tokens/form_tokens.dart';
-import 'package:orbit/src/tokens/input_tokens.dart';
+import 'package:flutter/material.dart';
+
+import '../theme.dart';
 
 class CheckBox extends StatelessWidget {
   final bool value;
