@@ -55,6 +55,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('InputField'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_INPUT_FIELD),
           ),
+          ListTile(
+            title: Text('ListChoice'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_LIST_CHOICE),
+          ),
         ],
       ),
     );

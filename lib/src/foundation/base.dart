@@ -16,6 +16,12 @@ class Base {
 
   static const double LineHeight = 1.4;
 
+  static const double SizeSm = 16;
+  static const double SizeMd = 24;
+  static const double SizeLg = 32;
+  static const double SizeXl = 44;
+  static const double SizeXxl = 52;
+
   static const double SpaceXxs = 4;
   static const double SpaceXs = 8;
   static const double SpaceSm = 12;

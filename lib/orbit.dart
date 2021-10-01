@@ -17,6 +17,7 @@ export 'src/components/checkbox.dart';
 export 'src/components/dialog.dart';
 export 'src/components/empty_state.dart';
 export 'src/components/input_field.dart';
+export 'src/components/list_choice.dart';
 
 class OrbitApp extends StatelessWidget {
   final OrbitThemeData? theme;

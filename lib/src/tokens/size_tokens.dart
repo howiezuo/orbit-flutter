@@ -1,4 +1,4 @@
-import 'package:orbit/src/foundation/sizes.dart';
+import 'package:orbit/src/foundation/base.dart';
 
 abstract class SizeTokens {
   double get small;
@@ -10,17 +10,17 @@ abstract class SizeTokens {
 
 class SizeStyles extends SizeTokens {
   @override
-  double get small => Sizes.Sm;
+  double get small => Base.SizeSm;
 
   @override
-  double get medium => Sizes.Md;
+  double get medium => Base.SizeMd;
 
   @override
-  double get large => Sizes.Lg;
+  double get large => Base.SizeLg;
 
   @override
-  double get xlarge => Sizes.Xl;
+  double get xlarge => Base.SizeXl;
 
   @override
-  double get xxlarge => Sizes.Xxl;
+  double get xxlarge => Base.SizeXxl;
 }

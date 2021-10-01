@@ -9,14 +9,18 @@ abstract class TypographyTokens {
   double get fontSizeLarge;
 
   double get fontSizeHeadingTitle3;
+  double get fontSizeHeadingTitle4;
 
   FontWeight get fontWeightNormal;
   FontWeight get fontWeightMedium;
 
   FontWeight get fontWeightHeadingTitle3;
+  FontWeight get fontWeightHeadingTitle4;
 
   double get lineHeightHeadingTitle3;
+  double get lineHeightHeadingTitle4;
   double get lineHeightTextSmall;
+  double get lineHeightTextNormal;
 }
 
 class Typography implements TypographyTokens {
@@ -29,6 +33,8 @@ class Typography implements TypographyTokens {
 
   @override
   double get fontSizeHeadingTitle3 => 16;
+  @override
+  double get fontSizeHeadingTitle4 => Base.fontSizeMd;
 
   @override
   FontWeight get fontWeightNormal => Base.FontWeightNormal;
@@ -37,9 +43,15 @@ class Typography implements TypographyTokens {
 
   @override
   FontWeight get fontWeightHeadingTitle3 => fontWeightMedium;
+  @override
+  FontWeight get fontWeightHeadingTitle4 => fontWeightMedium;
 
   @override
   double get lineHeightHeadingTitle3 => 24;
   @override
+  double get lineHeightHeadingTitle4 => 20;
+  @override
   double get lineHeightTextSmall => 16;
+  @override
+  double get lineHeightTextNormal => 20;
 }

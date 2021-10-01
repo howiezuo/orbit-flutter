@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart' show IconData;
 class OrbitIcons {
   OrbitIcons._();
 
+  static const accommodation = OrbitIconData(0xe085);
+
   static const airplane = OrbitIconData(0x0061);
 
   static const alert = OrbitIconData(0xe07f);

@@ -11,6 +11,7 @@ import 'components/checkbox_page.dart';
 import 'components/dialog_page.dart';
 import 'components/empty_state_page.dart';
 import 'components/input_field_page.dart';
+import 'components/list_choice_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -31,6 +32,8 @@ class Routes {
           ComponentScreen(title: 'EmptyState', child: EmptyStatePage()),
       ROUTE_INPUT_FIELD: (_) =>
           ComponentScreen(title: 'InputField', child: InputFieldPage()),
+      ROUTE_LIST_CHOICE: (_) =>
+          ComponentScreen(title: 'ListChoice', child: ListChoicePage()),
     };
   }
 
@@ -44,4 +47,5 @@ class Routes {
   static const ROUTE_DIALOG = '/dialog';
   static const ROUTE_EMPTY_STATE = '/empty_state';
   static const ROUTE_INPUT_FIELD = '/input_field';
+  static const ROUTE_LIST_CHOICE = '/list_choice';
 }

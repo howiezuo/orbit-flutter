@@ -20,6 +20,13 @@ class Heading extends StatelessWidget {
   })  : type = HeadingType.title3,
         super(key: key);
 
+  const Heading.title4(
+    this.data, {
+    Key? key,
+    this.textAlign,
+  })  : type = HeadingType.title4,
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final style = _resolveTextStyle(context);
@@ -39,6 +46,13 @@ class Heading extends StatelessWidget {
           fontWeight: typography.fontWeightHeadingTitle3,
           height: typography.lineHeightHeadingTitle3 /
               typography.fontSizeHeadingTitle3,
+        );
+      case HeadingType.title4:
+        return TextStyle(
+          fontSize: typography.fontSizeHeadingTitle4,
+          fontWeight: typography.fontWeightHeadingTitle4,
+          height: typography.lineHeightHeadingTitle4 /
+              typography.fontSizeHeadingTitle4,
         );
       default:
         // TODO
