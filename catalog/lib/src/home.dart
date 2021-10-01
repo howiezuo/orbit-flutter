@@ -25,7 +25,8 @@ class HomeScreen extends StatelessWidget {
           ),
           ListTile(
             title: Text('BottomSheet'),
-            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BOTTOM_SHEET),
+            onTap: () =>
+                Navigator.pushNamed(context, Routes.ROUTE_BOTTOM_SHEET),
           ),
           ListTile(
             title: Text('Button'),
@@ -66,6 +67,11 @@ class HomeScreen extends StatelessWidget {
           ListTile(
             title: Text('ModalSheet (TODO)'),
             onTap: () => {},
+          ),
+          ListTile(
+            title: Text('NavigationBar'),
+            onTap: () =>
+                Navigator.pushNamed(context, Routes.ROUTE_NAVIGATION_BAR),
           ),
         ],
       ),
