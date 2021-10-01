@@ -14,6 +14,7 @@ import 'components/input_field_page.dart';
 import 'components/list_choice_page.dart';
 import 'components/navigation_bar_page.dart';
 import 'components/radio_page.dart';
+import 'components/select_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -39,6 +40,7 @@ class Routes {
       ROUTE_NAVIGATION_BAR: (_) =>
           ComponentScreen(title: 'NavigationBar', child: NavigationBarPage()),
       ROUTE_RADIO: (_) => ComponentScreen(title: 'Radio', child: RadioPage()),
+      ROUTE_SELECT: (_) => ComponentScreen(title: 'Select', child: SelectPage()),
     };
   }
 
@@ -55,4 +57,5 @@ class Routes {
   static const ROUTE_LIST_CHOICE = '/list_choice';
   static const ROUTE_NAVIGATION_BAR = '/navigation_bar';
   static const ROUTE_RADIO = '/radio';
+  static const ROUTE_SELECT = '/select';
 }

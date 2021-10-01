@@ -13,6 +13,8 @@ class OrbitIcons {
 
   static const check = OrbitIconData(0x0056);
 
+  static const chevron_down = OrbitIconData(0xe09d);
+
   static const chevron_right = OrbitIconData(0xe01f);
 
   static const information_circle = OrbitIconData(0x0052);

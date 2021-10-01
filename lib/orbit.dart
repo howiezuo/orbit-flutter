@@ -19,6 +19,7 @@ export 'src/components/empty_state.dart';
 export 'src/components/input_field.dart';
 export 'src/components/list_choice.dart';
 export 'src/components/radio.dart';
+export 'src/components/select.dart';
 
 class OrbitApp extends StatelessWidget {
   final OrbitThemeData? theme;

@@ -77,6 +77,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('Radio'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_RADIO),
           ),
+          ListTile(
+            title: Text('Select'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_SELECT),
+          ),
         ],
       ),
     );
