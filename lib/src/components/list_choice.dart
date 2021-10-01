@@ -11,6 +11,7 @@ class ListChoice extends StatelessWidget {
   final ValueChanged<bool?>? onClick;
   final IconData? icon;
   final String? description;
+  final bool disabled;
   final bool hasError;
 
   const ListChoice({
@@ -20,6 +21,7 @@ class ListChoice extends StatelessWidget {
     required this.onClick,
     this.icon,
     this.description,
+    this.disabled = false,
     this.hasError = false,
   }) : super(key: key);
 
@@ -51,21 +53,30 @@ class ListChoice extends StatelessWidget {
                       children: [
                         if (icon != null)
                           Padding(
-                            padding: EdgeInsets.only(right: spaces.small),
+                            padding: EdgeInsets.only(right: spaces.xSmall),
                             child: Icon(
                               icon,
-                              color: iconStyles.colorPrimary,
+                              color: disabled
+                                  ? colors.cloudDarker
+                                  : iconStyles.colorPrimary,
                               size: iconStyles.sizeSmall,
                             ),
                           ),
-                        Heading.title4(title),
+                        Heading.title4(
+                          title,
+                          color: disabled
+                              ? colors.cloudDarkerHover
+                              : textStyles.colorPrimary,
+                        ),
                       ],
                     ),
                     if (description != null)
                       Text(
                         description!,
                         style: TextStyle(
-                          color: textStyles.colorSecondary,
+                          color: disabled
+                              ? colors.cloudDarkerHover
+                              : textStyles.colorSecondary,
                           fontSize: typography.fontSizeSmall,
                           fontWeight: typography.fontWeightNormal,
                           height: typography.lineHeightTextNormal /
@@ -78,6 +89,7 @@ class ListChoice extends StatelessWidget {
               CheckBox(
                 value: isSelected,
                 onChanged: onClick,
+                disabled: disabled,
                 hasError: hasError,
               ),
             ],
