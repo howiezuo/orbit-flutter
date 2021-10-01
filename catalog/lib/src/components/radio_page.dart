@@ -8,7 +8,7 @@ class RadioPage extends StatefulWidget {
 }
 
 class _RadioPageState extends State<RadioPage> {
-  int _selected = 0;
+  Radios _selected = Radios.single;
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +18,22 @@ class _RadioPageState extends State<RadioPage> {
         child: Wrap(
           runSpacing: 8,
           children: [
-            Column(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Radio(
-                      value: 0,
-                      groupValue: _selected,
-                      onChanged: (value) => setState(() => _selected = 0),
-                    ),
-                    SizedBox(width: 8),
-                    Radio(
-                      value: 1,
-                      groupValue: _selected,
-                      onChanged: (value) => setState(() => _selected = 1),
-                    ),
-                  ],
+                Radio(
+                  value: Radios.single,
+                  groupValue: _selected,
+                  onChanged: (value) =>
+                      setState(() => _selected = Radios.single),
                 ),
               ],
+            ),
+            Radio(
+              value: Radios.withLable,
+              groupValue: _selected,
+              onChanged: (value) =>
+                  setState(() => _selected = Radios.withLable),
+              label: 'Label',
             )
           ],
         ),
@@ -43,3 +41,5 @@ class _RadioPageState extends State<RadioPage> {
     );
   }
 }
+
+enum Radios { single, withLable }
