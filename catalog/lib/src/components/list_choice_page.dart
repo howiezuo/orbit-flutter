@@ -36,6 +36,13 @@ class _ListChoicePageState extends State<ListChoicePage> {
               icon: OrbitIcons.accommodation,
               description: 'Further description',
             ),
+            ListChoice(
+              title: 'ListChoice title',
+              isSelected: false,
+              onClick: (value) => {},
+              description: 'Further description',
+              hasError: true,
+            ),
           ],
         ),
       ),

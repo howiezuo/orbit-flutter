@@ -6,19 +6,21 @@ import 'package:orbit/src/tokens/text_tokens.dart';
 import '../theme.dart';
 
 class ListChoice extends StatelessWidget {
-  final IconData? icon;
   final String title;
-  final String? description;
   final bool isSelected;
   final ValueChanged<bool?>? onClick;
+  final IconData? icon;
+  final String? description;
+  final bool hasError;
 
   const ListChoice({
     Key? key,
-    this.icon,
     required this.title,
     required this.isSelected,
     required this.onClick,
+    this.icon,
     this.description,
+    this.hasError = false,
   }) : super(key: key);
 
   @override
@@ -73,7 +75,11 @@ class ListChoice extends StatelessWidget {
                   ],
                 ),
               ),
-              CheckBox(value: isSelected, onChanged: onClick),
+              CheckBox(
+                value: isSelected,
+                onChanged: onClick,
+                hasError: hasError,
+              ),
             ],
           ),
         ),
