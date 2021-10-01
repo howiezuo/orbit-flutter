@@ -46,6 +46,21 @@ class _SelectPageState extends State<SelectPage> {
                 },
               ).toList(),
             ),
+            Select<String>(
+              value: _selected,
+              label: 'Field Label',
+              prefix: Icon(OrbitIcons.airplane),
+              placeholder: 'Placeholder',
+              onChanged: (value) => setState(() => _selected = value!),
+              items: items.map<DropdownMenuItem<String>>(
+                (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                },
+              ).toList(),
+            ),
           ],
         ),
       ),

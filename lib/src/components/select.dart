@@ -8,6 +8,7 @@ class Select<T> extends StatelessWidget {
   final ValueChanged<T?>? onChanged;
   final String? label;
   final String? placeholder;
+  final Widget? prefix;
 
   const Select({
     Key? key,
@@ -16,6 +17,7 @@ class Select<T> extends StatelessWidget {
     this.onChanged,
     this.label,
     this.placeholder,
+    this.prefix,
   }) : super(key: key);
 
   @override
@@ -49,28 +51,36 @@ class Select<T> extends StatelessWidget {
             color: inputStyles.background,
             borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
           ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton(
-              items: items,
-              value: value,
-              onChanged: onChanged,
-              hint: placeholder != null
-                  ? Text(
-                      placeholder!,
-                      style: TextStyle(
-                          color: inputStyles.colorPlaceholder,
-                          fontSize: inputStyles.fontSizeNormal),
-                    )
-                  : null,
-              style: TextStyle(
-                  color: inputStyles.colorText,
-                  fontSize: inputStyles.fontSizeNormal),
-              icon: Icon(OrbitIcons.chevron_down),
-              iconDisabledColor: inputStyles.colorTextDisabled,
-              iconEnabledColor: inputStyles.colorText,
-              isExpanded: true,
-              underline: null,
-            ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (prefix != null) prefix!,
+              Expanded(
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    items: items,
+                    value: value,
+                    onChanged: onChanged,
+                    hint: placeholder != null
+                        ? Text(
+                            placeholder!,
+                            style: TextStyle(
+                                color: inputStyles.colorPlaceholder,
+                                fontSize: inputStyles.fontSizeNormal),
+                          )
+                        : null,
+                    style: TextStyle(
+                        color: inputStyles.colorText,
+                        fontSize: inputStyles.fontSizeNormal),
+                    icon: Icon(OrbitIcons.chevron_down),
+                    iconDisabledColor: inputStyles.colorTextDisabled,
+                    iconEnabledColor: inputStyles.colorText,
+                    isExpanded: true,
+                    underline: null,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
