@@ -5,12 +5,14 @@ class RadioTokens {
   final Color borderColor;
   final Color borderColorError;
   final double size;
+  final double opacityDisabled;
 
   RadioTokens({
     required this.infoColor,
     required this.borderColor,
     required this.borderColorError,
     required this.size,
+    required this.opacityDisabled,
   });
 
   static RadioTokens fromDefault(BuildContext context) {
@@ -22,6 +24,7 @@ class RadioTokens {
       borderColor: colors.cloudDarker,
       borderColorError: colors.redNormal,
       size: 20,
+      opacityDisabled: theme.opacityTokens.medium,
     );
   }
 }
