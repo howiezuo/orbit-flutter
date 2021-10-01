@@ -15,8 +15,8 @@ class _RadioPageState extends State<RadioPage> {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Wrap(
-          runSpacing: 8,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -28,13 +28,22 @@ class _RadioPageState extends State<RadioPage> {
                 ),
               ],
             ),
+            SizedBox(height: 8),
             Radio(
               value: Radios.withLable,
               groupValue: _selected,
               onChanged: (value) =>
                   setState(() => _selected = Radios.withLable),
               label: 'Label',
-            )
+            ),
+            SizedBox(height: 8),
+            Radio(
+              value: Radios.withInfo,
+              groupValue: _selected,
+              onChanged: (value) => setState(() => _selected = Radios.withInfo),
+              label: 'Label',
+              info: 'Additional information for this choice',
+            ),
           ],
         ),
       ),
@@ -42,4 +51,4 @@ class _RadioPageState extends State<RadioPage> {
   }
 }
 
-enum Radios { single, withLable }
+enum Radios { single, withLable, withInfo }

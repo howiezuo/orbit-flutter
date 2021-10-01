@@ -7,6 +7,7 @@ class Radio<T> extends StatelessWidget {
   final T? groupValue;
   final ValueChanged<T?>? onChanged;
   final String? label;
+  final String? info;
 
   bool get _isChecked => value == groupValue;
 
@@ -16,7 +17,11 @@ class Radio<T> extends StatelessWidget {
     required this.groupValue,
     required this.onChanged,
     this.label,
-  }) : super(key: key);
+    this.info,
+  })  : assert((label == null && info == null) ||
+            (label != null && info == null) ||
+            (label != null && info != null)),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +43,7 @@ class Radio<T> extends StatelessWidget {
       onTap: () => onChanged?.call(value),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: styles.size,
@@ -60,15 +66,32 @@ class Radio<T> extends StatelessWidget {
               ),
             ),
           ),
-          if (label != null) SizedBox(width: theme.spaceTokens.xSmall),
           if (label != null)
-            Text(
-              label!,
-              style: TextStyle(
-                fontSize: formTokens.fontSizeLabel,
-                fontWeight: theme.typographyTokens.fontWeightNormal,
-                color: formTokens.colorLabel,
-                height: styles.size / formTokens.fontSizeLabel,
+            Padding(
+              padding: EdgeInsets.only(left: theme.spaceTokens.xSmall),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    label!,
+                    style: TextStyle(
+                      fontSize: formTokens.fontSizeLabel,
+                      fontWeight: theme.typographyTokens.fontWeightNormal,
+                      color: formTokens.colorLabel,
+                      height: styles.size / formTokens.fontSizeLabel,
+                    ),
+                  ),
+                  if (info != null)
+                    Text(
+                      info!,
+                      style: TextStyle(
+                        fontSize: formTokens.fontSizeFeedback,
+                        color: styles.infoColor,
+                        height: theme.typographyTokens.lineHeightTextSmall /
+                            formTokens.fontSizeFeedback,
+                      ),
+                    ),
+                ],
               ),
             ),
         ],
