@@ -137,6 +137,7 @@ class _InputFieldState extends State<InputField> {
               style: TextStyle(
                 color: formStyles.colorLabel,
                 fontSize: formStyles.fontSizeLabel,
+                fontWeight: theme.typographyTokens.fontWeightMedium,
                 height: theme.typographyTokens.lineHeightTextSmall /
                     formStyles.fontSizeLabel,
               ),
