@@ -21,6 +21,13 @@ class _SwitchPageState extends State<SwitchPage> {
               value: checked,
               onChanged: (value) => setState(() => checked = value),
             ),
+            SizedBox(height: 8),
+            Switch(
+              value: checked,
+              onChanged: (value) => setState(() => checked = value),
+              onIcon: OrbitIcons.lock_open,
+              offIcon: OrbitIcons.lock,
+            ),
           ],
         ),
       ),

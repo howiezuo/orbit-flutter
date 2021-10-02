@@ -5,11 +5,15 @@ import '../theme.dart';
 class Switch extends StatelessWidget {
   final bool value;
   final ValueChanged<bool>? onChanged;
+  final IconData? onIcon;
+  final IconData? offIcon;
 
   const Switch({
     Key? key,
     required this.value,
     required this.onChanged,
+    this.onIcon,
+    this.offIcon,
   }) : super(key: key);
 
   @override
@@ -49,7 +53,9 @@ class Switch extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Icon(
-                  OrbitIcons.circle,
+                  value
+                      ? onIcon ?? OrbitIcons.circle
+                      : offIcon ?? OrbitIcons.circle,
                   size: iconTokens.sizeSmall,
                   color: value ? colors.blueNormal : colors.cloudDarker,
                 ),
