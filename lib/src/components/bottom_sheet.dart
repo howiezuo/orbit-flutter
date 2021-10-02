@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:orbit/orbit.dart';
+
+import '../theme.dart';
 
 class BottomSheet extends StatelessWidget {
   final Widget child;
@@ -38,11 +38,8 @@ class BottomSheet extends StatelessWidget {
 
   Future<T?> show<T>({
     required BuildContext context,
-    // Color? backgroundColor,
-    // double? elevation,
     Clip? clipBehavior,
     BoxConstraints? constraints,
-    // Color? barrierColor,
     bool isScrollControlled = false,
     bool useRootNavigator = false,
     bool isDismissible = true,

@@ -15,6 +15,14 @@ class Heading extends StatelessWidget {
     this.textAlign,
   }) : super(key: key);
 
+  const Heading.title2(
+    this.data, {
+    Key? key,
+    this.color,
+    this.textAlign,
+  })  : type = HeadingType.title2,
+        super(key: key);
+
   const Heading.title3(
     this.data, {
     Key? key,
@@ -47,6 +55,14 @@ class Heading extends StatelessWidget {
     final color = this.color ?? theme.colorTokens.inkNormal;
 
     switch (type) {
+      case HeadingType.title2:
+        return TextStyle(
+          color: color,
+          fontSize: typography.fontSizeHeadingTitle2,
+          fontWeight: typography.fontWeightHeadingTitle2,
+          height: typography.lineHeightHeadingTitle2 /
+              typography.fontSizeHeadingTitle2,
+        );
       case HeadingType.title3:
         return TextStyle(
           color: color,

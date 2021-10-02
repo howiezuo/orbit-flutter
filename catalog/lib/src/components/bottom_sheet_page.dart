@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart' hide BottomSheet;
 import 'package:orbit/orbit.dart';
 
 class BottomSheetPage extends StatelessWidget {

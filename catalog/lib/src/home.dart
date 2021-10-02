@@ -65,8 +65,8 @@ class HomeScreen extends StatelessWidget {
             onTap: () => {},
           ),
           ListTile(
-            title: Text('ModalSheet (TODO)'),
-            onTap: () => {},
+            title: Text('ModalSheet'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_MODAL_SHEET),
           ),
           ListTile(
             title: Text('NavigationBar'),

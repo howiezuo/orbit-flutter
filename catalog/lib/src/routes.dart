@@ -1,4 +1,3 @@
-import 'package:catalog/src/components/separator_page.dart';
 import 'package:catalog/src/home.dart';
 import 'package:flutter/widgets.dart';
 
@@ -13,9 +12,11 @@ import 'components/dialog_page.dart';
 import 'components/empty_state_page.dart';
 import 'components/input_field_page.dart';
 import 'components/list_choice_page.dart';
+import 'components/modal_sheet_page.dart';
 import 'components/navigation_bar_page.dart';
 import 'components/radio_page.dart';
 import 'components/select_page.dart';
+import 'components/separator_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -38,6 +39,8 @@ class Routes {
           ComponentScreen(title: 'InputField', child: InputFieldPage()),
       ROUTE_LIST_CHOICE: (_) =>
           ComponentScreen(title: 'ListChoice', child: ListChoicePage()),
+      ROUTE_MODAL_SHEET: (_) =>
+          ComponentScreen(title: 'ModalSheet', child: ModalSheetPage()),
       ROUTE_NAVIGATION_BAR: (_) =>
           ComponentScreen(title: 'NavigationBar', child: NavigationBarPage()),
       ROUTE_RADIO: (_) => ComponentScreen(title: 'Radio', child: RadioPage()),
@@ -59,6 +62,7 @@ class Routes {
   static const ROUTE_EMPTY_STATE = '/empty_state';
   static const ROUTE_INPUT_FIELD = '/input_field';
   static const ROUTE_LIST_CHOICE = '/list_choice';
+  static const ROUTE_MODAL_SHEET = '/modal_sheet';
   static const ROUTE_NAVIGATION_BAR = '/navigation_bar';
   static const ROUTE_RADIO = '/radio';
   static const ROUTE_SELECT = '/select';

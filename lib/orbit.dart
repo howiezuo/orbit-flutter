@@ -18,6 +18,7 @@ export 'src/components/dialog.dart';
 export 'src/components/empty_state.dart';
 export 'src/components/input_field.dart';
 export 'src/components/list_choice.dart';
+export 'src/components/modal_sheet.dart';
 export 'src/components/radio.dart';
 export 'src/components/select.dart';
 export 'src/components/separator.dart';
