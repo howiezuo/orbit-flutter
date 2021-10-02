@@ -81,6 +81,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('Select'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_SELECT),
           ),
+          ListTile(
+            title: Text('Separator'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_SEPARATOR),
+          ),
         ],
       ),
     );

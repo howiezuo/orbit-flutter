@@ -1,3 +1,4 @@
+import 'package:catalog/src/components/separator_page.dart';
 import 'package:catalog/src/home.dart';
 import 'package:flutter/widgets.dart';
 
@@ -40,7 +41,10 @@ class Routes {
       ROUTE_NAVIGATION_BAR: (_) =>
           ComponentScreen(title: 'NavigationBar', child: NavigationBarPage()),
       ROUTE_RADIO: (_) => ComponentScreen(title: 'Radio', child: RadioPage()),
-      ROUTE_SELECT: (_) => ComponentScreen(title: 'Select', child: SelectPage()),
+      ROUTE_SELECT: (_) =>
+          ComponentScreen(title: 'Select', child: SelectPage()),
+      ROUTE_SEPARATOR: (_) =>
+          ComponentScreen(title: 'Separator', child: SeparatorPage()),
     };
   }
 
@@ -58,4 +62,5 @@ class Routes {
   static const ROUTE_NAVIGATION_BAR = '/navigation_bar';
   static const ROUTE_RADIO = '/radio';
   static const ROUTE_SELECT = '/select';
+  static const ROUTE_SEPARATOR = '/separator';
 }
