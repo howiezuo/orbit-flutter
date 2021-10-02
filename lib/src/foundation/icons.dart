@@ -17,9 +17,15 @@ class OrbitIcons {
 
   static const chevron_right = OrbitIconData(0xe01f);
 
+  static const circle = OrbitIconData(0xe013);
+
   static const close = OrbitIconData(0x0058);
 
   static const information_circle = OrbitIconData(0x0052);
+
+  static const lock = OrbitIconData(0xe169);
+
+  static const lock_open = OrbitIconData(0xe170);
 
   static const search = OrbitIconData(0xe07c);
 }

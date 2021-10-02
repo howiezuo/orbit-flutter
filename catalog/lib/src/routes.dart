@@ -17,6 +17,7 @@ import 'components/navigation_bar_page.dart';
 import 'components/radio_page.dart';
 import 'components/select_page.dart';
 import 'components/separator_page.dart';
+import 'components/switch_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -48,6 +49,8 @@ class Routes {
           ComponentScreen(title: 'Select', child: SelectPage()),
       ROUTE_SEPARATOR: (_) =>
           ComponentScreen(title: 'Separator', child: SeparatorPage()),
+      ROUTE_SWITCH: (_) =>
+          ComponentScreen(title: 'Switch', child: SwitchPage()),
     };
   }
 
@@ -67,4 +70,5 @@ class Routes {
   static const ROUTE_RADIO = '/radio';
   static const ROUTE_SELECT = '/select';
   static const ROUTE_SEPARATOR = '/separator';
+  static const ROUTE_SWITCH = '/switch';
 }
