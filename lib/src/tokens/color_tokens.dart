@@ -46,6 +46,7 @@ abstract class ColorTokens {
   Color get blueLightHover;
   Color get blueNormal;
   Color get blueDark;
+  Color get blueDarker;
 }
 
 class Colors implements ColorTokens {
@@ -111,4 +112,6 @@ class Colors implements ColorTokens {
   Color get blueNormal => Palette.BlueNormal;
   @override
   Color get blueDark => Palette.BlueDark;
+  @override
+  Color get blueDarker => Palette.BlueDarker;
 }

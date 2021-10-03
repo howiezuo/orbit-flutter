@@ -40,6 +40,7 @@ class Palette {
   static const BlueLightHover = Color(0xFFD0E9FB);
   static const BlueNormal = Color(0xFF0172CB);
   static const BlueDark = Color(0xFF005AA3);
+  static const BlueDarker = Color(0xFF004680);
 
   static const Transparent = Color(0x00000000);
 }

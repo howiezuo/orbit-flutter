@@ -23,6 +23,8 @@ class OrbitIcons {
 
   static const close = OrbitIconData(0x0058);
 
+  static const close_circle = OrbitIconData(0x0074);
+
   static const information_circle = OrbitIconData(0x0052);
 
   static const lock = OrbitIconData(0xe169);
