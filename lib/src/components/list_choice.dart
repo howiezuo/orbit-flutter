@@ -32,7 +32,7 @@ class ListChoice extends StatelessWidget {
     final spaces = theme.spaceTokens;
     final typography = theme.typographyTokens;
     final textStyles = TextTokens.fromDefault(context);
-    final iconStyles = IconTokens.fromDefalut(context);
+    final iconStyles = IconTokens.fromDefault(context);
 
     return InkWell(
       onTap: () => onClick?.call(!isSelected),

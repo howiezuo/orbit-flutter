@@ -112,7 +112,7 @@ class _InputFieldState extends State<InputField> {
     final theme = OrbitTheme.of(context);
     final style = InputTokens.fromDefault(context);
     final formStyles = FormTokens.fromDefault(context);
-    final iconStyles = IconTokens.fromDefalut(context);
+    final iconStyles = IconTokens.fromDefault(context);
 
     Color resolveBorderColor() {
       if (widget.state is InputFieldStateError)
@@ -238,7 +238,7 @@ class _InputFieldState extends State<InputField> {
   Widget _message(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final style = InputTokens.fromDefault(context);
-    final iconStyles = IconTokens.fromDefalut(context);
+    final iconStyles = IconTokens.fromDefault(context);
 
     if (widget.state is InputFieldStateError) {
       return Row(

@@ -113,7 +113,7 @@ class Select<T> extends StatelessWidget {
   Widget _message(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final inputStyles = InputTokens.fromDefault(context);
-    final iconStyles = IconTokens.fromDefalut(context);
+    final iconStyles = IconTokens.fromDefault(context);
 
     if (state is SelectStateError) {
       return Row(

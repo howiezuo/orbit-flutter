@@ -64,7 +64,7 @@ class Alert extends StatelessWidget {
     final theme = OrbitTheme.of(context);
     final spaces = theme.spaceTokens;
     final icon = _resolveIcon();
-    final iconSizes = IconTokens.fromDefalut(context);
+    final iconSizes = IconTokens.fromDefault(context);
     return Padding(
       padding: EdgeInsets.only(right: spaces.xSmall),
       child: Icon(

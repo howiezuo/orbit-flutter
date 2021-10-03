@@ -20,7 +20,7 @@ class Switch extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final iconTokens = IconTokens.fromDefalut(context);
+    final iconTokens = IconTokens.fromDefault(context);
 
     return InkWell(
       onTap: () => onChanged?.call(!value),

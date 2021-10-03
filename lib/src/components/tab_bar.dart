@@ -18,7 +18,7 @@ class TabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final iconTokens = IconTokens.fromDefalut(context);
+    final iconTokens = IconTokens.fromDefault(context);
 
     return Column(
       children: [

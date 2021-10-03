@@ -15,7 +15,7 @@ class IconTokens {
     required this.sizeLarge,
   });
 
-  static IconTokens fromDefalut(BuildContext context) {
+  static IconTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
     final sizes = theme.sizeTokens;
