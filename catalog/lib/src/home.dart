@@ -97,6 +97,10 @@ class HomeScreen extends StatelessWidget {
             title: Text('TabBar'),
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_TAB_BAR),
           ),
+          ListTile(
+            title: Text('Tag'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_TAG),
+          ),
         ],
       ),
     );

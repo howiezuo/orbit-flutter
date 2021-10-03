@@ -19,6 +19,8 @@ export 'tokens/icon_tokens.dart';
 export 'tokens/input_tokens.dart';
 export 'tokens/radio_tokens.dart';
 export 'tokens/space_tokens.dart';
+export 'tokens/tag_tokens.dart';
+export 'tokens/text_tokens.dart';
 
 class OrbitThemeData {
   final ColorTokens colorTokens;

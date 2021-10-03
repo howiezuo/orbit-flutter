@@ -19,6 +19,7 @@ import 'components/select_page.dart';
 import 'components/separator_page.dart';
 import 'components/switch_page.dart';
 import 'components/tab_bar_page.dart';
+import 'components/tag_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -54,6 +55,7 @@ class Routes {
           ComponentScreen(title: 'Switch', child: SwitchPage()),
       ROUTE_TAB_BAR: (_) =>
           ComponentScreen(title: 'TabBar', child: TabBarPage()),
+      ROUTE_TAG: (_) => ComponentScreen(title: 'Tag', child: TagPage()),
     };
   }
 
@@ -75,4 +77,5 @@ class Routes {
   static const ROUTE_SEPARATOR = '/separator';
   static const ROUTE_SWITCH = '/switch';
   static const ROUTE_TAB_BAR = '/tab_bar';
+  static const ROUTE_TAG = '/tag';
 }
