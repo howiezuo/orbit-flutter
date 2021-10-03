@@ -8,12 +8,14 @@ class TextTokens {
 
   final double fontSizeSmall;
   final double fontSizeNormal;
+  final double fontSizeLarge;
 
   const TextTokens({
     required this.colorPrimary,
     required this.colorSecondary,
     required this.fontSizeSmall,
     required this.fontSizeNormal,
+    required this.fontSizeLarge,
   });
 
   static TextTokens fromDefault(BuildContext context) {
@@ -25,6 +27,7 @@ class TextTokens {
       colorSecondary: colors.inkLight,
       fontSizeSmall: typogrphy.fontSizeSmall,
       fontSizeNormal: typogrphy.fontSizeMedium,
+      fontSizeLarge: typogrphy.fontSizeLarge,
     );
   }
 }

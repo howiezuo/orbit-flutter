@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:orbit/orbit.dart';
+
+import '../theme.dart';
 
 /**
  * TODO
  * shdow
  * ripple
+ * disable
  */
 class Button extends StatelessWidget {
   final String? label;
@@ -132,7 +134,7 @@ class Button extends StatelessWidget {
   LocalButtonStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final defaultStyle = ButtonStyles.fromDefault(context);
-    final iconStyle = IconStyles.fromDefalut(context);
+    final iconStyle = IconTokens.fromDefault(context);
     final colors = theme.colorTokens;
 
     Color resolveTextColor() {
