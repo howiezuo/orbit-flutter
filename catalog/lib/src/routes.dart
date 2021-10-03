@@ -21,6 +21,7 @@ import 'components/switch_page.dart';
 import 'components/tab_bar_page.dart';
 import 'components/tag_page.dart';
 import 'components/text_link_page.dart';
+import 'components/tile_page.dart';
 
 class Routes {
   static Map<String, WidgetBuilder>? routes(BuildContext context) {
@@ -59,6 +60,7 @@ class Routes {
       ROUTE_TAG: (_) => ComponentScreen(title: 'Tag', child: TagPage()),
       ROUTE_TEXT_LINK: (_) =>
           ComponentScreen(title: 'TextLink', child: TextLinkPage()),
+      ROUTE_TILE: (_) => ComponentScreen(title: 'Tile', child: TilePage()),
     };
   }
 
@@ -82,4 +84,5 @@ class Routes {
   static const ROUTE_TAB_BAR = '/tab_bar';
   static const ROUTE_TAG = '/tag';
   static const ROUTE_TEXT_LINK = '/text_link';
+  static const ROUTE_TILE = '/tile';
 }

@@ -26,6 +26,7 @@ export 'src/components/switch.dart';
 export 'src/components/tab_bar.dart';
 export 'src/components/tag.dart';
 export 'src/components/text_link.dart';
+export 'src/components/tile.dart';
 
 class OrbitApp extends StatelessWidget {
   final OrbitThemeData? theme;
