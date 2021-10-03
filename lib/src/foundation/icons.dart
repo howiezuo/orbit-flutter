@@ -5,6 +5,8 @@ class OrbitIcons {
 
   static const accommodation = OrbitIconData(0xe085);
 
+  static const account_circle = OrbitIconData(0xe134);
+
   static const airplane = OrbitIconData(0x0061);
 
   static const alert = OrbitIconData(0xe07f);
@@ -28,6 +30,8 @@ class OrbitIcons {
   static const lock_open = OrbitIconData(0xe170);
 
   static const search = OrbitIconData(0xe07c);
+
+  static const ticket = OrbitIconData(0x002e);
 }
 
 class OrbitIconData extends IconData {
