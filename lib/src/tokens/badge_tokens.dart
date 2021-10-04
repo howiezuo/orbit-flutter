@@ -116,6 +116,8 @@ class BadgeStyes extends BadgeTokens {
   static BadgeTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
+    final baseTokens = theme.baseTokens;
+
     return BadgeStyes(
       colorTextCritical: colors.redNormal,
       colorTextDark: colors.whiteNormal,
@@ -133,8 +135,8 @@ class BadgeStyes extends BadgeTokens {
       backgroundWhite: colors.whiteNormal,
       // TODO no token?
       borderRadius: 12,
-      height: theme.sizeTokens.medium,
-      padding: EdgeInsets.symmetric(horizontal: theme.baseTokens.spaceXsmall),
+      height: baseTokens.sizeMedium,
+      padding: EdgeInsets.symmetric(horizontal: baseTokens.spaceXsmall),
       borderColorCritical: colors.redLightHover,
       borderColorDark: null,
       borderColorInfo: colors.blueLightHover,

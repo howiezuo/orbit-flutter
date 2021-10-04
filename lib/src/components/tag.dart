@@ -22,6 +22,7 @@ class Tag extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
+    final baseTokens = theme.baseTokens;
     final tagTokens = TagTokens.fromDefault(context);
     final textTokens = TextTokens.fromDefault(context);
 
@@ -59,7 +60,7 @@ class Tag extends StatelessWidget {
                 child: Icon(
                   OrbitIcons.close,
                   color: resolveIconColor(),
-                  size: theme.sizeTokens.small,
+                  size: baseTokens.sizeSmall,
                 ),
               ),
             ),

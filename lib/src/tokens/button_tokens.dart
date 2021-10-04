@@ -160,7 +160,7 @@ class ButtonStyles extends ButtonTokens {
     final colors = theme.colorTokens;
     final baseTokens = theme.baseTokens;
     final typography = theme.typographyTokens;
-    final sizes = theme.sizeTokens;
+    
     return ButtonStyles(
       backgroundCritical: colors.redNormal,
       backgroundInfo: colors.blueNormal,
@@ -179,9 +179,9 @@ class ButtonStyles extends ButtonTokens {
       fontSizeLarge: typography.fontSizeLarge,
       fontSizeNormal: typography.fontSizeMedium,
       fontSizeSmall: typography.fontSizeSmall,
-      heightLarge: sizes.xxlarge,
-      heightNormal: sizes.xlarge,
-      heightSmall: sizes.large,
+      heightLarge: baseTokens.sizeXxlarge,
+      heightNormal: baseTokens.sizeXlarge,
+      heightSmall: baseTokens.sizeLarge,
       opacityDisabled: theme.opacityTokens.small,
       // TODO double check
       paddingLarge: EdgeInsets.symmetric(horizontal: 28),

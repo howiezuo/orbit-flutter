@@ -10,11 +10,11 @@ class BaseTokens {
 
   final Radius borderRadius;
 
-  final double sizeSm;
-  final double sizeMd;
-  final double sizeLg;
-  final double sizeXl;
-  final double sizeXxl;
+  final double sizeSmall;
+  final double sizeMedium;
+  final double sizeLarge;
+  final double sizeXlarge;
+  final double sizeXxlarge;
 
   final double opacitySmall;
   final double opacityMedium;
@@ -47,11 +47,11 @@ class BaseTokens {
     this.fontSizeMd = Base.FontSizeMd,
     this.fontSizeLg = Base.FontSizeLg,
     this.borderRadius = Base.BorderRadius,
-    this.sizeSm = Base.SizeSm,
-    this.sizeMd = Base.SizeMd,
-    this.sizeLg = Base.SizeLg,
-    this.sizeXl = Base.SizeXl,
-    this.sizeXxl = Base.SizeXxl,
+    this.sizeSmall = Base.SizeSm,
+    this.sizeMedium = Base.SizeMd,
+    this.sizeLarge = Base.SizeLg,
+    this.sizeXlarge = Base.SizeXl,
+    this.sizeXxlarge = Base.SizeXxl,
     this.opacitySmall = Base.OpacitySmall,
     this.opacityMedium = Base.OpacityMedium,
     this.opacityLarge = Base.OpacityLarge,

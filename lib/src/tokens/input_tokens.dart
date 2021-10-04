@@ -38,6 +38,7 @@ class InputTokens {
   static InputTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
+    final baseTokens = theme.baseTokens;
 
     return InputTokens(
       colorText: colors.inkNormal,
@@ -51,8 +52,8 @@ class InputTokens {
       borderColorError: colors.redNormal,
       borderColorErrorFocus: colors.redNormal,
       borderWidth: 1,
-      heightNormal: theme.sizeTokens.xlarge,
-      paddingNormal: EdgeInsets.symmetric(horizontal: theme.baseTokens.spaceSmall),
+      heightNormal: baseTokens.sizeXlarge,
+      paddingNormal: EdgeInsets.symmetric(horizontal: baseTokens.spaceSmall),
     );
   }
 }

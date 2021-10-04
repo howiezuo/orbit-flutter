@@ -20,13 +20,13 @@ class IconTokens {
   static IconTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final sizes = theme.sizeTokens;
+    final baseTokens = theme.baseTokens;
     return IconTokens(
       colorPrimary: colors.inkNormal,
       colorSecondary: colors.inkLight,
-      sizeSmall: sizes.small,
-      sizeMedium: sizes.medium,
-      sizeLarge: sizes.large,
+      sizeSmall: baseTokens.sizeSmall,
+      sizeMedium: baseTokens.sizeMedium,
+      sizeLarge: baseTokens.sizeLarge,
     );
   }
 }

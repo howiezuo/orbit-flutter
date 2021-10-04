@@ -3,7 +3,6 @@ import 'package:flutter/material.dart' hide Typography;
 import 'tokens/base_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/opacity_tokens.dart';
-import 'tokens/size_tokens.dart';
 import 'tokens/typography_tokens.dart';
 
 export 'foundation/icons.dart';
@@ -26,7 +25,6 @@ class OrbitThemeData {
   final ColorTokens colorTokens;
   final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
-  final SizeTokens sizeTokens;
   final OpacityTokens opacityTokens;
 
   final ThemeData materialTheme;
@@ -35,7 +33,6 @@ class OrbitThemeData {
     required this.colorTokens,
     required this.baseTokens,
     required this.typographyTokens,
-    required this.sizeTokens,
     required this.opacityTokens,
   }) : materialTheme = ThemeData(
           colorScheme: ColorScheme.light(
@@ -47,7 +44,6 @@ class OrbitThemeData {
         colorTokens: ColorTokens(),
         baseTokens: BaseTokens(),
         typographyTokens: Typography(),
-        sizeTokens: SizeStyles(),
         opacityTokens: OpacityStyles(),
       );
 }
