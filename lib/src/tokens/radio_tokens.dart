@@ -24,7 +24,7 @@ class RadioTokens {
       borderColor: colors.cloudDarker,
       borderColorError: colors.redNormal,
       size: 20,
-      opacityDisabled: theme.opacityTokens.medium,
+      opacityDisabled: theme.baseTokens.opacityMedium,
     );
   }
 }

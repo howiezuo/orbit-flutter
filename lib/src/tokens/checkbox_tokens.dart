@@ -27,7 +27,7 @@ class CheckBoxTokens {
       borderColorRadio: colors.cloudDarker,
       borderColorRadioError: colors.redNormal,
       size: 20,
-      opcityDisable: theme.opacityTokens.medium,
+      opcityDisable: theme.baseTokens.opacityMedium,
     );
   }
 }

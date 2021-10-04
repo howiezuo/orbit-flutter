@@ -182,7 +182,7 @@ class ButtonStyles extends ButtonTokens {
       heightLarge: baseTokens.sizeXxlarge,
       heightNormal: baseTokens.sizeXlarge,
       heightSmall: baseTokens.sizeLarge,
-      opacityDisabled: theme.opacityTokens.small,
+      opacityDisabled: baseTokens.opacitySmall,
       // TODO double check
       paddingLarge: EdgeInsets.symmetric(horizontal: 28),
       paddingLargeWithIcons: EdgeInsets.symmetric(horizontal: baseTokens.spaceMedium),
