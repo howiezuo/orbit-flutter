@@ -82,7 +82,7 @@ class Button extends StatelessWidget {
             ? Size.fromHeight(style.height!)
             : Size(style.height!, style.height!),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal)),
+            borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
       ),
     );
   }

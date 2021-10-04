@@ -160,7 +160,7 @@ class Alert extends StatelessWidget {
       colorBackground: backgroundColor,
       colorBorder: borderColor,
       padding: defalutAlertStyles.padding,
-      borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
+      borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
     );
   }
 

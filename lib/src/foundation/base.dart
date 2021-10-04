@@ -2,14 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 
+/// https://github.com/kiwicom/orbit/blob/master/packages/orbit-design-tokens/src/foundation.js
 @immutable
 class Base {
-  static const double fontSizeSm = 12;
-  static const double fontSizeMd = 14;
-  static const double fontSizeLg = 16;
+  static const double FontSizeSm = 12;
+  static const double FontSizeMd = 14;
+  static const double FontSizeLg = 16;
 
   // 3 for desktop, 6 for mobile
-  static const borderRadius = Radius.circular(6);
+  static const BorderRadius = const Radius.circular(6);
 
   static const double SizeSm = 16;
   static const double SizeMd = 24;
@@ -34,9 +35,9 @@ class Base {
   static const double SpaceXxl = 40;
   static const double SpaceXxxl = 52;
 
-  static const durationFast = Duration(milliseconds: 150);
-  static const durationNormal = Duration(milliseconds: 300);
-  static const durationSlow = Duration(milliseconds: 400);
+  static const DurationFast = const Duration(milliseconds: 150);
+  static const DurationNormal = const Duration(milliseconds: 300);
+  static const DurationSlow = const Duration(milliseconds: 400);
 
   // TODO
   // transitionDefault: "ease-in-out",

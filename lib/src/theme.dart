@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' hide Typography;
 
-import 'tokens/border_radius_tokens.dart';
+import 'tokens/base_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/opacity_tokens.dart';
 import 'tokens/size_tokens.dart';
@@ -9,6 +9,7 @@ import 'tokens/typography_tokens.dart';
 
 export 'foundation/icons.dart';
 export 'foundation/palette.dart';
+export 'tokens/base_tokens.dart';
 export 'tokens/alert_tokens.dart';
 export 'tokens/badge_tokens.dart';
 export 'tokens/border_radius_tokens.dart';
@@ -25,20 +26,20 @@ export 'tokens/text_tokens.dart';
 
 class OrbitThemeData {
   final ColorTokens colorTokens;
+  final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
   final SizeTokens sizeTokens;
   final SpaceTokens spaceTokens;
-  final BorderRadiusTokens borderRadiusTokens;
   final OpacityTokens opacityTokens;
 
   final ThemeData materialTheme;
 
   OrbitThemeData({
     required this.colorTokens,
+    required this.baseTokens,
     required this.typographyTokens,
     required this.sizeTokens,
     required this.spaceTokens,
-    required this.borderRadiusTokens,
     required this.opacityTokens,
   }) : materialTheme = ThemeData(
           colorScheme: ColorScheme.light(
@@ -48,10 +49,10 @@ class OrbitThemeData {
 
   factory OrbitThemeData.light() => OrbitThemeData(
         colorTokens: ColorTokens(),
+        baseTokens: BaseTokens(),
         typographyTokens: Typography(),
         sizeTokens: SizeStyles(),
         spaceTokens: SpaceStyles(),
-        borderRadiusTokens: BorderRadiusTokens(),
         opacityTokens: OpacityStyles(),
       );
 }

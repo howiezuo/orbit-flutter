@@ -152,7 +152,7 @@ class _InputFieldState extends State<InputField> {
               color: borderColor,
               width: style.borderWidth,
             ),
-            borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
+            borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
           ),
           child: Row(
             children: [

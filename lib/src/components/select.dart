@@ -63,7 +63,7 @@ class Select<T> extends StatelessWidget {
               color: resolveBorderColor(),
               width: inputStyles.borderWidth,
             ),
-            borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
+            borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,

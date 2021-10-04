@@ -28,18 +28,18 @@ abstract class TypographyTokens {
 
 class Typography implements TypographyTokens {
   @override
-  double get fontSizeSmall => Base.fontSizeSm;
+  double get fontSizeSmall => Base.FontSizeSm;
   @override
-  double get fontSizeMedium => Base.fontSizeMd;
+  double get fontSizeMedium => Base.FontSizeMd;
   @override
-  double get fontSizeLarge => Base.fontSizeLg;
+  double get fontSizeLarge => Base.FontSizeLg;
 
   @override
   double get fontSizeHeadingTitle2 => 22;
   @override
   double get fontSizeHeadingTitle3 => 16;
   @override
-  double get fontSizeHeadingTitle4 => Base.fontSizeMd;
+  double get fontSizeHeadingTitle4 => Base.FontSizeMd;
 
   @override
   FontWeight get fontWeightNormal => Base.FontWeightNormal;

@@ -71,7 +71,7 @@ class Tag extends StatelessWidget {
       pressElevation: 0,
       labelPadding: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal),
+        borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
       ),
       backgroundColor: resolveBackground(),
       padding: tagTokens.padding,

@@ -38,7 +38,7 @@ class Tile extends StatelessWidget {
       padding: EdgeInsets.all(spaces.medium),
       decoration: BoxDecoration(
           color: colors.whiteNormal,
-          borderRadius: BorderRadius.all(theme.borderRadiusTokens.normal)),
+          borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
       child: IntrinsicHeight(
         child: Row(
           children: [
