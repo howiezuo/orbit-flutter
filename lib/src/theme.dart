@@ -43,7 +43,7 @@ class OrbitThemeData {
   factory OrbitThemeData.light() => OrbitThemeData(
         colorTokens: ColorTokens(),
         baseTokens: BaseTokens(),
-        typographyTokens: Typography(),
+        typographyTokens: TypographyTokens(),
         opacityTokens: OpacityStyles(),
       );
 }

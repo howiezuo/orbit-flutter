@@ -138,7 +138,7 @@ class _InputFieldState extends State<InputField> {
               style: TextStyle(
                 color: formStyles.colorLabel,
                 fontSize: formStyles.fontSizeLabel,
-                fontWeight: theme.typographyTokens.fontWeightMedium,
+                fontWeight: baseTokens.fontWeightMedium,
                 height: theme.typographyTokens.lineHeightTextSmall /
                     formStyles.fontSizeLabel,
               ),
@@ -214,13 +214,13 @@ class _InputFieldState extends State<InputField> {
                     hintStyle: TextStyle(
                       color: style.colorPlaceholder,
                       fontSize: style.fontSizeNormal,
-                      fontWeight: theme.typographyTokens.fontWeightNormal,
+                      fontWeight: baseTokens.fontWeightNormal,
                     ),
                   ),
                   style: TextStyle(
                     color: style.colorText,
                     fontSize: style.fontSizeNormal,
-                    fontWeight: theme.typographyTokens.fontWeightNormal,
+                    fontWeight: baseTokens.fontWeightNormal,
                   ),
                 ),
               ),

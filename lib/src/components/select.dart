@@ -48,7 +48,7 @@ class Select<T> extends StatelessWidget {
               style: TextStyle(
                 color: formStyles.colorLabel,
                 fontSize: formStyles.fontSizeLabel,
-                fontWeight: theme.typographyTokens.fontWeightMedium,
+                fontWeight: baseTokens.fontWeightMedium,
                 height: theme.typographyTokens.lineHeightTextSmall /
                     formStyles.fontSizeLabel,
               ),

@@ -15,11 +15,12 @@ class FormTokens {
 
   static FormTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
 
     return FormTokens(
       colorLabel: theme.colorTokens.inkNormal,
-      fontSizeLabel: theme.typographyTokens.fontSizeMedium,
-      fontSizeFeedback: theme.typographyTokens.fontSizeSmall,
+      fontSizeLabel: baseTokens.fontSizeMedium,
+      fontSizeFeedback: baseTokens.fontSizeSmall,
     );
   }
 }

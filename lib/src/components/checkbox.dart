@@ -26,6 +26,7 @@ class CheckBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final style = _fromTheme(context);
     final formTokens = FormTokens.fromDefault(context);
 
@@ -63,7 +64,7 @@ class CheckBox extends StatelessWidget {
                     label!,
                     style: TextStyle(
                       fontSize: formTokens.fontSizeLabel,
-                      fontWeight: theme.typographyTokens.fontWeightNormal,
+                      fontWeight: baseTokens.fontWeightNormal,
                       color: formTokens.colorLabel,
                       height: style.size! / formTokens.fontSizeLabel,
                     ),

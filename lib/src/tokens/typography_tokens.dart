@@ -1,66 +1,33 @@
 import 'dart:ui';
 
-import 'package:flutter/painting.dart';
 import 'package:orbit/src/foundation/base.dart';
 
-abstract class TypographyTokens {
-  double get fontSizeSmall;
-  double get fontSizeMedium;
-  double get fontSizeLarge;
+class TypographyTokens {
+  final double fontSizeHeadingTitle2;
+  final double fontSizeHeadingTitle3;
+  final double fontSizeHeadingTitle4;
 
-  double get fontSizeHeadingTitle2;
-  double get fontSizeHeadingTitle3;
-  double get fontSizeHeadingTitle4;
+  final FontWeight fontWeightHeadingTitle2;
+  final FontWeight fontWeightHeadingTitle3;
+  final FontWeight fontWeightHeadingTitle4;
 
-  FontWeight get fontWeightNormal;
-  FontWeight get fontWeightMedium;
+  final double lineHeightHeadingTitle2;
+  final double lineHeightHeadingTitle3;
+  final double lineHeightHeadingTitle4;
+  final double lineHeightTextSmall;
+  final double lineHeightTextNormal;
 
-  FontWeight get fontWeightHeadingTitle2;
-  FontWeight get fontWeightHeadingTitle3;
-  FontWeight get fontWeightHeadingTitle4;
-
-  double get lineHeightHeadingTitle2;
-  double get lineHeightHeadingTitle3;
-  double get lineHeightHeadingTitle4;
-  double get lineHeightTextSmall;
-  double get lineHeightTextNormal;
-}
-
-class Typography implements TypographyTokens {
-  @override
-  double get fontSizeSmall => Base.FontSizeSm;
-  @override
-  double get fontSizeMedium => Base.FontSizeMd;
-  @override
-  double get fontSizeLarge => Base.FontSizeLg;
-
-  @override
-  double get fontSizeHeadingTitle2 => 22;
-  @override
-  double get fontSizeHeadingTitle3 => 16;
-  @override
-  double get fontSizeHeadingTitle4 => Base.FontSizeMd;
-
-  @override
-  FontWeight get fontWeightNormal => Base.FontWeightNormal;
-  @override
-  FontWeight get fontWeightMedium => Base.FontWeightMedium;
-
-  @override
-  FontWeight get fontWeightHeadingTitle2 => fontWeightMedium;
-  @override
-  FontWeight get fontWeightHeadingTitle3 => fontWeightMedium;
-  @override
-  FontWeight get fontWeightHeadingTitle4 => fontWeightMedium;
-
-  @override
-  double get lineHeightHeadingTitle2 => 28;
-  @override
-  double get lineHeightHeadingTitle3 => 24;
-  @override
-  double get lineHeightHeadingTitle4 => 20;
-  @override
-  double get lineHeightTextSmall => 16;
-  @override
-  double get lineHeightTextNormal => 20;
+  TypographyTokens({
+    this.fontSizeHeadingTitle2 = 22,
+    this.fontSizeHeadingTitle3 = 16,
+    this.fontSizeHeadingTitle4 = Base.FontSizeMd,
+    this.fontWeightHeadingTitle2 = Base.FontWeightNormal,
+    this.fontWeightHeadingTitle3 = Base.FontWeightNormal,
+    this.fontWeightHeadingTitle4 = Base.FontWeightNormal,
+    this.lineHeightHeadingTitle2 = 28,
+    this.lineHeightHeadingTitle3 = 24,
+    this.lineHeightHeadingTitle4 = 20,
+    this.lineHeightTextSmall = 16,
+    this.lineHeightTextNormal = 20,
+  });
 }

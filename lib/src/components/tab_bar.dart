@@ -18,6 +18,7 @@ class TabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final iconTokens = IconTokens.fromDefault(context);
 
     return Column(
@@ -32,13 +33,13 @@ class TabBar extends StatelessWidget {
             elevation: 0,
             iconSize: iconTokens.sizeLarge,
             selectedLabelStyle: TextStyle(
-              fontSize: theme.typographyTokens.fontSizeSmall,
-              fontWeight: theme.typographyTokens.fontWeightMedium,
+              fontSize: baseTokens.fontSizeSmall,
+              fontWeight: baseTokens.fontWeightMedium,
             ),
             type: BottomNavigationBarType.fixed,
             unselectedLabelStyle: TextStyle(
-              fontSize: theme.typographyTokens.fontSizeSmall,
-              fontWeight: theme.typographyTokens.fontWeightMedium,
+              fontSize: baseTokens.fontSizeSmall,
+              fontWeight: baseTokens.fontWeightMedium,
             ),
           ),
         ),

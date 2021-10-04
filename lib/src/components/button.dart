@@ -133,6 +133,7 @@ class Button extends StatelessWidget {
 
   LocalButtonStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final defaultStyle = ButtonStyles.fromDefault(context);
     final iconStyle = IconTokens.fromDefault(context);
     final colors = theme.colorTokens;
@@ -251,7 +252,7 @@ class Button extends StatelessWidget {
     final background = resolveBackground();
     final height = resolveHeight();
     final fontSize = resolveFontSize();
-    final fontWeight = theme.typographyTokens.fontWeightMedium;
+    final fontWeight = baseTokens.fontWeightMedium;
     final padding = resolvePadding();
     final iconSize = resolveIconSize();
     final gap = resolveGap();

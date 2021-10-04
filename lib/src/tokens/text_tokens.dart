@@ -24,13 +24,14 @@ class TextTokens {
   static TextTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final typogrphy = theme.typographyTokens;
+    final baseTokens = theme.baseTokens;
+
     return TextTokens(
       colorPrimary: colors.inkNormal,
       colorSecondary: colors.inkLight,
-      fontSizeSmall: typogrphy.fontSizeSmall,
-      fontSizeNormal: typogrphy.fontSizeMedium,
-      fontSizeLarge: typogrphy.fontSizeLarge,
+      fontSizeSmall: baseTokens.fontSizeSmall,
+      fontSizeNormal: baseTokens.fontSizeMedium,
+      fontSizeLarge: baseTokens.fontSizeLarge,
       lineHeightNormal: 20,
     );
   }

@@ -49,7 +49,7 @@ class Tag extends StatelessWidget {
             style: TextStyle(
               color: resolveTextColor(),
               fontSize: textTokens.fontSizeNormal,
-              fontWeight: theme.typographyTokens.fontWeightMedium,
+              fontWeight: baseTokens.fontWeightMedium,
             ),
           ),
           if (_removable)

@@ -77,10 +77,10 @@ class ListChoice extends StatelessWidget {
                           color: disabled
                               ? colors.cloudDarkerHover
                               : textStyles.colorSecondary,
-                          fontSize: typography.fontSizeSmall,
-                          fontWeight: typography.fontWeightNormal,
+                          fontSize: baseTokens.fontSizeSmall,
+                          fontWeight: baseTokens.fontWeightNormal,
                           height: typography.lineHeightTextNormal /
-                              typography.fontSizeSmall,
+                              baseTokens.fontSizeSmall,
                         ),
                       ),
                   ],

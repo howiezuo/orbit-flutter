@@ -4,9 +4,9 @@ import 'package:orbit/orbit.dart';
 import 'package:orbit/src/foundation/base.dart';
 
 class BaseTokens {
-  final double fontSizeSm;
-  final double fontSizeMd;
-  final double fontSizeLg;
+  final double fontSizeSmall;
+  final double fontSizeMedium;
+  final double fontSizeLarge;
 
   final Radius borderRadius;
 
@@ -43,9 +43,9 @@ class BaseTokens {
   final double lineHeight;
 
   const BaseTokens({
-    this.fontSizeSm = Base.FontSizeSm,
-    this.fontSizeMd = Base.FontSizeMd,
-    this.fontSizeLg = Base.FontSizeLg,
+    this.fontSizeSmall = Base.FontSizeSm,
+    this.fontSizeMedium = Base.FontSizeMd,
+    this.fontSizeLarge = Base.FontSizeLg,
     this.borderRadius = Base.BorderRadius,
     this.sizeSmall = Base.SizeSm,
     this.sizeMedium = Base.SizeMd,

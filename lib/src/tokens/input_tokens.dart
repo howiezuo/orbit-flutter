@@ -46,7 +46,7 @@ class InputTokens {
       colorIcon: colors.cloudDarker,
       colorPlaceholder: colors.inkLighter,
       background: colors.cloudNormal,
-      fontSizeNormal: theme.typographyTokens.fontSizeMedium,
+      fontSizeNormal: baseTokens.fontSizeMedium,
       borderColor: colors.cloudDarker,
       borderColorFocus: colors.blueNormal,
       borderColorError: colors.redNormal,

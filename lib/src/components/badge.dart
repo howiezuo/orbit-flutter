@@ -54,13 +54,14 @@ class Badge extends StatelessWidget {
 
   Widget _label(BuildContext context, Color? color) {
     final theme = OrbitTheme.of(context);
-    final typography = theme.typographyTokens;
+    final baseTokens = theme.baseTokens;
+
     return Text(
       label!,
       style: TextStyle(
         color: color,
-        fontSize: typography.fontSizeSmall,
-        fontWeight: typography.fontWeightMedium,
+        fontSize: baseTokens.fontSizeSmall,
+        fontWeight: baseTokens.fontWeightMedium,
       ),
     );
   }
