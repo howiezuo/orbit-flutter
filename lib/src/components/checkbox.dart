@@ -110,7 +110,7 @@ class CheckBox extends StatelessWidget {
     final iconColor = disabled ? colors.cloudNormal : colors.whiteNormal;
     final infoColor = defaultStyles.colorInfoRadio;
     final size = defaultStyles.size;
-    final borderRadius = theme.borderRadiusTokens.large;
+    final borderRadius = theme.borderRadiusTokens.normal;
     final opacity = disabled ? defaultStyles.opcityDisable : 1.0;
 
     return CheckBoxStyle.raw(

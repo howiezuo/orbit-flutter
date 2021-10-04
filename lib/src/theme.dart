@@ -51,7 +51,7 @@ class OrbitThemeData {
         typographyTokens: Typography(),
         sizeTokens: SizeStyles(),
         spaceTokens: SpaceStyles(),
-        borderRadiusTokens: BorderRadiusStyles(),
+        borderRadiusTokens: BorderRadiusTokens(),
         opacityTokens: OpacityStyles(),
       );
 }

@@ -8,7 +8,8 @@ class Base {
   static const double fontSizeMd = 14;
   static const double fontSizeLg = 16;
 
-  static const double borderRadius = 3;
+  // 3 for desktop, 6 for mobile
+  static const borderRadius = Radius.circular(6);
 
   static const double SizeSm = 16;
   static const double SizeMd = 24;

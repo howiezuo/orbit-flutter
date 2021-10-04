@@ -1,16 +1,12 @@
 import 'package:flutter/painting.dart' show Radius;
 
-abstract class BorderRadiusTokens {
-  /// use for all basic elements like buttons, inputs, content containers
-  Radius get normal;
-  /// use for big elements like modal and large buttons
-  Radius get large;
-}
+import 'package:orbit/src/foundation/base.dart';
 
-class BorderRadiusStyles extends BorderRadiusTokens {
-  @override
-  Radius large = const Radius.circular(6);
+/// https://orbit.kiwi/foundation/border-radiuses/
+class BorderRadiusTokens {
+  final Radius normal;
 
-  @override
-  Radius normal = const Radius.circular(6);
+  const BorderRadiusTokens({
+    this.normal = Base.borderRadius,
+  });
 }
