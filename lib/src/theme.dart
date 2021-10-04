@@ -1,4 +1,4 @@
-import 'package:orbit/orbit.dart';
+import 'package:flutter/material.dart' hide Typography;
 
 import 'tokens/border_radius_tokens.dart';
 import 'tokens/color_tokens.dart';
@@ -6,6 +6,7 @@ import 'tokens/opacity_tokens.dart';
 import 'tokens/size_tokens.dart';
 import 'tokens/space_tokens.dart';
 import 'tokens/typography_tokens.dart';
+
 export 'foundation/icons.dart';
 export 'foundation/palette.dart';
 export 'tokens/alert_tokens.dart';
@@ -46,7 +47,7 @@ class OrbitThemeData {
         );
 
   factory OrbitThemeData.light() => OrbitThemeData(
-        colorTokens: Colors(),
+        colorTokens: ColorTokens(),
         typographyTokens: Typography(),
         sizeTokens: SizeStyles(),
         spaceTokens: SpaceStyles(),

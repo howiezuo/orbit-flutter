@@ -1,7 +1,8 @@
-import 'dart:ui';
+import 'dart:ui' show Color;
 
 import 'package:flutter/foundation.dart';
 
+/// https://github.com/kiwicom/orbit/blob/master/packages/orbit-design-tokens/src/foundation.js
 @immutable
 class Palette {
   static const ProductLight = Color(0xFFECF8F7);

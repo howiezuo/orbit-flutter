@@ -1,117 +1,161 @@
-import 'dart:ui';
+import 'dart:ui' show Color;
 
 import 'package:orbit/src/foundation/palette.dart';
 
-abstract class ColorTokens {
-  // product
-  Color get productLight;
-  Color get productNormal;
-  Color get productDark;
+/// https://github.com/kiwicom/orbit/blob/master/packages/orbit-design-tokens/src/foundation.js
+class ColorTokens {
+  final Color productLight;
+  final Color productLightHover;
+  final Color productLightActive;
+  final Color productNormal;
+  final Color productNormalHover;
+  final Color productNormalActive;
+  final Color productDark;
+  final Color productDarkHover;
+  final Color productDarkActive;
+  final Color productDarker;
 
-  // white
-  Color get whiteNormal;
+  final Color whiteNormal;
+  final Color whiteHover;
+  final Color whiteActive;
 
-  // cloud
-  Color get cloudLight;
-  Color get cloudNormal;
-  Color get cloudDark;
-  Color get cloudDarker;
-  Color get cloudDarkerHover;
+  final Color cloudLight;
+  final Color cloudLightHover;
+  final Color cloudLightActive;
+  final Color cloudNormal;
+  final Color cloudNormalHover;
+  final Color cloudNormalActive;
+  final Color cloudDark;
+  final Color cloudDarker;
+  final Color cloudDarkerHover;
+  final Color cloudDarkerActive;
 
-  // ink
-  Color get inkLighter;
-  Color get inkLight;
-  Color get inkNormal;
+  final Color inkLighter;
+  final Color inkLighterHover;
+  final Color inkLighterActive;
+  final Color inkLight;
+  final Color inkLightHover;
+  final Color inkLightActive;
+  final Color inkNormal;
+  final Color inkNormalHover;
+  final Color inkNormalActive;
 
-  // green
-  Color get greenLight;
-  Color get greenLightHover;
-  Color get greenNormal;
-  Color get greenDark;
+  final Color orangeLight;
+  final Color orangeLightHover;
+  final Color orangeLightActive;
+  final Color orangeNormal;
+  final Color orangeNormalHover;
+  final Color orangeNormalActive;
+  final Color orangeDark;
+  final Color orangeDarkHover;
+  final Color orangeDarkActive;
+  final Color orangeDarker;
 
-  // orange
-  Color get orangeLight;
-  Color get orangeLightHover;
-  Color get orangeNormal;
-  Color get orangeDark;
+  final Color redLight;
+  final Color redLightHover;
+  final Color redLightActive;
+  final Color redNormal;
+  final Color redNormalHover;
+  final Color redNormalActive;
+  final Color redDark;
+  final Color redDarkHover;
+  final Color redDarkActive;
+  final Color redDarker;
 
-  // red
-  Color get redLight;
-  Color get redLightHover;
-  Color get redNormal;
-  Color get redDark;
+  final Color greenLight;
+  final Color greenLightHover;
+  final Color greenLightActive;
+  final Color greenNormal;
+  final Color greenNormalHover;
+  final Color greenNormalActive;
+  final Color greenDark;
+  final Color greenDarkHover;
+  final Color greenDarkActive;
+  final Color greenDarker;
 
-  // blue
-  Color get blueLight;
-  Color get blueLightHover;
-  Color get blueNormal;
-  Color get blueDark;
-  Color get blueDarker;
-}
+  final Color blueLight;
+  final Color blueLightHover;
+  final Color blueLightActive;
+  final Color blueNormal;
+  final Color blueNormalHover;
+  final Color blueNormalActive;
+  final Color blueDark;
+  final Color blueDarkHover;
+  final Color blueDarkActive;
+  final Color blueDarker;
 
-class Colors implements ColorTokens {
-  @override
-  Color get productLight => Palette.ProductLight;
-  @override
-  Color get productNormal => Palette.ProductNormal;
-  @override
-  Color get productDark => Palette.ProductDark;
-
-  @override
-  Color get whiteNormal => Palette.WhiteNormal;
-
-  @override
-  Color get cloudLight => Palette.CloudLight;
-  @override
-  Color get cloudNormal => Palette.CloudNormal;
-  @override
-  Color get cloudDark => Palette.CloudDark;
-  @override
-  Color get cloudDarker => Palette.CloudDarker;
-  @override
-  Color get cloudDarkerHover => Palette.CloudDarkerHover;
-
-  @override
-  Color get inkLighter => Palette.InkLighter;
-  @override
-  Color get inkLight => Palette.InkLight;
-  @override
-  Color get inkNormal => Palette.InkNormal;
-  @override
-  Color get greenLight => Palette.GreenLight;
-  @override
-  Color get greenLightHover => Palette.GreenLightHover;
-  @override
-  Color get greenNormal => Palette.GreenNormal;
-  @override
-  Color get greenDark => Palette.GreenDark;
-
-  @override
-  Color get orangeLight => Palette.OrangeLight;
-  @override
-  Color get orangeLightHover => Palette.OrangeLightHover;
-  @override
-  Color get orangeNormal => Palette.OrangeNormal;
-  @override
-  Color get orangeDark => Palette.OrangeDark;
-
-  @override
-  Color get redLight => Palette.RedLight;
-  @override
-  Color get redLightHover => Palette.RedLightHover;
-  @override
-  Color get redNormal => Palette.RedNormal;
-  @override
-  Color get redDark => Palette.RedDark;
-
-  @override
-  Color get blueLight => Palette.BlueLight;
-  @override
-  Color get blueLightHover => Palette.BlueLightHover;
-  @override
-  Color get blueNormal => Palette.BlueNormal;
-  @override
-  Color get blueDark => Palette.BlueDark;
-  @override
-  Color get blueDarker => Palette.BlueDarker;
+  const ColorTokens({
+    this.productLight = Palette.ProductLight,
+    this.productLightHover = Palette.ProductLightHover,
+    this.productLightActive = Palette.ProductLightActive,
+    this.productNormal = Palette.ProductNormal,
+    this.productNormalHover = Palette.ProductNormalHover,
+    this.productNormalActive = Palette.ProductNormalAtive,
+    this.productDark = Palette.ProductDark,
+    this.productDarkHover = Palette.ProductDarkHover,
+    this.productDarkActive = Palette.ProductDarkActive,
+    this.productDarker = Palette.ProductDarker,
+    this.whiteNormal = Palette.WhiteNormal,
+    this.whiteHover = Palette.WhiteHover,
+    this.whiteActive = Palette.WhiteActive,
+    this.cloudLight = Palette.CloudLight,
+    this.cloudLightHover = Palette.CloudLightHover,
+    this.cloudLightActive = Palette.CloudLightActive,
+    this.cloudNormal = Palette.CloudNormal,
+    this.cloudNormalHover = Palette.CloudNormalHover,
+    this.cloudNormalActive = Palette.CloudNormalActive,
+    this.cloudDark = Palette.CloudDark,
+    this.cloudDarker = Palette.CloudDarker,
+    this.cloudDarkerHover = Palette.CloudDarkerHover,
+    this.cloudDarkerActive = Palette.CloudDarkerAtive,
+    this.inkLighter = Palette.InkLighter,
+    this.inkLighterHover = Palette.InkLighterHover,
+    this.inkLighterActive = Palette.InkLighterAcitve,
+    this.inkLight = Palette.InkLight,
+    this.inkLightHover = Palette.InkLightHover,
+    this.inkLightActive = Palette.InkLightActive,
+    this.inkNormal = Palette.InkNormal,
+    this.inkNormalHover = Palette.InkNormalHover,
+    this.inkNormalActive = Palette.InkNormalActive,
+    this.orangeLight = Palette.OrangeLight,
+    this.orangeLightHover = Palette.OrangeLightHover,
+    this.orangeLightActive = Palette.OrangeLightActive,
+    this.orangeNormal = Palette.OrangeNormal,
+    this.orangeNormalHover = Palette.OrangeNormalHover,
+    this.orangeNormalActive = Palette.OrangeNormalActive,
+    this.orangeDark = Palette.OrangeDark,
+    this.orangeDarkHover = Palette.OrangeDarkHover,
+    this.orangeDarkActive = Palette.OrangeDarkActive,
+    this.orangeDarker = Palette.OrangeDarker,
+    this.redLight = Palette.RedLight,
+    this.redLightHover = Palette.RedLightHover,
+    this.redLightActive = Palette.RedLightActive,
+    this.redNormal = Palette.RedNormal,
+    this.redNormalHover = Palette.RedNormalHover,
+    this.redNormalActive = Palette.RedNormalActive,
+    this.redDark = Palette.RedDark,
+    this.redDarkHover = Palette.RedDarkHover,
+    this.redDarkActive = Palette.RedDarkActive,
+    this.redDarker = Palette.RedDarker,
+    this.greenLight = Palette.GreenLight,
+    this.greenLightHover = Palette.GreenLightHover,
+    this.greenLightActive = Palette.GreenLightActive,
+    this.greenNormal = Palette.GreenNormal,
+    this.greenNormalHover = Palette.GreenNormalHover,
+    this.greenNormalActive = Palette.GreenNormalActive,
+    this.greenDark = Palette.GreenDark,
+    this.greenDarkHover = Palette.GreenDarkHover,
+    this.greenDarkActive = Palette.GreenDarkActive,
+    this.greenDarker = Palette.GreenDarker,
+    this.blueLight = Palette.BlueLight,
+    this.blueLightHover = Palette.BlueLightHover,
+    this.blueLightActive = Palette.BlueLightActive,
+    this.blueNormal = Palette.BlueNormal,
+    this.blueNormalHover = Palette.BlueNormalHover,
+    this.blueNormalActive = Palette.BlueNormalActive,
+    this.blueDark = Palette.BlueDark,
+    this.blueDarkHover = Palette.BlueDarkHover,
+    this.blueDarkActive = Palette.BlueDarkActive,
+    this.blueDarker = Palette.BlueDarker,
+  });
 }
