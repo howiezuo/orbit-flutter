@@ -29,7 +29,7 @@ class ListChoice extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
     final typography = theme.typographyTokens;
     final textStyles = TextTokens.fromDefault(context);
     final iconStyles = IconTokens.fromDefault(context);
@@ -40,8 +40,8 @@ class ListChoice extends StatelessWidget {
         Container(
           color: colors.whiteNormal,
           padding: EdgeInsets.symmetric(
-            vertical: spaces.small,
-            horizontal: spaces.medium,
+            vertical: baseTokens.spaceSmall,
+            horizontal: baseTokens.spaceMedium,
           ),
           child: Row(
             children: [
@@ -53,7 +53,7 @@ class ListChoice extends StatelessWidget {
                       children: [
                         if (icon != null)
                           Padding(
-                            padding: EdgeInsets.only(right: spaces.xSmall),
+                            padding: EdgeInsets.only(right: baseTokens.spaceXsmall),
                             child: Icon(
                               icon,
                               color: disabled
@@ -98,7 +98,7 @@ class ListChoice extends StatelessWidget {
         Positioned(
           child: Divider(
             color: colors.cloudNormal,
-            indent: spaces.medium,
+            indent: baseTokens.spaceMedium,
             height: 1,
           ),
         ),

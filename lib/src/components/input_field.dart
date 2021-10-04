@@ -110,6 +110,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final style = InputTokens.fromDefault(context);
     final formStyles = FormTokens.fromDefault(context);
     final iconStyles = IconTokens.fromDefault(context);
@@ -131,7 +132,7 @@ class _InputFieldState extends State<InputField> {
       children: [
         if (widget.label != null && !widget.inlineLable)
           Padding(
-            padding: EdgeInsets.only(bottom: theme.spaceTokens.xXsmall),
+            padding: EdgeInsets.only(bottom: baseTokens.spaceXxsmall),
             child: Text(
               widget.label!,
               style: TextStyle(
@@ -158,7 +159,7 @@ class _InputFieldState extends State<InputField> {
             children: [
               if (widget.icon != null)
                 Padding(
-                  padding: EdgeInsets.only(right: theme.spaceTokens.small),
+                  padding: EdgeInsets.only(right: baseTokens.spaceSmall),
                   child: Icon(
                     widget.icon!,
                     color: style.colorIcon,
@@ -167,7 +168,7 @@ class _InputFieldState extends State<InputField> {
                 ),
               if (widget.label != null && widget.inlineLable)
                 Padding(
-                  padding: EdgeInsets.only(right: theme.spaceTokens.small),
+                  padding: EdgeInsets.only(right: baseTokens.spaceSmall),
                   child: Text(
                     widget.label!,
                     style: TextStyle(
@@ -228,7 +229,7 @@ class _InputFieldState extends State<InputField> {
         ),
         if (widget.state is! InputFieldStateNormal)
           Padding(
-            padding: EdgeInsets.only(top: theme.spaceTokens.xXsmall),
+            padding: EdgeInsets.only(top: baseTokens.spaceXxsmall),
             child: _message(context),
           ),
       ],
@@ -237,6 +238,7 @@ class _InputFieldState extends State<InputField> {
 
   Widget _message(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final style = InputTokens.fromDefault(context);
     final iconStyles = IconTokens.fromDefault(context);
 
@@ -249,7 +251,7 @@ class _InputFieldState extends State<InputField> {
             color: style.borderColorErrorFocus,
             size: iconStyles.sizeSmall,
           ),
-          SizedBox(width: theme.spaceTokens.xXsmall),
+          SizedBox(width: baseTokens.spaceXxsmall),
           Text(
             widget.state.message!,
             style: TextStyle(color: style.borderColorErrorFocus),
@@ -264,7 +266,7 @@ class _InputFieldState extends State<InputField> {
             color: style.borderColorFocus,
             size: iconStyles.sizeSmall,
           ),
-          SizedBox(width: theme.spaceTokens.xXsmall),
+          SizedBox(width: baseTokens.spaceXxsmall),
           Text(
             widget.state.message!,
             style: TextStyle(color: style.borderColorFocus),

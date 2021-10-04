@@ -22,7 +22,7 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
     final style = CardStyles.fromDefault(context);
 
     return Container(
@@ -38,10 +38,10 @@ class Card extends StatelessWidget {
           if (child != null)
             Padding(
               padding: EdgeInsets.only(
-                  left: spaces.medium,
+                  left: baseTokens.spaceMedium,
                   top: 0,
-                  right: spaces.medium,
-                  bottom: spaces.medium),
+                  right: baseTokens.spaceMedium,
+                  bottom: baseTokens.spaceMedium),
               child: child!,
             ),
         ],
@@ -67,17 +67,17 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
 
     if (icon == null &&
         title == null &&
         descriprion == null &&
         actions == null) {
-      return SizedBox(height: spaces.medium);
+      return SizedBox(height: baseTokens.spaceMedium);
     }
 
     return Padding(
-      padding: EdgeInsets.all(spaces.medium),
+      padding: EdgeInsets.all(baseTokens.spaceMedium),
       child: Row(
         children: [
           Column(
@@ -88,7 +88,7 @@ class Header extends StatelessWidget {
                   if (icon != null)
                     Padding(
                       padding: EdgeInsets.only(
-                          right: title != null ? spaces.small : 0),
+                          right: title != null ? baseTokens.spaceSmall : 0),
                       child: Icon(icon),
                     ),
                   if (title != null) Heading.title3(title!),
@@ -97,7 +97,7 @@ class Header extends StatelessWidget {
               if (descriprion != null)
                 Padding(
                   padding: EdgeInsets.only(
-                      top: title != null || icon != null ? spaces.xXsmall : 0),
+                      top: title != null || icon != null ? baseTokens.spaceXxsmall : 0),
                   child: Text(descriprion!),
                 ),
             ],

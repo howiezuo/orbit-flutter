@@ -54,7 +54,7 @@ class CheckBox extends StatelessWidget {
                 ),
               ),
             ),
-            if (label != null) SizedBox(width: theme.spaceTokens.small),
+            if (label != null) SizedBox(width: theme.baseTokens.spaceSmall),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

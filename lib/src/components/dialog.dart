@@ -37,13 +37,13 @@ class Dialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
     final textTokens = TextTokens.fromDefault(context);
 
     return material.Dialog(
       backgroundColor: Palette.Transparent,
       child: Container(
-        padding: EdgeInsets.all(spaces.medium),
+        padding: EdgeInsets.all(baseTokens.spaceMedium),
         decoration: BoxDecoration(
           color: theme.colorTokens.whiteNormal,
           borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -54,14 +54,14 @@ class Dialog extends StatelessWidget {
           children: [
             if (illustration != null)
               material.Padding(
-                padding: EdgeInsets.only(bottom: spaces.medium),
+                padding: EdgeInsets.only(bottom: baseTokens.spaceMedium),
                 child: illustration!,
               ),
             Heading.title3(title, textAlign: TextAlign.center),
             if (description != null)
               Padding(
                 padding: EdgeInsets.only(
-                  top: spaces.xSmall,
+                  top: baseTokens.spaceXsmall,
                 ),
                 child: Text(
                   description!,
@@ -69,9 +69,9 @@ class Dialog extends StatelessWidget {
                   style: TextStyle(color: textTokens.colorSecondary),
                 ),
               ),
-            SizedBox(height: spaces.medium),
+            SizedBox(height: baseTokens.spaceMedium),
             Wrap(
-              runSpacing: spaces.xSmall,
+              runSpacing: baseTokens.spaceXsmall,
               children: [
                 if (primaryAction != null) primaryAction!,
                 if (secondaryAction != null) secondaryAction!,

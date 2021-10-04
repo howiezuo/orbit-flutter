@@ -158,9 +158,9 @@ class ButtonStyles extends ButtonTokens {
   static ButtonTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
+    final baseTokens = theme.baseTokens;
     final typography = theme.typographyTokens;
     final sizes = theme.sizeTokens;
-    final spaces = theme.spaceTokens;
     return ButtonStyles(
       backgroundCritical: colors.redNormal,
       backgroundInfo: colors.blueNormal,
@@ -185,22 +185,22 @@ class ButtonStyles extends ButtonTokens {
       opacityDisabled: theme.opacityTokens.small,
       // TODO double check
       paddingLarge: EdgeInsets.symmetric(horizontal: 28),
-      paddingLargeWithIcons: EdgeInsets.symmetric(horizontal: spaces.medium),
-      paddingLargeWithLeftIcon: EdgeInsets.only(right: 28, left: spaces.medium),
+      paddingLargeWithIcons: EdgeInsets.symmetric(horizontal: baseTokens.spaceMedium),
+      paddingLargeWithLeftIcon: EdgeInsets.only(right: 28, left: baseTokens.spaceMedium),
       paddingLargeWithRightIcon:
-          EdgeInsets.only(right: spaces.medium, left: 28),
-      paddingNormal: EdgeInsets.symmetric(horizontal: spaces.medium),
-      paddingNormalWithIcons: EdgeInsets.symmetric(horizontal: spaces.small),
+          EdgeInsets.only(right: baseTokens.spaceMedium, left: 28),
+      paddingNormal: EdgeInsets.symmetric(horizontal: baseTokens.spaceMedium),
+      paddingNormalWithIcons: EdgeInsets.symmetric(horizontal: baseTokens.spaceSmall),
       paddingNormalWithLeftIcon:
-          EdgeInsets.only(right: spaces.medium, left: spaces.small),
+          EdgeInsets.only(right: baseTokens.spaceMedium, left: baseTokens.spaceSmall),
       paddingNormalWithRightIcon:
-          EdgeInsets.only(right: spaces.small, left: spaces.medium),
-      paddingSmall: EdgeInsets.symmetric(horizontal: spaces.xXsmall),
-      paddingSmallWithIcons: EdgeInsets.symmetric(horizontal: spaces.xSmall),
+          EdgeInsets.only(right: baseTokens.spaceSmall, left: baseTokens.spaceMedium),
+      paddingSmall: EdgeInsets.symmetric(horizontal: baseTokens.spaceXxsmall),
+      paddingSmallWithIcons: EdgeInsets.symmetric(horizontal: baseTokens.spaceXsmall),
       paddingSmallWithLeftIcon:
-          EdgeInsets.only(right: spaces.small, left: spaces.xSmall),
+          EdgeInsets.only(right: baseTokens.spaceSmall, left: baseTokens.spaceXsmall),
       paddingSmallWithRightIcon:
-          EdgeInsets.only(right: spaces.xSmall, left: spaces.small),
+          EdgeInsets.only(right: baseTokens.spaceXsmall, left: baseTokens.spaceSmall),
       paddingWithoutText: EdgeInsets.zero,
     );
   }

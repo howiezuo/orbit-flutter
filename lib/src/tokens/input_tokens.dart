@@ -52,7 +52,7 @@ class InputTokens {
       borderColorErrorFocus: colors.redNormal,
       borderWidth: 1,
       heightNormal: theme.sizeTokens.xlarge,
-      paddingNormal: EdgeInsets.symmetric(horizontal: theme.spaceTokens.small),
+      paddingNormal: EdgeInsets.symmetric(horizontal: theme.baseTokens.spaceSmall),
     );
   }
 }

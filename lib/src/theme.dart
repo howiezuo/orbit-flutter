@@ -4,7 +4,6 @@ import 'tokens/base_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/opacity_tokens.dart';
 import 'tokens/size_tokens.dart';
-import 'tokens/space_tokens.dart';
 import 'tokens/typography_tokens.dart';
 
 export 'foundation/icons.dart';
@@ -20,7 +19,6 @@ export 'tokens/form_tokens.dart';
 export 'tokens/icon_tokens.dart';
 export 'tokens/input_tokens.dart';
 export 'tokens/radio_tokens.dart';
-export 'tokens/space_tokens.dart';
 export 'tokens/tag_tokens.dart';
 export 'tokens/text_tokens.dart';
 
@@ -29,7 +27,6 @@ class OrbitThemeData {
   final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
   final SizeTokens sizeTokens;
-  final SpaceTokens spaceTokens;
   final OpacityTokens opacityTokens;
 
   final ThemeData materialTheme;
@@ -39,7 +36,6 @@ class OrbitThemeData {
     required this.baseTokens,
     required this.typographyTokens,
     required this.sizeTokens,
-    required this.spaceTokens,
     required this.opacityTokens,
   }) : materialTheme = ThemeData(
           colorScheme: ColorScheme.light(
@@ -52,7 +48,6 @@ class OrbitThemeData {
         baseTokens: BaseTokens(),
         typographyTokens: Typography(),
         sizeTokens: SizeStyles(),
-        spaceTokens: SpaceStyles(),
         opacityTokens: OpacityStyles(),
       );
 }

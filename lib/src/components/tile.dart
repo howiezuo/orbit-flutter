@@ -29,13 +29,13 @@ class Tile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
 
     final iconTokens = IconTokens.fromDefault(context);
     final textTokens = TextTokens.fromDefault(context);
 
     return Container(
-      padding: EdgeInsets.all(spaces.medium),
+      padding: EdgeInsets.all(baseTokens.spaceMedium),
       decoration: BoxDecoration(
           color: colors.whiteNormal,
           borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
@@ -51,7 +51,7 @@ class Tile extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(right: spaces.xSmall),
+                  padding: EdgeInsets.only(right: baseTokens.spaceXsmall),
                   child: Icon(
                     icon,
                     color: iconTokens.colorPrimary,
@@ -77,7 +77,7 @@ class Tile extends StatelessWidget {
                   ],
                 ),
               ),
-            SizedBox(width: spaces.xSmall),
+            SizedBox(width: baseTokens.spaceXsmall),
             Icon(
               OrbitIcons.chevron_right,
               color: iconTokens.colorSecondary,

@@ -97,7 +97,7 @@ class AlertStyles extends AlertTokens {
   static AlertTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
     return AlertStyles(
       colorBackgroundSuccess: colors.greenLight,
       colorIconSuccess: colors.greenDark,
@@ -115,8 +115,8 @@ class AlertStyles extends AlertTokens {
       colorIconCritical: colors.redDark,
       colorTextCritical: colors.redDark,
       colorBorderCritical: colors.redLightHover,
-      padding: EdgeInsets.all(spaces.medium),
-      paddingWithIcon: EdgeInsets.all(spaces.small),
+      padding: EdgeInsets.all(baseTokens.spaceMedium),
+      paddingWithIcon: EdgeInsets.all(baseTokens.spaceSmall),
     );
   }
 }

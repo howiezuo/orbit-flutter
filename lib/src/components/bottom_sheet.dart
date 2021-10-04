@@ -15,12 +15,12 @@ class BottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
 
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: spaces.medium,
-        vertical: spaces.large,
+        horizontal: baseTokens.spaceMedium,
+        vertical: baseTokens.spaceLarge,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,7 @@ class BottomSheet extends StatelessWidget {
           child,
           if (action != null)
             Padding(
-              padding: EdgeInsets.only(top: spaces.medium),
+              padding: EdgeInsets.only(top: baseTokens.spaceMedium),
               child: action!,
             ),
         ],

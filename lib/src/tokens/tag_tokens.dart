@@ -15,7 +15,7 @@ class TagTokens {
       colorText: theme.colorTokens.inkNormal,
       padding: EdgeInsets.symmetric(
         vertical: 6,
-        horizontal: theme.spaceTokens.xSmall,
+        horizontal: theme.baseTokens.spaceXsmall,
       ),
     );
   }

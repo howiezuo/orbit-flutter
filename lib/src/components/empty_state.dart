@@ -18,14 +18,14 @@ class EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
 
     return Padding(
-      padding: EdgeInsets.all(spaces.medium),
+      padding: EdgeInsets.all(baseTokens.spaceMedium),
       child: Column(
         children: [
           Wrap(
-            runSpacing: spaces.medium,
+            runSpacing: baseTokens.spaceMedium,
             alignment: WrapAlignment.center,
             children: [
               image,

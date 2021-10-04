@@ -38,11 +38,11 @@ class Badge extends StatelessWidget {
 
   Widget _icon(BuildContext context, Color? color) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
     final iconSizes = IconTokens.fromDefault(context);
     return Padding(
       padding: label != null
-          ? EdgeInsets.only(right: spaces.xXsmall)
+          ? EdgeInsets.only(right: baseTokens.spaceXxsmall)
           : EdgeInsets.zero,
       child: Icon(
         icon,

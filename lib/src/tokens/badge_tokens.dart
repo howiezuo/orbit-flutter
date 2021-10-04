@@ -134,7 +134,7 @@ class BadgeStyes extends BadgeTokens {
       // TODO no token?
       borderRadius: 12,
       height: theme.sizeTokens.medium,
-      padding: EdgeInsets.symmetric(horizontal: theme.spaceTokens.xSmall),
+      padding: EdgeInsets.symmetric(horizontal: theme.baseTokens.spaceXsmall),
       borderColorCritical: colors.redLightHover,
       borderColorDark: null,
       borderColorInfo: colors.blueLightHover,

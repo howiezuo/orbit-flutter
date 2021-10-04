@@ -24,14 +24,14 @@ class BaseTokens {
   final FontWeight fontWeightMedium;
   final FontWeight fontWeightBold;
 
-  final double spaceXxs;
-  final double spaceXs;
-  final double spaceSm;
-  final double spaceMd;
-  final double spaceLg;
-  final double spaceXl;
-  final double spaceXxl;
-  final double spaceXxxl;
+  final double spaceXxsmall;
+  final double spaceXsmall;
+  final double spaceSmall;
+  final double spaceMedium;
+  final double spaceLarge;
+  final double spaceXlarge;
+  final double spaceXxlarge;
+  final double spaceXxxlarge;
 
   final durationFast;
   final durationNormal;
@@ -58,14 +58,14 @@ class BaseTokens {
     this.fontWeightNormal = Base.FontWeightNormal,
     this.fontWeightMedium = Base.FontWeightMedium,
     this.fontWeightBold = Base.FontWeightBold,
-    this.spaceXxs = Base.SpaceXxs,
-    this.spaceXs = Base.SpaceXs,
-    this.spaceSm = Base.SpaceSm,
-    this.spaceMd = Base.SpaceMd,
-    this.spaceLg = Base.SpaceLg,
-    this.spaceXl = Base.SpaceXl,
-    this.spaceXxl = Base.SpaceXxl,
-    this.spaceXxxl = Base.SpaceXxxl,
+    this.spaceXxsmall = Base.SpaceXxs,
+    this.spaceXsmall = Base.SpaceXs,
+    this.spaceSmall = Base.SpaceSm,
+    this.spaceMedium = Base.SpaceMd,
+    this.spaceLarge = Base.SpaceLg,
+    this.spaceXlarge = Base.SpaceXl,
+    this.spaceXxlarge = Base.SpaceXxl,
+    this.spaceXxxlarge = Base.SpaceXxxl,
     this.durationFast = Base.DurationFast,
     this.durationNormal = Base.DurationNormal,
     this.durationSlow = Base.DurationSlow,

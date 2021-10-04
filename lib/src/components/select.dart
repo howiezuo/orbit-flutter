@@ -27,6 +27,7 @@ class Select<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final inputStyles = InputTokens.fromDefault(context);
     final formStyles = FormTokens.fromDefault(context);
 
@@ -41,7 +42,7 @@ class Select<T> extends StatelessWidget {
       children: [
         if (label != null)
           Padding(
-            padding: EdgeInsets.only(bottom: theme.spaceTokens.xXsmall),
+            padding: EdgeInsets.only(bottom: baseTokens.spaceXxsmall),
             child: Text(
               label!,
               style: TextStyle(
@@ -56,7 +57,7 @@ class Select<T> extends StatelessWidget {
         Container(
           alignment: Alignment.center,
           height: inputStyles.heightNormal,
-          padding: EdgeInsets.all(theme.spaceTokens.small),
+          padding: EdgeInsets.all(baseTokens.spaceSmall),
           decoration: BoxDecoration(
             color: inputStyles.background,
             border: Border.all(
@@ -70,7 +71,7 @@ class Select<T> extends StatelessWidget {
             children: [
               if (prefix != null)
                 Padding(
-                  padding: EdgeInsets.only(right: theme.spaceTokens.small),
+                  padding: EdgeInsets.only(right: baseTokens.spaceSmall),
                   child: prefix!,
                 ),
               Expanded(
@@ -103,7 +104,7 @@ class Select<T> extends StatelessWidget {
         ),
         if (state.message != null)
           Padding(
-            padding: EdgeInsets.only(top: theme.spaceTokens.xXsmall),
+            padding: EdgeInsets.only(top: baseTokens.spaceXxsmall),
             child: _message(context),
           ),
       ],
@@ -112,6 +113,7 @@ class Select<T> extends StatelessWidget {
 
   Widget _message(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final baseTokens = theme.baseTokens;
     final inputStyles = InputTokens.fromDefault(context);
     final iconStyles = IconTokens.fromDefault(context);
 
@@ -124,7 +126,7 @@ class Select<T> extends StatelessWidget {
             color: inputStyles.borderColorErrorFocus,
             size: iconStyles.sizeSmall,
           ),
-          SizedBox(width: theme.spaceTokens.xXsmall),
+          SizedBox(width: baseTokens.spaceXxsmall),
           Text(
             state.message!,
             style: TextStyle(color: inputStyles.borderColorErrorFocus),
@@ -139,7 +141,7 @@ class Select<T> extends StatelessWidget {
             color: inputStyles.borderColorFocus,
             size: iconStyles.sizeSmall,
           ),
-          SizedBox(width: theme.spaceTokens.xXsmall),
+          SizedBox(width: baseTokens.spaceXxsmall),
           Text(
             state.message!,
             style: TextStyle(color: inputStyles.borderColorFocus),

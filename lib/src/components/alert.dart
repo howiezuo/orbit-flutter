@@ -21,7 +21,7 @@ class Alert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
+    final baseTokens = theme.baseTokens;
     final style = _resolveStyle(context);
     return Container(
       padding: style.padding,
@@ -47,7 +47,7 @@ class Alert extends StatelessWidget {
               ),
               if (child != null)
                 Padding(
-                  padding: EdgeInsets.only(top: spaces.xXsmall),
+                  padding: EdgeInsets.only(top: baseTokens.spaceXxsmall),
                   child: DefaultTextStyle(
                     style: TextStyle(color: style.colorText),
                     child: child!,
@@ -62,11 +62,10 @@ class Alert extends StatelessWidget {
 
   Widget _icon(BuildContext context, Color? iconColor) {
     final theme = OrbitTheme.of(context);
-    final spaces = theme.spaceTokens;
     final icon = _resolveIcon();
     final iconSizes = IconTokens.fromDefault(context);
     return Padding(
-      padding: EdgeInsets.only(right: spaces.xSmall),
+      padding: EdgeInsets.only(right: theme.baseTokens.spaceXsmall),
       child: Icon(
         icon,
         size: iconSizes.sizeSmall,

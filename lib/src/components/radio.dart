@@ -28,6 +28,7 @@ class Radio<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
+    final baseTokens = theme.baseTokens;
     final styles = RadioTokens.fromDefault(context);
     final inputStyles = InputTokens.fromDefault(context);
     final formTokens = FormTokens.fromDefault(context);
@@ -75,7 +76,7 @@ class Radio<T> extends StatelessWidget {
             ),
             if (label != null)
               Padding(
-                padding: EdgeInsets.only(left: theme.spaceTokens.xSmall),
+                padding: EdgeInsets.only(left: baseTokens.spaceXsmall),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

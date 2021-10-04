@@ -240,10 +240,10 @@ class Button extends StatelessWidget {
     double resolveGap() {
       switch (size) {
         case ButtonSize.large:
-          return theme.spaceTokens.small;
+          return theme.baseTokens.spaceSmall;
         case ButtonSize.small:
         default:
-          return theme.spaceTokens.xSmall;
+          return theme.baseTokens.spaceXsmall;
       }
     }
 
