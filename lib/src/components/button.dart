@@ -231,10 +231,10 @@ class Button extends StatelessWidget {
     double resolveIconSize() {
       switch (size) {
         case ButtonSize.small:
-          return iconStyle.sizeSmall;
+          return iconStyle.sizeSmall!;
         case ButtonSize.large:
         default:
-          return iconStyle.sizeMedium;
+          return iconStyle.sizeMedium!;
       }
     }
 

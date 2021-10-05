@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'tokens/alert_tokens.dart';
 import 'tokens/base_tokens.dart';
 import 'tokens/color_tokens.dart';
+import 'tokens/icon_tokens.dart';
 import 'tokens/typography_tokens.dart';
 
 export 'foundation/icons.dart';
@@ -27,6 +28,7 @@ class OrbitThemeData {
   final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
 
+  final IconTokens iconTokens;
   final AlertTokens alertTokens;
 
   ThemeData get materialTheme => ThemeData(
@@ -39,21 +41,23 @@ class OrbitThemeData {
     ColorTokens? colorTokens,
     BaseTokens? baseTokens,
     TypographyTokens? typographyTokens,
+    IconTokens? iconTokens,
     AlertTokens? alertTokens,
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
     typographyTokens ??= TypographyTokens();
 
+    iconTokens ??= IconTokens.fromTokens(colorTokens, baseTokens);
     // component tokens
-    final tmpAlertTokens =
-        alertTokens ?? AlertTokens.fromTokens(colorTokens, baseTokens);
+    alertTokens ??= AlertTokens.fromTokens(colorTokens, baseTokens);
 
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
       baseTokens: baseTokens,
       typographyTokens: typographyTokens,
-      alertTokens: tmpAlertTokens,
+      iconTokens: iconTokens,
+      alertTokens: alertTokens,
     );
   }
 
@@ -61,6 +65,7 @@ class OrbitThemeData {
     required this.colorTokens,
     required this.baseTokens,
     required this.typographyTokens,
+    required this.iconTokens,
     required this.alertTokens,
   });
 

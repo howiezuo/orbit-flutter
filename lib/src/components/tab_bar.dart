@@ -31,7 +31,7 @@ class TabBar extends StatelessWidget {
             currentIndex: currentIndex,
             onTap: onTap,
             elevation: 0,
-            iconSize: iconTokens.sizeLarge,
+            iconSize: iconTokens.sizeLarge!,
             selectedLabelStyle: TextStyle(
               fontSize: baseTokens.fontSizeSmall,
               fontWeight: baseTokens.fontWeightMedium,
