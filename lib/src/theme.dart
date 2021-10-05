@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'tokens/alert_tokens.dart';
 import 'tokens/base_tokens.dart';
+import 'tokens/border_radius_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/icon_tokens.dart';
 import 'tokens/typography_tokens.dart';
@@ -28,6 +29,7 @@ class OrbitThemeData {
   final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
 
+  final BorderRadiusTokens borderRadius;
   final IconTokens iconTokens;
   final AlertTokens alertTokens;
 
@@ -41,6 +43,7 @@ class OrbitThemeData {
     ColorTokens? colorTokens,
     BaseTokens? baseTokens,
     TypographyTokens? typographyTokens,
+    BorderRadiusTokens? borderRadiusTokens,
     IconTokens? iconTokens,
     AlertTokens? alertTokens,
   }) {
@@ -48,6 +51,7 @@ class OrbitThemeData {
     baseTokens ??= const BaseTokens();
     typographyTokens ??= TypographyTokens();
 
+    borderRadiusTokens ??= BorderRadiusTokens.fromTokens(baseTokens);
     iconTokens ??= IconTokens.fromTokens(colorTokens, baseTokens);
     // component tokens
     alertTokens ??= AlertTokens.fromTokens(colorTokens, baseTokens);
@@ -56,6 +60,7 @@ class OrbitThemeData {
       colorTokens: colorTokens,
       baseTokens: baseTokens,
       typographyTokens: typographyTokens,
+      borderRadius: borderRadiusTokens,
       iconTokens: iconTokens,
       alertTokens: alertTokens,
     );
@@ -65,6 +70,7 @@ class OrbitThemeData {
     required this.colorTokens,
     required this.baseTokens,
     required this.typographyTokens,
+    required this.borderRadius,
     required this.iconTokens,
     required this.alertTokens,
   });
