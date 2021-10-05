@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart' hide Typography;
+import 'package:flutter/material.dart';
 
+import 'tokens/alert_tokens.dart';
 import 'tokens/base_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/typography_tokens.dart';
@@ -20,22 +21,48 @@ export 'tokens/radio_tokens.dart';
 export 'tokens/tag_tokens.dart';
 export 'tokens/text_tokens.dart';
 
+@immutable
 class OrbitThemeData {
   final ColorTokens colorTokens;
   final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
 
-  final ThemeData materialTheme;
+  final AlertTokens alertTokens;
 
-  OrbitThemeData({
+  ThemeData get materialTheme => ThemeData(
+        colorScheme: ColorScheme.light(
+          primary: colorTokens.productNormal,
+        ),
+      );
+
+  factory OrbitThemeData({
+    ColorTokens? colorTokens,
+    BaseTokens? baseTokens,
+    TypographyTokens? typographyTokens,
+    AlertTokens? alertTokens,
+  }) {
+    colorTokens ??= const ColorTokens();
+    baseTokens ??= const BaseTokens();
+    typographyTokens ??= TypographyTokens();
+
+    // component tokens
+    final tmpAlertTokens =
+        alertTokens ?? AlertTokens.fromTokens(colorTokens, baseTokens);
+
+    return OrbitThemeData.raw(
+      colorTokens: colorTokens,
+      baseTokens: baseTokens,
+      typographyTokens: typographyTokens,
+      alertTokens: tmpAlertTokens,
+    );
+  }
+
+  const OrbitThemeData.raw({
     required this.colorTokens,
     required this.baseTokens,
     required this.typographyTokens,
-  }) : materialTheme = ThemeData(
-          colorScheme: ColorScheme.light(
-            primary: colorTokens.productNormal,
-          ),
-        );
+    required this.alertTokens,
+  });
 
   factory OrbitThemeData.light() => OrbitThemeData(
         colorTokens: ColorTokens(),

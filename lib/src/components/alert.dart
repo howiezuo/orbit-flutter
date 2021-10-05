@@ -94,57 +94,57 @@ class Alert extends StatelessWidget {
 
   LocalAlertStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final defalutAlertStyles = AlertStyles.fromDefault(context);
+    final defalutAlertStyles = AlertTokens.fromDefault(context);
 
     Color resolveIconColor() {
       switch (type) {
         case AlertType.success:
-          return defalutAlertStyles.colorIconSuccess;
+          return defalutAlertStyles.colorIconSuccess!;
         case AlertType.warning:
-          return defalutAlertStyles.colorIconWarning;
+          return defalutAlertStyles.colorIconWarning!;
         case AlertType.critical:
-          return defalutAlertStyles.colorIconCritical;
+          return defalutAlertStyles.colorIconCritical!;
         default:
-          return defalutAlertStyles.colorIconInfo;
+          return defalutAlertStyles.colorIconInfo!;
       }
     }
 
     Color resolveTextColor() {
       switch (type) {
         case AlertType.success:
-          return defalutAlertStyles.colorTextSuccess;
+          return defalutAlertStyles.colorTextSuccess!;
         case AlertType.warning:
-          return defalutAlertStyles.colorTextWarning;
+          return defalutAlertStyles.colorTextWarning!;
         case AlertType.critical:
-          return defalutAlertStyles.colorTextCritical;
+          return defalutAlertStyles.colorTextCritical!;
         default:
-          return defalutAlertStyles.colorTextInfo;
+          return defalutAlertStyles.colorTextInfo!;
       }
     }
 
     Color resolveBackgroundColor() {
       switch (type) {
         case AlertType.success:
-          return defalutAlertStyles.colorBackgroundSuccess;
+          return defalutAlertStyles.backgroundSuccess!;
         case AlertType.warning:
-          return defalutAlertStyles.colorBackgroundWarning;
+          return defalutAlertStyles.backgroundWarning!;
         case AlertType.critical:
-          return defalutAlertStyles.colorBackgroundCritical;
+          return defalutAlertStyles.backgroundCritical!;
         default:
-          return defalutAlertStyles.colorBackgroundInfo;
+          return defalutAlertStyles.backgroundInfo!;
       }
     }
 
     Color resolveBorderColor() {
       switch (type) {
         case AlertType.success:
-          return defalutAlertStyles.colorBorderSuccess;
+          return defalutAlertStyles.colorBorderSuccess!;
         case AlertType.warning:
-          return defalutAlertStyles.colorBorderWarning;
+          return defalutAlertStyles.colorBorderWarning!;
         case AlertType.critical:
-          return defalutAlertStyles.colorBorderCritical;
+          return defalutAlertStyles.colorBorderCritical!;
         default:
-          return defalutAlertStyles.colorBorderInfo;
+          return defalutAlertStyles.colorBorderInfo!;
       }
     }
 
@@ -158,7 +158,7 @@ class Alert extends StatelessWidget {
       colorText: textColor,
       colorBackground: backgroundColor,
       colorBorder: borderColor,
-      padding: defalutAlertStyles.padding,
+      padding: defalutAlertStyles.padding!,
       borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
     );
   }
