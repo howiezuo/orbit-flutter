@@ -20,18 +20,13 @@ class IconTokens {
   });
 
   const IconTokens.raw({
-    required Color colorPrimary,
-    required Color colorSecondary,
-    required Color colorTertiary,
-    required double sizeSmall,
-    required double sizeMedium,
-    required double sizeLarge,
-  })  : this.colorPrimary = colorPrimary,
-        this.colorSecondary = colorSecondary,
-        this.colorTertiary = colorTertiary,
-        this.sizeSmall = sizeSmall,
-        this.sizeMedium = sizeMedium,
-        this.sizeLarge = sizeLarge;
+    required Color this.colorPrimary,
+    required Color this.colorSecondary,
+    required Color this.colorTertiary,
+    required double this.sizeSmall,
+    required double this.sizeMedium,
+    required double this.sizeLarge,
+  });
 
   factory IconTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
     return IconTokens(
