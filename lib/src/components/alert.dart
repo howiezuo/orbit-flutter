@@ -7,14 +7,14 @@ class Alert extends StatelessWidget {
   final Widget? child;
   final AlertType? type;
   final bool showIcon;
-  final LocalAlertStyle? style;
+  final AlertStyle? style;
 
   const Alert({
     Key? key,
     required this.title,
     this.child,
     AlertType this.type = AlertType.info,
-    this.showIcon = false,
+    this.showIcon = true,
     this.style,
   }) : super(key: key);
 
@@ -22,34 +22,46 @@ class Alert extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final baseTokens = theme.baseTokens;
+    final textTokens = theme.textTokens;
     final style = _resolveStyle(context);
+
     return Container(
       padding: style.padding,
       decoration: BoxDecoration(
         color: style.colorBackground,
-        border: Border.all(color: style.colorBorder!),
+        border: Border.all(color: style.colorBorder!, width: 1),
         borderRadius: style.borderRadius,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (showIcon) _icon(context, style.colorIcon),
+          if (showIcon)
+            Padding(
+              padding: EdgeInsets.only(right: baseTokens.spaceXsmall),
+              child: _icon(context, style.colorIcon),
+            ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,
                 style: TextStyle(
-                  color: style.colorIcon,
-                  // TODO token
-                  fontWeight: FontWeight.bold,
+                  color: style.colorText,
+                  fontSize: textTokens.fontSizeNormal,
+                  fontWeight: theme.baseTokens.fontWeightBold,
+                  height: textTokens.lineHeightHeading,
                 ),
               ),
               if (child != null)
                 Padding(
                   padding: EdgeInsets.only(top: baseTokens.spaceXxsmall),
                   child: DefaultTextStyle(
-                    style: TextStyle(color: style.colorText),
+                    style: TextStyle(
+                      color: style.colorText,
+                      fontSize: textTokens.fontSizeNormal,
+                      height: textTokens.lineHeightNormal! /
+                          textTokens.fontSizeNormal!,
+                    ),
                     child: child!,
                   ),
                 ),
@@ -62,39 +74,47 @@ class Alert extends StatelessWidget {
 
   Widget _icon(BuildContext context, Color? iconColor) {
     final theme = OrbitTheme.of(context);
-    final icon = _resolveIcon();
-    final iconSizes = IconTokens.fromDefault(context);
-    return Padding(
-      padding: EdgeInsets.only(right: theme.baseTokens.spaceXsmall),
-      child: Icon(
-        icon,
-        size: iconSizes.sizeSmall,
-        color: iconColor,
-      ),
+
+    IconData resolveIcon() {
+      switch (type) {
+        case AlertType.success:
+          return OrbitIcons.check;
+        case AlertType.warning:
+          return OrbitIcons.alert;
+        case AlertType.critical:
+          return OrbitIcons.alert_circle;
+        default:
+          return OrbitIcons.information_circle;
+      }
+    }
+
+    return Icon(
+      resolveIcon(),
+      size: theme.iconTokens.sizeSmall,
+      color: iconColor,
     );
   }
 
-  LocalAlertStyle _resolveStyle(BuildContext context) {
+  AlertStyle _resolveStyle(BuildContext context) {
     final themeStyle = _fromTheme(context);
     final iconColor = style?.colorIcon ?? themeStyle.colorIcon!;
     final textColor = style?.colorText ?? themeStyle.colorText!;
-    final backgroundColor =
-        style?.colorBackground ?? themeStyle.colorBackground!;
+    final background = style?.colorBackground ?? themeStyle.colorBackground!;
     final borderColor = style?.colorBorder ?? themeStyle.colorBorder!;
     final padding = style?.padding ?? themeStyle.padding!;
-    return LocalAlertStyle.raw(
+    return AlertStyle.raw(
       colorIcon: iconColor,
       colorText: textColor,
-      colorBackground: backgroundColor,
+      colorBackground: background,
       colorBorder: borderColor,
       padding: padding,
       borderRadius: themeStyle.borderRadius!,
     );
   }
 
-  LocalAlertStyle _fromTheme(BuildContext context) {
+  AlertStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final defalutAlertStyles = AlertTokens.fromDefault(context);
+    final defalutAlertStyles = theme.alertTokens;
 
     Color resolveIconColor() {
       switch (type) {
@@ -122,7 +142,7 @@ class Alert extends StatelessWidget {
       }
     }
 
-    Color resolveBackgroundColor() {
+    Color resolveBackground() {
       switch (type) {
         case AlertType.success:
           return defalutAlertStyles.backgroundSuccess!;
@@ -148,36 +168,18 @@ class Alert extends StatelessWidget {
       }
     }
 
-    final iconColor = resolveIconColor();
-    final textColor = resolveTextColor();
-    final backgroundColor = resolveBackgroundColor();
-    final borderColor = resolveBorderColor();
-
-    return LocalAlertStyle.raw(
-      colorIcon: iconColor,
-      colorText: textColor,
-      colorBackground: backgroundColor,
-      colorBorder: borderColor,
+    return AlertStyle.raw(
+      colorIcon: resolveIconColor(),
+      colorText: resolveTextColor(),
+      colorBackground: resolveBackground(),
+      colorBorder: resolveBorderColor(),
       padding: defalutAlertStyles.padding!,
-      borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
+      borderRadius: BorderRadius.all(theme.borderRadius.large!),
     );
-  }
-
-  IconData _resolveIcon() {
-    switch (type) {
-      case AlertType.success:
-        return OrbitIcons.check;
-      case AlertType.warning:
-        return OrbitIcons.alert;
-      case AlertType.critical:
-        return OrbitIcons.alert_circle;
-      default:
-        return OrbitIcons.information_circle;
-    }
   }
 }
 
-class LocalAlertStyle {
+class AlertStyle {
   final Color? colorIcon;
   final Color? colorText;
   final Color? colorBackground;
@@ -185,7 +187,7 @@ class LocalAlertStyle {
   final EdgeInsets? padding;
   final BorderRadius? borderRadius;
 
-  const LocalAlertStyle({
+  const AlertStyle({
     this.colorIcon,
     this.colorText,
     this.colorBackground,
@@ -194,7 +196,7 @@ class LocalAlertStyle {
     this.borderRadius,
   });
 
-  const LocalAlertStyle.raw({
+  const AlertStyle.raw({
     required Color this.colorIcon,
     required Color this.colorText,
     required Color this.colorBackground,

@@ -25,7 +25,6 @@ class AlertTokens {
   final Color? colorBorderWarning;
 
   final EdgeInsets? padding;
-  final EdgeInsets? paddingWithIcon;
 
   const AlertTokens({
     this.colorIconSuccess,
@@ -45,7 +44,6 @@ class AlertTokens {
     this.colorBorderWarning,
     this.colorBorderCritical,
     this.padding,
-    this.paddingWithIcon,
   });
 
   const AlertTokens.raw({
@@ -66,7 +64,6 @@ class AlertTokens {
     required Color this.colorBorderWarning,
     required Color this.colorBorderCritical,
     required EdgeInsets this.padding,
-    required EdgeInsets this.paddingWithIcon,
   });
 
   factory AlertTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
@@ -87,8 +84,7 @@ class AlertTokens {
       colorBorderInfo: colors.blueLightHover,
       colorBorderWarning: colors.orangeLightHover,
       colorBorderCritical: colors.redLightHover,
-      padding: EdgeInsets.all(bases.spaceMedium),
-      paddingWithIcon: EdgeInsets.all(bases.spaceSmall),
+      padding: EdgeInsets.all(bases.spaceSmall),
     );
   }
 
