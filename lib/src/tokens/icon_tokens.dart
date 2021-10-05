@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import '../theme.dart';
 
+@immutable
 class IconTokens {
   final Color? colorPrimary;
   final Color? colorSecondary;
@@ -11,7 +12,7 @@ class IconTokens {
   final double? sizeMedium;
   final double? sizeLarge;
 
-  IconTokens({
+  const IconTokens({
     this.colorPrimary,
     this.colorSecondary,
     this.colorTertiary,
@@ -30,7 +31,7 @@ class IconTokens {
   });
 
   factory IconTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
-    return IconTokens(
+    return IconTokens.raw(
       colorPrimary: colors.inkNormal,
       colorSecondary: colors.inkLight,
       colorTertiary: colors.cloudDarker,

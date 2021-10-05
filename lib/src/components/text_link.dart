@@ -45,8 +45,8 @@ class TextLink extends StatelessWidget {
     }
 
     double resolveFontSize() {
-      if (size == TextLinkSize.large) return textTokens.fontSizeLarge;
-      return textTokens.fontSizeNormal;
+      if (size == TextLinkSize.large) return textTokens.fontSizeLarge!;
+      return textTokens.fontSizeNormal!;
     }
 
     return InkWell(

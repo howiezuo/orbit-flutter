@@ -70,8 +70,8 @@ class Tile extends StatelessWidget {
                         style: TextStyle(
                           color: textTokens.colorPrimary,
                           fontSize: textTokens.fontSizeNormal,
-                          height: textTokens.lineHeightNormal /
-                              textTokens.fontSizeNormal,
+                          height: textTokens.lineHeightNormal! /
+                              textTokens.fontSizeNormal!,
                         ),
                       ),
                   ],

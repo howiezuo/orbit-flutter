@@ -5,6 +5,7 @@ import 'tokens/base_tokens.dart';
 import 'tokens/border_radius_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/icon_tokens.dart';
+import 'tokens/text_tokens.dart';
 import 'tokens/typography_tokens.dart';
 
 export 'foundation/icons.dart';
@@ -29,6 +30,7 @@ class OrbitThemeData {
   final BaseTokens baseTokens;
   final TypographyTokens typographyTokens;
 
+  final TextTokens textTokens;
   final BorderRadiusTokens borderRadius;
   final IconTokens iconTokens;
   final AlertTokens alertTokens;
@@ -43,6 +45,7 @@ class OrbitThemeData {
     ColorTokens? colorTokens,
     BaseTokens? baseTokens,
     TypographyTokens? typographyTokens,
+    TextTokens? textTokens,
     BorderRadiusTokens? borderRadiusTokens,
     IconTokens? iconTokens,
     AlertTokens? alertTokens,
@@ -51,6 +54,7 @@ class OrbitThemeData {
     baseTokens ??= const BaseTokens();
     typographyTokens ??= TypographyTokens();
 
+    textTokens ??= TextTokens.fromTokens(colorTokens, baseTokens);
     borderRadiusTokens ??= BorderRadiusTokens.fromTokens(baseTokens);
     iconTokens ??= IconTokens.fromTokens(colorTokens, baseTokens);
     // component tokens
@@ -60,6 +64,7 @@ class OrbitThemeData {
       colorTokens: colorTokens,
       baseTokens: baseTokens,
       typographyTokens: typographyTokens,
+      textTokens: textTokens,
       borderRadius: borderRadiusTokens,
       iconTokens: iconTokens,
       alertTokens: alertTokens,
@@ -70,6 +75,7 @@ class OrbitThemeData {
     required this.colorTokens,
     required this.baseTokens,
     required this.typographyTokens,
+    required this.textTokens,
     required this.borderRadius,
     required this.iconTokens,
     required this.alertTokens,
