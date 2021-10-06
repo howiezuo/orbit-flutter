@@ -6,6 +6,7 @@ import 'tokens/base_tokens.dart';
 import 'tokens/border_radius_tokens.dart';
 import 'tokens/button_link_tokens.dart';
 import 'tokens/button_tokens.dart';
+import 'tokens/card_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/icon_tokens.dart';
 import 'tokens/text_tokens.dart';
@@ -19,6 +20,7 @@ export 'tokens/badge_tokens.dart';
 export 'tokens/border_radius_tokens.dart';
 export 'tokens/button_tokens.dart';
 export 'tokens/button_link_tokens.dart';
+export 'tokens/card_tokens.dart';
 export 'tokens/color_tokens.dart';
 export 'tokens/checkbox_tokens.dart';
 export 'tokens/form_tokens.dart';
@@ -42,6 +44,7 @@ class OrbitThemeData {
   final BadgeTokens badgeTokens;
   final ButtonTokens buttonTokens;
   final ButtonLinkTokens buttonLinkTokens;
+  final CardTokens cardTokens;
 
   ThemeData get materialTheme => ThemeData(
         colorScheme: ColorScheme.light(
@@ -60,6 +63,7 @@ class OrbitThemeData {
     BadgeTokens? badgeTokens,
     ButtonTokens? buttonTokens,
     ButtonLinkTokens? buttonLinkTokens,
+    CardTokens? cardTokens,
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
@@ -73,6 +77,7 @@ class OrbitThemeData {
     badgeTokens ??= BadgeTokens.fromTokens(colorTokens, baseTokens);
     buttonTokens ??= ButtonTokens.fromTokens(colorTokens, baseTokens);
     buttonLinkTokens ??= ButtonLinkTokens.fromTokens(colorTokens, baseTokens);
+    cardTokens ??= CardTokens.fromTokens(colorTokens, baseTokens);
 
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
@@ -85,6 +90,7 @@ class OrbitThemeData {
       badgeTokens: badgeTokens,
       buttonTokens: buttonTokens,
       buttonLinkTokens: buttonLinkTokens,
+      cardTokens: cardTokens,
     );
   }
 
@@ -99,6 +105,7 @@ class OrbitThemeData {
     required this.badgeTokens,
     required this.buttonTokens,
     required this.buttonLinkTokens,
+    required this.cardTokens,
   });
 
   factory OrbitThemeData.light() => OrbitThemeData(

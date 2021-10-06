@@ -8,7 +8,8 @@ class CardPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: Wrap(
+          runSpacing: 8,
           children: [
             Card(
               title: 'Card title',
@@ -17,44 +18,35 @@ class CardPage extends StatelessWidget {
                 height: 120,
               ),
             ),
-            SizedBox(height: 8),
             Card(
               title: 'Card title',
-              descriprion: 'This is description of the card',
+              // TODO small size
+              action: ButtonLink(
+                child: Text('Action'),
+                onPressed: () => {},
+                fullWidth: false,
+              ),
               child: Container(
                 color: Palette.GreenLight,
                 height: 120,
               ),
             ),
-            SizedBox(height: 8),
             Card(
-              icon: OrbitIcons.airplane,
-              title: 'Card title',
+              // TODO small size
+              action: ButtonLink(
+                child: Text('Action'),
+                onPressed: () => {},
+                fullWidth: false,
+              ),
               child: Container(
                 color: Palette.GreenLight,
                 height: 120,
               ),
             ),
-            SizedBox(height: 8),
-            Card(
-              title: 'Card title',
-              actions: [
-                Button(
-                  child: Text('Action'),
-                  onPressed: () => {},
-                  fullWidth: false,
-                ),
-              ],
-              child: Container(
-                color: Palette.GreenLight,
-                height: 120,
-              ),
-            ),
-            SizedBox(height: 8),
             Card(
               child: Container(
                 color: Palette.GreenLight,
-                height: 120,
+                height: 160,
               ),
             ),
           ],

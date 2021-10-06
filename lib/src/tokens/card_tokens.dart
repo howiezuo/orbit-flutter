@@ -1,38 +1,26 @@
-import 'dart:ui';
-
-import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:orbit/orbit.dart';
 
-abstract class CardTokens {
-  Color get background;
-  Color get borderColor;
-  Border get border;
-}
+import '../theme.dart';
 
-class CardStyles extends CardTokens {
-  @override
-  final Color background;
+class CardTokens {
+  final Color? background;
 
-  @override
-  final Border border;
-
-  @override
-  final Color borderColor;
-
-  CardStyles({
-    required this.background,
-    required this.border,
-    required this.borderColor,
+  const CardTokens({
+    this.background,
   });
 
-  static CardTokens fromDefault(BuildContext context) {
-    final theme = OrbitTheme.of(context);
-    final colors = theme.colorTokens;
-    return CardStyles(
+  const CardTokens.raw({
+    required Color this.background,
+  });
+
+  factory CardTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
+    return CardTokens.raw(
       background: colors.whiteNormal,
-      border: Border.all(width: 1),
-      borderColor: colors.cloudNormal,
     );
+  }
+
+  factory CardTokens.fromDefault(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    return CardTokens.fromTokens(theme.colorTokens, theme.baseTokens);
   }
 }
