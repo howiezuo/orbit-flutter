@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:orbit/orbit.dart';
 
 import '../theme.dart';
 
@@ -6,7 +6,6 @@ import '../theme.dart';
  * TODO
  * shdow
  * ripple
- * disable
  * remove margin?
  */
 class Button extends StatelessWidget {
@@ -16,6 +15,7 @@ class Button extends StatelessWidget {
   final VoidCallback? onPressed;
   final ButtonType type;
   final bool fullWidth;
+  final bool disabled;
 
   bool get _hasLeftIcon => iconLeft != null;
   bool get _hasRightIcon => iconLeft == null;
@@ -30,6 +30,7 @@ class Button extends StatelessWidget {
     this.iconRight,
     this.type = ButtonType.primary,
     this.fullWidth = true,
+    this.disabled = false,
   }) : super(key: key);
 
   const Button.icon({
@@ -38,6 +39,7 @@ class Button extends StatelessWidget {
     required this.onPressed,
     this.type = ButtonType.primary,
     this.fullWidth = true,
+    this.disabled = false,
   })  : this.iconLeft = icon,
         this.child = null,
         this.iconRight = null,
@@ -49,29 +51,35 @@ class Button extends StatelessWidget {
     final style = _fromTheme(context);
 
     final content = _content(theme, style);
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: content,
-      style: ElevatedButton.styleFrom(
-        primary: style.background,
-        onPrimary: style.textColor,
-        elevation: 0,
-        textStyle: TextStyle(
-          fontSize: style.fontSize,
-          fontWeight: theme.baseTokens.fontWeightMedium,
+    return Opacity(
+      opacity: disabled ? style.opacityDisabled! : 1,
+      child: ElevatedButton(
+        onPressed: disabled ? null : onPressed,
+        child: content,
+        style: ElevatedButton.styleFrom(
+          textStyle: TextStyle(
+            fontSize: style.fontSize,
+            fontWeight: theme.baseTokens.fontWeightMedium,
+          ),
+          padding: style.padding,
+          minimumSize: fullWidth == true
+              ? Size.fromHeight(style.height!)
+              : Size(style.height!, style.height!),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
+        ).copyWith(
+          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+              (states) => style.background),
+          foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+              (states) => style.color),
+          elevation: MaterialStateProperty.resolveWith((states) => 0),
         ),
-        padding: style.padding,
-        minimumSize: fullWidth == true
-            ? Size.fromHeight(style.height!)
-            : Size(style.height!, style.height!),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
       ),
     );
   }
 
   Widget _content(OrbitThemeData theme, ButtonStyle style) {
-    if (_onlyIcon) return _icon(theme, style, iconLeft);
+    if (_onlyIcon) return _icon(theme, iconLeft);
 
     if (child != null) {
       return Row(
@@ -82,14 +90,14 @@ class Button extends StatelessWidget {
         children: [
           Row(
             children: [
-              if (iconLeft != null) _icon(theme, style, iconLeft),
+              if (iconLeft != null) _icon(theme, iconLeft),
               if (iconLeft != null)
                 SizedBox(width: theme.baseTokens.spaceXsmall),
               child!,
             ],
           ),
           if (iconRight != null) SizedBox(width: theme.baseTokens.spaceXsmall),
-          if (iconRight != null) _icon(theme, style, iconRight),
+          if (iconRight != null) _icon(theme, iconRight),
         ],
       );
     }
@@ -97,12 +105,8 @@ class Button extends StatelessWidget {
     throw Exception('Either a child widget or an icon need to be applied');
   }
 
-  Widget _icon(OrbitThemeData theme, ButtonStyle style, IconData? icon) {
-    return Icon(
-      icon,
-      color: style.textColor,
-      size: theme.iconTokens.sizeMedium,
-    );
+  Widget _icon(OrbitThemeData theme, IconData? icon) {
+    return Icon(icon, size: theme.iconTokens.sizeMedium);
   }
 
   ButtonStyle _fromTheme(BuildContext context) {
@@ -154,35 +158,39 @@ class Button extends StatelessWidget {
     }
 
     return ButtonStyle.raw(
-      textColor: resolveTextColor(),
+      color: resolveTextColor(),
       background: resolveBackground(),
       height: defaultStyle.heightNormal!,
       fontSize: defaultStyle.fontSizeNormal!,
+      opacityDisabled: defaultStyle.opacityDisabled!,
       padding: resolvePadding(),
     );
   }
 }
 
 class ButtonStyle {
-  final Color? textColor;
+  final Color? color;
   final Color? background;
   final double? height;
   final double? fontSize;
+  final double? opacityDisabled;
   final EdgeInsets? padding;
 
   const ButtonStyle({
-    this.textColor,
+    this.color,
     this.background,
     this.height,
     this.fontSize,
+    this.opacityDisabled,
     this.padding,
   });
 
   const ButtonStyle.raw({
-    required Color this.textColor,
+    required Color this.color,
     required Color this.background,
     required double this.height,
     required double this.fontSize,
+    required double this.opacityDisabled,
     required EdgeInsets this.padding,
   });
 }

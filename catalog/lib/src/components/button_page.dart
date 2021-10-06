@@ -23,6 +23,12 @@ class ButtonPage extends StatelessWidget {
       children: [
         Button(child: Text('Label'), onPressed: () => {}, type: type),
         SizedBox(height: 8),
+        Button(
+          child: Text('Label'),
+          onPressed: () => {},
+          type: type,
+          disabled: true,
+        ),
         SizedBox(height: 8),
         Button(
           child: Text('Label'),
