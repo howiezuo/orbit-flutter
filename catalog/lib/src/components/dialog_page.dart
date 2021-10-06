@@ -10,12 +10,12 @@ class DialogPage extends StatelessWidget {
       child: Column(
         children: [
           Button(
-            label: 'Show Dialog',
+            child: Text('Show Dialog'),
             onPressed: () {
               final dialog = Dialog(
                 title: 'Kiwi.com would like to send you notifications.',
                 primaryAction: Button(
-                  label: 'Allow',
+                  child: Text('Allow'),
                   onPressed: () => Navigator.pop(context),
                 ),
               );
@@ -23,12 +23,12 @@ class DialogPage extends StatelessWidget {
             },
           ),
           Button(
-            label: 'Show Dialog (with description)',
+            child: Text('Show Dialog (with description)'),
             onPressed: () {
               final dialog = Dialog(
                 title: 'Kiwi.com would like to send you notifications.',
                 primaryAction: Button(
-                  label: 'Allow',
+                  child: Text('Allow'),
                   onPressed: () => Navigator.pop(context),
                 ),
                 description:
@@ -38,17 +38,17 @@ class DialogPage extends StatelessWidget {
             },
           ),
           Button(
-            label: 'Show Dialog (two buttons)',
+            child: Text('Show Dialog (two buttons)'),
             onPressed: () {
               final dialog = Dialog(
                 title: 'Kiwi.com would like to send you notifications.',
                 primaryAction: Button(
-                  label: 'Allow',
+                  child: Text('Allow'),
                   onPressed: () => Navigator.pop(context),
                 ),
                 // TODO ButtonLink
                 secondaryAction: Button(
-                  label: 'Cancel',
+                  child: Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
                 ),
                 description:
@@ -58,17 +58,17 @@ class DialogPage extends StatelessWidget {
             },
           ),
           Button(
-            label: 'Show Dialog (with image)',
+            child: Text('Show Dialog (with image)'),
             onPressed: () {
               final dialog = Dialog(
                 title: 'Kiwi.com would like to send you notifications.',
                 primaryAction: Button(
-                  label: 'Allow',
+                  child: Text('Allow'),
                   onPressed: () => Navigator.pop(context),
                 ),
                 // TODO ButtonLink
                 secondaryAction: Button(
-                  label: 'Cancel',
+                  child: Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
                 ),
                 illustration: Image.asset('images/illustration.png'),
@@ -79,23 +79,23 @@ class DialogPage extends StatelessWidget {
             },
           ),
           Button(
-            label: 'Show Dialog (three dialogs)',
+            child: Text('Show Dialog (three dialogs)'),
             onPressed: () {
               final dialog = Dialog.actions(
                 title: 'Kiwi.com would like to send you notifications.',
                 actions: [
                   Button(
-                    label: 'Allow',
+                    child: Text('Allow'),
                     onPressed: () => Navigator.pop(context),
                   ),
                   // TODO ButtonLink
                   Button(
-                    label: 'Setting',
+                    child: Text('Setting'),
                     onPressed: () => Navigator.pop(context),
                   ),
                   // TODO ButtonLink
                   Button(
-                    label: 'Cancel',
+                    child: Text('Cancel'),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ],
@@ -107,19 +107,19 @@ class DialogPage extends StatelessWidget {
             },
           ),
           Button(
-            label: 'Show Dialog (error)',
+            child: Text('Show Dialog (error)'),
             type: ButtonType.critical,
             onPressed: () {
               final dialog = Dialog(
                 title: 'Do you really want to delete your account?',
                 primaryAction: Button(
-                  label: 'Delete',
+                  child: Text('Delete'),
                   onPressed: () => Navigator.pop(context),
                   type: ButtonType.critical,
                 ),
                 // TODO ButtonLink
                 secondaryAction: Button(
-                  label: 'Cancel',
+                  child: Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
                   type: ButtonType.critical,
                 ),

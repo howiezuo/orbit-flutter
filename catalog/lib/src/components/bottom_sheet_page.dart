@@ -10,7 +10,7 @@ class BottomSheetPage extends StatelessWidget {
       child: Column(
         children: [
           Button(
-            label: 'Show BottomSheet',
+            child: Text('Show BottomSheet'),
             onPressed: () {
               final bottomsheet = BottomSheet(
                 child: Container(
@@ -23,7 +23,7 @@ class BottomSheetPage extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Button(
-            label: 'Show BottomSheet with actions',
+            child: Text('Show BottomSheet with actions'),
             onPressed: () {
               final bottomsheet = BottomSheet(
                 child: Container(
@@ -31,7 +31,7 @@ class BottomSheetPage extends StatelessWidget {
                   height: 200,
                 ),
                 action: Button(
-                  label: 'Action',
+                  child: Text('Action'),
                   onPressed: () => {},
                 ),
               );

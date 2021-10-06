@@ -6,7 +6,16 @@ import 'package:flutter/widgets.dart';
 import 'src/theme.dart';
 
 export 'package:flutter/material.dart'
-    hide BottomSheet, Card, Colors, Dialog, Radio, Switch, TabBar, Typography;
+    hide
+        BottomSheet,
+        ButtonStyle,
+        Card,
+        Colors,
+        Dialog,
+        Radio,
+        Switch,
+        TabBar,
+        Typography;
 export 'src/theme.dart';
 export 'src/components/alert.dart';
 export 'src/components/badge.dart';

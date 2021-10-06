@@ -10,7 +10,7 @@ class ModalSheetPage extends StatelessWidget {
       child: Column(
         children: [
           Button(
-            label: 'Show ModalSheet',
+            child: Text('Show ModalSheet'),
             onPressed: () {
               final sheet = ModalSheet(
                 header: ModalSheetHeader(
@@ -22,14 +22,14 @@ class ModalSheetPage extends StatelessWidget {
             },
           ),
           Button(
-            label: 'Show ModalSheet with Action',
+            child: Text('Show ModalSheet with Action'),
             onPressed: () {
               final sheet = ModalSheet(
                 header: ModalSheetHeader(
                   title: 'Title',
                 ),
                 child: Container(color: Palette.GreenLight),
-                action: Button(label: 'Action', onPressed: () => {}),
+                action: Button(child: Text('Action'), onPressed: () => {}),
               );
               sheet.show(context: context);
             },

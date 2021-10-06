@@ -4,6 +4,7 @@ import 'tokens/alert_tokens.dart';
 import 'tokens/badge_tokens.dart';
 import 'tokens/base_tokens.dart';
 import 'tokens/border_radius_tokens.dart';
+import 'tokens/button_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/icon_tokens.dart';
 import 'tokens/text_tokens.dart';
@@ -37,6 +38,7 @@ class OrbitThemeData {
 
   final AlertTokens alertTokens;
   final BadgeTokens badgeTokens;
+  final ButtonTokens buttonTokens;
 
   ThemeData get materialTheme => ThemeData(
         colorScheme: ColorScheme.light(
@@ -53,6 +55,7 @@ class OrbitThemeData {
     IconTokens? iconTokens,
     AlertTokens? alertTokens,
     BadgeTokens? badgeTokens,
+    ButtonTokens? buttonTokens,
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
@@ -64,6 +67,7 @@ class OrbitThemeData {
     // component tokens
     alertTokens ??= AlertTokens.fromTokens(colorTokens, baseTokens);
     badgeTokens ??= BadgeTokens.fromTokens(colorTokens, baseTokens);
+    buttonTokens ??= ButtonTokens.fromTokens(colorTokens, baseTokens);
 
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
@@ -74,6 +78,7 @@ class OrbitThemeData {
       iconTokens: iconTokens,
       alertTokens: alertTokens,
       badgeTokens: badgeTokens,
+      buttonTokens: buttonTokens,
     );
   }
 
@@ -86,6 +91,7 @@ class OrbitThemeData {
     required this.iconTokens,
     required this.alertTokens,
     required this.badgeTokens,
+    required this.buttonTokens,
   });
 
   factory OrbitThemeData.light() => OrbitThemeData(

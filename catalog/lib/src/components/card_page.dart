@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart' hide Card;
 import 'package:orbit/orbit.dart';
 
 class CardPage extends StatelessWidget {
@@ -40,7 +39,11 @@ class CardPage extends StatelessWidget {
             Card(
               title: 'Card title',
               actions: [
-            Button(label: 'Action', onPressed: () => {}, size: ButtonSize.small, isFullWidth: false,),
+                Button(
+                  child: Text('Action'),
+                  onPressed: () => {},
+                  fullWidth: false,
+                ),
               ],
               child: Container(
                 color: Palette.GreenLight,

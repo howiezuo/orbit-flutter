@@ -19,19 +19,19 @@ class EmptyStatePage extends StatelessWidget {
               image: Image.asset('images/empty.png'),
               message: 'Sorry, we couldn\'t find that connection. ',
               action: Button(
-                label: 'Adjust serach',
+                child: Text('Adjust serach'),
                 onPressed: () => {},
-                isFullWidth: false,
+                fullWidth: false,
               ),
             ),
             EmptyState(
               image: Image.asset('images/empty.png'),
               message: 'Sorry, we couldn\'t find that connection. ',
               action: Button(
-                label: 'Adjust serach',
+                child: Text('Adjust serach'),
                 onPressed: () => {},
                 type: ButtonType.primarySubtle,
-                isFullWidth: false,
+                fullWidth: false,
               ),
             ),
           ],
