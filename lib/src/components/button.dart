@@ -1,4 +1,4 @@
-import 'package:orbit/orbit.dart';
+import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
@@ -22,7 +22,7 @@ class Button extends StatelessWidget {
 
   const Button({
     Key? key,
-    required Widget this.child,
+    required this.child,
     required this.onPressed,
     this.iconLeft,
     this.iconRight,
@@ -48,12 +48,11 @@ class Button extends StatelessWidget {
     final theme = OrbitTheme.of(context);
     final style = _fromTheme(context);
 
-    final content = _content(theme, style);
     return Opacity(
       opacity: disabled ? style.opacityDisabled! : 1,
       child: ElevatedButton(
         onPressed: disabled ? null : onPressed,
-        child: content,
+        child: _content(theme, style),
         style: ElevatedButton.styleFrom(
           textStyle: TextStyle(
             fontSize: style.fontSize,

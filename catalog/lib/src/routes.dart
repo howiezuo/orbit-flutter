@@ -5,6 +5,7 @@ import 'component_screen.dart';
 import 'components/alert_page.dart';
 import 'components/badge_page.dart';
 import 'components/bottom_sheet_page.dart';
+import 'components/button_link_page.dart';
 import 'components/button_page.dart';
 import 'components/card_page.dart';
 import 'components/checkbox_page.dart';
@@ -31,6 +32,8 @@ class Routes {
       ROUTE_BADGE: (_) => ComponentScreen(title: 'Badge', child: BadgePage()),
       ROUTE_BUTTON: (_) =>
           ComponentScreen(title: 'Button', child: ButtonPage()),
+      ROUTE_BUTTON_LINK: (_) =>
+          ComponentScreen(title: 'ButtonLink', child: ButtonLinkPage()),
       ROUTE_BOTTOM_SHEET: (_) =>
           ComponentScreen(title: 'BottomSheet', child: BottomSheetPage()),
       ROUTE_CARD: (_) => ComponentScreen(title: 'Card', child: CardPage()),
@@ -68,6 +71,7 @@ class Routes {
   static const ROUTE_ALERT = '/alert';
   static const ROUTE_BADGE = '/badge';
   static const ROUTE_BUTTON = '/button';
+  static const ROUTE_BUTTON_LINK = '/button_link';
   static const ROUTE_BOTTOM_SHEET = '/bottom_sheet';
   static const ROUTE_CARD = '/card';
   static const ROUTE_CHECKBOX = '/checkbox';

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:orbit/orbit.dart';
 
 import 'routes.dart';
 
@@ -20,10 +19,6 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BADGE),
           ),
           ListTile(
-            title: Text('BadgeList (TODO)'),
-            onTap: () => {/** TODO */},
-          ),
-          ListTile(
             title: Text('BottomSheet'),
             onTap: () =>
                 Navigator.pushNamed(context, Routes.ROUTE_BOTTOM_SHEET),
@@ -33,8 +28,8 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BUTTON),
           ),
           ListTile(
-            title: Text('ButtonLink (TODO)'),
-            onTap: () => {/** TODO */},
+            title: Text('ButtonLink'),
+            onTap: () => Navigator.pushNamed(context, Routes.ROUTE_BUTTON_LINK),
           ),
           ListTile(
             title: Text('Card'),

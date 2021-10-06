@@ -19,8 +19,9 @@ export 'package:flutter/material.dart'
 export 'src/theme.dart';
 export 'src/components/alert.dart';
 export 'src/components/badge.dart';
-export 'src/components/button.dart';
 export 'src/components/bottom_sheet.dart';
+export 'src/components/button.dart';
+export 'src/components/button_link.dart';
 export 'src/components/card.dart';
 export 'src/components/checkbox.dart';
 export 'src/components/dialog.dart';
