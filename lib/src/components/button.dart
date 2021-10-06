@@ -4,9 +4,7 @@ import '../theme.dart';
 
 /**
  * TODO
- * shdow
  * ripple
- * remove margin?
  */
 class Button extends StatelessWidget {
   final Widget? child;
@@ -67,6 +65,7 @@ class Button extends StatelessWidget {
               : Size(style.height!, style.height!),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ).copyWith(
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
               (states) => style.background),
