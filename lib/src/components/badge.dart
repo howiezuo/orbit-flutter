@@ -3,21 +3,26 @@ import 'package:flutter/widgets.dart';
 import '../theme.dart';
 
 class Badge extends StatelessWidget {
-  final String? label;
   final IconData? icon;
+  final Widget? child;
   final BadgeType? type;
+  final BadgeStyle? style;
 
   const Badge({
     Key? key,
-    this.label,
     this.icon,
-    BadgeType this.type = BadgeType.neutral,
-  })  : assert(label != null || icon != null),
+    this.child,
+    this.type = BadgeType.neutral,
+    this.style,
+  })  : assert(icon != null || child != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final style = _fromTheme(context);
+    final theme = OrbitTheme.of(context);
+    final textTokens = TextTokens.fromDefault(context);
+    final style = _resolveStyle(context);
+
     return Container(
       padding: style.padding,
       decoration: BoxDecoration(
@@ -30,86 +35,88 @@ class Badge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) _icon(context, style.textColor),
-          if (label != null) _label(context, style.textColor)
+          if (icon != null && child != null)
+            SizedBox(width: theme.baseTokens.spaceXxsmall),
+          if (child != null)
+            DefaultTextStyle(
+              style: TextStyle(
+                color: style.textColor,
+                fontSize: textTokens.fontSizeSmall,
+                fontWeight: theme.baseTokens.fontWeightMedium,
+              ),
+              child: child!,
+            ),
         ],
       ),
     );
   }
 
   Widget _icon(BuildContext context, Color? color) {
-    final theme = OrbitTheme.of(context);
-    final baseTokens = theme.baseTokens;
-    final iconSizes = IconTokens.fromDefault(context);
-    return Padding(
-      padding: label != null
-          ? EdgeInsets.only(right: baseTokens.spaceXxsmall)
-          : EdgeInsets.zero,
-      child: Icon(
-        icon,
-        size: iconSizes.sizeSmall,
-        color: color,
-      ),
+    final iconTokens = IconTokens.fromDefault(context);
+    return Icon(icon, size: iconTokens.sizeSmall, color: color);
+  }
+
+  BadgeStyle _resolveStyle(BuildContext context) {
+    final themeStyle = _fromTheme(context);
+    final textColor = style?.textColor ?? themeStyle.textColor!;
+    final background = style?.background ?? themeStyle.background!;
+    final border = style?.border ?? themeStyle.border;
+    final borderRadius = style?.borderRadius ?? themeStyle.borderRadius!;
+    final height = style?.height ?? themeStyle.height!;
+    final padding = style?.padding ?? themeStyle.padding!;
+    return BadgeStyle.raw(
+      textColor: textColor,
+      background: background,
+      border: border,
+      borderRadius: borderRadius,
+      height: height,
+      padding: padding,
     );
   }
 
-  Widget _label(BuildContext context, Color? color) {
-    final theme = OrbitTheme.of(context);
-    final baseTokens = theme.baseTokens;
-
-    return Text(
-      label!,
-      style: TextStyle(
-        color: color,
-        fontSize: baseTokens.fontSizeSmall,
-        fontWeight: baseTokens.fontWeightMedium,
-      ),
-    );
-  }
-
-  LocalBadgeStyle _fromTheme(BuildContext context) {
+  BadgeStyle _fromTheme(BuildContext context) {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
-    final defaultStyle = BadgeStyes.fromDefault(context);
+    final defaultStyle = BadgeTokens.fromDefault(context);
 
     Color resolveTextColor() {
       switch (type) {
-        case BadgeType.info:
-          return defaultStyle.colorTextInfo;
         case BadgeType.success:
-          return defaultStyle.colorTextSuccess;
+          return defaultStyle.colorTextSuccess!;
+        case BadgeType.info:
+          return defaultStyle.colorTextInfo!;
         case BadgeType.warning:
-          return defaultStyle.colorTextWarning;
+          return defaultStyle.colorTextWarning!;
         case BadgeType.critical:
-          return defaultStyle.colorTextCritical;
+          return defaultStyle.colorTextCritical!;
         case BadgeType.dark:
-          return defaultStyle.colorTextDark;
+          return defaultStyle.colorTextDark!;
         case BadgeType.white:
-          return defaultStyle.colorTextWhite;
+          return defaultStyle.colorTextWhite!;
         case BadgeType.infoInverted:
         case BadgeType.successInverted:
         case BadgeType.warningInverted:
         case BadgeType.criticalInverted:
           return colors.whiteNormal;
         default:
-          // neutral
-          return defaultStyle.colorTextNeutral;
+          return defaultStyle.colorTextNeutral!;
       }
     }
 
     Color resolveBackground() {
       switch (type) {
-        case BadgeType.info:
-          return defaultStyle.backgroundInfo;
         case BadgeType.success:
-          return defaultStyle.backgroundSuccess;
+          return defaultStyle.backgroundSuccess!;
+        case BadgeType.info:
+          return defaultStyle.backgroundInfo!;
         case BadgeType.warning:
-          return defaultStyle.backgroundWarning;
+          return defaultStyle.backgroundWarning!;
         case BadgeType.critical:
-          return defaultStyle.backgroundCritical;
+          return defaultStyle.backgroundCritical!;
         case BadgeType.dark:
-          return defaultStyle.backgroundDark;
+          return defaultStyle.backgroundDark!;
         case BadgeType.white:
-          return defaultStyle.backgroundWhite;
+          return defaultStyle.backgroundWhite!;
         case BadgeType.infoInverted:
           return colors.blueNormal;
         case BadgeType.successInverted:
@@ -119,54 +126,49 @@ class Badge extends StatelessWidget {
         case BadgeType.criticalInverted:
           return colors.redNormal;
         default:
-          // neutral
-          return defaultStyle.backgroundNeutral;
+          return defaultStyle.backgroundNeutral!;
       }
     }
 
     Color? resolveBorderColor() {
       switch (type) {
-        case BadgeType.info:
-          return defaultStyle.borderColorInfo;
         case BadgeType.success:
           return defaultStyle.borderColorSuccess;
+        case BadgeType.info:
+          return defaultStyle.borderColorInfo;
         case BadgeType.warning:
           return defaultStyle.borderColorWarning;
         case BadgeType.critical:
           return defaultStyle.borderColorCritical;
-        case BadgeType.dark:
-          return defaultStyle.borderColorDark;
         case BadgeType.white:
           return defaultStyle.borderColorWhite;
+        case BadgeType.dark:
         case BadgeType.infoInverted:
         case BadgeType.successInverted:
         case BadgeType.warningInverted:
         case BadgeType.criticalInverted:
           return null;
         default:
-          // neutral
           return defaultStyle.borderColorNeutral;
       }
     }
 
-    final textColor = resolveTextColor();
-    final background = resolveBackground();
     final borderColor = resolveBorderColor();
-    final border = borderColor != null ? Border.all(color: borderColor) : null;
+    final border =
+        borderColor != null ? Border.all(color: borderColor, width: 1) : null;
 
-    return LocalBadgeStyle.raw(
-      textColor: textColor,
-      background: background,
+    return BadgeStyle.raw(
+      textColor: resolveTextColor(),
+      background: resolveBackground(),
       border: border,
-      borderRadius:
-          BorderRadius.all(Radius.circular(defaultStyle.borderRadius)),
-      height: defaultStyle.height,
-      padding: defaultStyle.padding,
+      borderRadius: BorderRadius.all(defaultStyle.borderRadius!),
+      height: defaultStyle.height!,
+      padding: defaultStyle.padding!,
     );
   }
 }
 
-class LocalBadgeStyle {
+class BadgeStyle {
   final Color? textColor;
   final Color? background;
   final Border? border;
@@ -174,7 +176,7 @@ class LocalBadgeStyle {
   final double? height;
   final EdgeInsets? padding;
 
-  const LocalBadgeStyle({
+  const BadgeStyle({
     this.textColor,
     this.background,
     this.border,
@@ -183,7 +185,7 @@ class LocalBadgeStyle {
     this.padding,
   });
 
-  const LocalBadgeStyle.raw({
+  const BadgeStyle.raw({
     required Color this.textColor,
     required Color this.background,
     required this.border,
@@ -194,15 +196,15 @@ class LocalBadgeStyle {
 }
 
 enum BadgeType {
-  white,
-  dark,
   neutral,
-  info,
-  infoInverted,
   success,
-  successInverted,
+  info,
   warning,
-  warningInverted,
   critical,
+  dark,
+  white,
+  infoInverted,
+  successInverted,
+  warningInverted,
   criticalInverted,
 }

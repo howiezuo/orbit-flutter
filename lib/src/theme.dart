@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'tokens/alert_tokens.dart';
+import 'tokens/badge_tokens.dart';
 import 'tokens/base_tokens.dart';
 import 'tokens/border_radius_tokens.dart';
 import 'tokens/color_tokens.dart';
@@ -33,7 +34,9 @@ class OrbitThemeData {
   final TextTokens textTokens;
   final BorderRadiusTokens borderRadius;
   final IconTokens iconTokens;
+
   final AlertTokens alertTokens;
+  final BadgeTokens badgeTokens;
 
   ThemeData get materialTheme => ThemeData(
         colorScheme: ColorScheme.light(
@@ -49,6 +52,7 @@ class OrbitThemeData {
     BorderRadiusTokens? borderRadiusTokens,
     IconTokens? iconTokens,
     AlertTokens? alertTokens,
+    BadgeTokens? badgeTokens,
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
@@ -59,6 +63,7 @@ class OrbitThemeData {
     iconTokens ??= IconTokens.fromTokens(colorTokens, baseTokens);
     // component tokens
     alertTokens ??= AlertTokens.fromTokens(colorTokens, baseTokens);
+    badgeTokens ??= BadgeTokens.fromTokens(colorTokens, baseTokens);
 
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
@@ -68,6 +73,7 @@ class OrbitThemeData {
       borderRadius: borderRadiusTokens,
       iconTokens: iconTokens,
       alertTokens: alertTokens,
+      badgeTokens: badgeTokens,
     );
   }
 
@@ -79,6 +85,7 @@ class OrbitThemeData {
     required this.borderRadius,
     required this.iconTokens,
     required this.alertTokens,
+    required this.badgeTokens,
   });
 
   factory OrbitThemeData.light() => OrbitThemeData(

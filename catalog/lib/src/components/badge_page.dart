@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:orbit/orbit.dart';
 
 class BadgePage extends StatelessWidget {
@@ -9,10 +8,12 @@ class BadgePage extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            for (var type in BadgeType.values) _typedBadge(type),
-          ],
+        child: Center(
+          child: Column(
+            children: [
+              for (var type in BadgeType.values) _typedBadge(type),
+            ],
+          ),
         ),
       ),
     );
@@ -21,25 +22,22 @@ class BadgePage extends StatelessWidget {
   Widget _typedBadge(BadgeType type) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
+        spacing: 8,
         children: [
           Badge(
-            label: 'Label',
+            child: Text('Label'),
             type: type,
           ),
-          SizedBox(width: 8),
           Badge(
-            label: 'Label',
             icon: OrbitIcons.airplane,
+            child: Text('Label'),
             type: type,
           ),
-          SizedBox(width: 8),
           Badge(
             icon: OrbitIcons.airplane,
             type: type,
           ),
-          SizedBox(width: 8),
         ],
       ),
     );

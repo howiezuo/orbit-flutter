@@ -2,148 +2,117 @@ import 'package:flutter/widgets.dart';
 
 import '../theme.dart';
 
-abstract class BadgeTokens {
-  Color get colorTextNeutral;
-  Color get colorTextInfo;
-  Color get colorTextSuccess;
-  Color get colorTextWarning;
-  Color get colorTextCritical;
-  Color get colorTextDark;
-  Color get colorTextWhite;
+@immutable
+class BadgeTokens {
+  final Color? colorTextNeutral;
+  final Color? colorTextInfo;
+  final Color? colorTextSuccess;
+  final Color? colorTextWarning;
+  final Color? colorTextCritical;
+  final Color? colorTextDark;
+  final Color? colorTextWhite;
 
-  Color get backgroundNeutral;
-  Color get backgroundInfo;
-  Color get backgroundSuccess;
-  Color get backgroundWarning;
-  Color get backgroundCritical;
-  Color get backgroundDark;
-  Color get backgroundWhite;
+  final Color? backgroundNeutral;
+  final Color? backgroundInfo;
+  final Color? backgroundSuccess;
+  final Color? backgroundWarning;
+  final Color? backgroundCritical;
+  final Color? backgroundDark;
+  final Color? backgroundWhite;
 
-  double get borderRadius;
-  double get height;
-  EdgeInsets get padding;
+  final Radius? borderRadius;
+  final double? height;
+  final EdgeInsets? padding;
 
-  // unfound
-  Color get borderColorNeutral;
-  Color get borderColorInfo;
-  Color get borderColorSuccess;
-  Color get borderColorWarning;
-  Color get borderColorCritical;
-  Color? get borderColorDark;
-  Color get borderColorWhite;
-}
+  final Color? borderColorNeutral;
+  final Color? borderColorSuccess;
+  final Color? borderColorInfo;
+  final Color? borderColorWarning;
+  final Color? borderColorCritical;
+  final Color? borderColorWhite;
 
-class BadgeStyes extends BadgeTokens {
-  @override
-  final Color colorTextCritical;
-  @override
-  final Color colorTextDark;
-  @override
-  final Color colorTextInfo;
-  @override
-  final Color colorTextNeutral;
-  @override
-  final Color colorTextSuccess;
-  @override
-  final Color colorTextWarning;
-  @override
-  final Color colorTextWhite;
-
-  @override
-  final Color backgroundCritical;
-  @override
-  final Color backgroundDark;
-  @override
-  final Color backgroundInfo;
-  @override
-  final Color backgroundNeutral;
-  @override
-  final Color backgroundSuccess;
-  @override
-  final Color backgroundWarning;
-  @override
-  final Color backgroundWhite;
-
-  @override
-  final double borderRadius;
-  @override
-  final double height;
-  @override
-  final EdgeInsets padding;
-
-  @override
-  final Color borderColorNeutral;
-  @override
-  final Color borderColorInfo;
-  @override
-  final Color borderColorSuccess;
-  @override
-  final Color borderColorWarning;
-  @override
-  final Color borderColorCritical;
-  @override
-  final Color? borderColorDark;
-  @override
-  final Color borderColorWhite;
-
-  BadgeStyes({
-    required this.colorTextCritical,
-    required this.colorTextDark,
-    required this.colorTextInfo,
-    required this.colorTextNeutral,
-    required this.colorTextSuccess,
-    required this.colorTextWarning,
-    required this.colorTextWhite,
-    required this.backgroundCritical,
-    required this.backgroundDark,
-    required this.backgroundInfo,
-    required this.backgroundNeutral,
-    required this.backgroundSuccess,
-    required this.backgroundWarning,
-    required this.backgroundWhite,
-    required this.borderRadius,
-    required this.height,
-    required this.padding,
-    required this.borderColorCritical,
-    required this.borderColorDark,
-    required this.borderColorInfo,
-    required this.borderColorNeutral,
-    required this.borderColorSuccess,
-    required this.borderColorWarning,
-    required this.borderColorWhite,
+  const BadgeTokens({
+    this.colorTextNeutral,
+    this.colorTextSuccess,
+    this.colorTextInfo,
+    this.colorTextWarning,
+    this.colorTextCritical,
+    this.colorTextDark,
+    this.colorTextWhite,
+    this.backgroundNeutral,
+    this.backgroundSuccess,
+    this.backgroundInfo,
+    this.backgroundWarning,
+    this.backgroundCritical,
+    this.backgroundDark,
+    this.backgroundWhite,
+    this.borderRadius,
+    this.height,
+    this.padding,
+    this.borderColorNeutral,
+    this.borderColorSuccess,
+    this.borderColorInfo,
+    this.borderColorWarning,
+    this.borderColorCritical,
+    this.borderColorWhite,
   });
 
-  static BadgeTokens fromDefault(BuildContext context) {
-    final theme = OrbitTheme.of(context);
-    final colors = theme.colorTokens;
-    final baseTokens = theme.baseTokens;
+  const BadgeTokens.raw({
+    required Color this.colorTextNeutral,
+    required Color this.colorTextSuccess,
+    required Color this.colorTextInfo,
+    required Color this.colorTextWarning,
+    required Color this.colorTextCritical,
+    required Color this.colorTextDark,
+    required Color this.colorTextWhite,
+    required Color this.backgroundNeutral,
+    required Color this.backgroundSuccess,
+    required Color this.backgroundInfo,
+    required Color this.backgroundWarning,
+    required Color this.backgroundCritical,
+    required Color this.backgroundDark,
+    required Color this.backgroundWhite,
+    required Radius this.borderRadius,
+    required double this.height,
+    required EdgeInsets this.padding,
+    required Color this.borderColorNeutral,
+    required Color this.borderColorSuccess,
+    required Color this.borderColorInfo,
+    required Color this.borderColorWarning,
+    required Color this.borderColorCritical,
+    required Color this.borderColorWhite,
+  });
 
-    return BadgeStyes(
-      colorTextCritical: colors.redNormal,
-      colorTextDark: colors.whiteNormal,
-      colorTextInfo: colors.blueNormal,
+  factory BadgeTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
+    return BadgeTokens.raw(
       colorTextNeutral: colors.inkNormal,
       colorTextSuccess: colors.greenNormal,
+      colorTextInfo: colors.blueNormal,
       colorTextWarning: colors.orangeNormal,
+      colorTextCritical: colors.redNormal,
+      colorTextDark: colors.whiteNormal,
       colorTextWhite: colors.inkNormal,
-      backgroundCritical: colors.redLight,
-      backgroundDark: colors.inkNormal,
-      backgroundInfo: colors.blueLight,
       backgroundNeutral: colors.cloudLight,
       backgroundSuccess: colors.greenLight,
+      backgroundInfo: colors.blueLight,
       backgroundWarning: colors.orangeLight,
+      backgroundCritical: colors.redLight,
+      backgroundDark: colors.inkNormal,
       backgroundWhite: colors.whiteNormal,
-      // TODO no token?
-      borderRadius: 12,
-      height: baseTokens.sizeMedium,
-      padding: EdgeInsets.symmetric(horizontal: baseTokens.spaceXsmall),
-      borderColorCritical: colors.redLightHover,
-      borderColorDark: null,
-      borderColorInfo: colors.blueLightHover,
+      borderRadius: const Radius.circular(12),
+      height: bases.sizeMedium,
+      padding: EdgeInsets.symmetric(horizontal: bases.spaceXsmall),
       borderColorNeutral: colors.cloudDark,
       borderColorSuccess: colors.greenLightHover,
+      borderColorInfo: colors.blueLightHover,
       borderColorWarning: colors.orangeLightHover,
+      borderColorCritical: colors.redLightHover,
       borderColorWhite: colors.cloudDark,
     );
+  }
+
+  factory BadgeTokens.fromDefault(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    return BadgeTokens.fromTokens(theme.colorTokens, theme.baseTokens);
   }
 }
