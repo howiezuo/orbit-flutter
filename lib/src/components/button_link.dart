@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
+/**
+ * TODO
+ * ripple
+ */
 class ButtonLink extends StatelessWidget {
   final Widget? child;
   final VoidCallback? onPressed;
@@ -9,6 +13,7 @@ class ButtonLink extends StatelessWidget {
   final IconData? iconRight;
   final ButtonLinkType? type;
   final bool fullWidth;
+  final bool disabled;
 
   bool get _hasLeftIcon => iconLeft != null;
   bool get _hasRightIcon => iconLeft == null;
@@ -23,6 +28,7 @@ class ButtonLink extends StatelessWidget {
     this.iconRight,
     ButtonLinkType this.type = ButtonLinkType.primary,
     this.fullWidth = true,
+    this.disabled = false,
   }) : super(key: key);
 
   const ButtonLink.icon({
@@ -31,6 +37,7 @@ class ButtonLink extends StatelessWidget {
     required this.onPressed,
     this.type = ButtonLinkType.primary,
     this.fullWidth = true,
+    this.disabled = false,
   })  : this.iconLeft = icon,
         this.child = null,
         this.iconRight = null,
@@ -41,32 +48,30 @@ class ButtonLink extends StatelessWidget {
     final theme = OrbitTheme.of(context);
     final style = _fromTheme(context);
 
-    return TextButton(
-      onPressed: onPressed,
-      child: _content(theme, style),
-      style: TextButton.styleFrom(
-        backgroundColor: style.background,
-        primary: style.color,
-        textStyle: TextStyle(
-          fontSize: style.fontSize,
-          fontWeight: theme.baseTokens.fontWeightMedium,
+    return Opacity(
+      opacity: disabled ? style.opacityDisabled! : 1,
+      child: TextButton(
+        onPressed: disabled ? null : onPressed,
+        child: _content(theme, style),
+        style: TextButton.styleFrom(
+          backgroundColor: style.background,
+          primary: style.color,
+          textStyle: TextStyle(
+            fontSize: style.fontSize,
+            fontWeight: theme.baseTokens.fontWeightMedium,
+          ),
+          padding: style.padding,
+          minimumSize: fullWidth == true
+              ? Size.fromHeight(style.height!)
+              : Size(style.height!, style.height!),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ).copyWith(
+          foregroundColor:
+              MaterialStateProperty.resolveWith((states) => style.color),
         ),
-        padding: style.padding,
-        minimumSize: fullWidth == true
-            ? Size.fromHeight(style.height!)
-            : Size(style.height!, style.height!),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(theme.baseTokens.borderRadius)),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      )
-      // .copyWith(
-      //   backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-      //       (states) => style.background),
-      //   foregroundColor:
-      //       MaterialStateProperty.resolveWith<Color?>((states) => style.color),
-      //   elevation: MaterialStateProperty.resolveWith((states) => 0),
-      // )
-      ,
+      ),
     );
   }
 
@@ -134,6 +139,7 @@ class ButtonLink extends StatelessWidget {
       background: Palette.Transparent,
       height: defaultStyle.heightNormal!,
       fontSize: defaultStyle.fontSizeNormal!,
+      opacityDisabled: defaultStyle.opacityDisabled!,
       padding: resolvePadding(),
     );
   }
@@ -144,6 +150,7 @@ class ButtonLinkStyle {
   final Color? background;
   final double? height;
   final double? fontSize;
+  final double? opacityDisabled;
   final EdgeInsets? padding;
 
   const ButtonLinkStyle({
@@ -151,6 +158,7 @@ class ButtonLinkStyle {
     this.background,
     this.height,
     this.fontSize,
+    this.opacityDisabled,
     this.padding,
   });
 
@@ -159,6 +167,7 @@ class ButtonLinkStyle {
     required Color this.background,
     required double this.height,
     required double this.fontSize,
+    required double this.opacityDisabled,
     required EdgeInsets this.padding,
   });
 }

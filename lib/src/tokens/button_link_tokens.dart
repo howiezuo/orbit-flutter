@@ -15,6 +15,8 @@ class ButtonLinkTokens {
 
   final double? heightNormal;
 
+  final double? opacityDisabled;
+
   final EdgeInsets? paddingWithoutText;
   final EdgeInsets? paddingNormal;
   final EdgeInsets? paddingNormalWithIcons;
@@ -30,6 +32,7 @@ class ButtonLinkTokens {
     this.backgroundCritical,
     this.fontSizeNormal,
     this.heightNormal,
+    this.opacityDisabled,
     this.paddingWithoutText,
     this.paddingNormal,
     this.paddingNormalWithIcons,
@@ -46,6 +49,7 @@ class ButtonLinkTokens {
     required Color this.backgroundCritical,
     required double this.fontSizeNormal,
     required double this.heightNormal,
+    required double this.opacityDisabled,
     required EdgeInsets this.paddingWithoutText,
     required EdgeInsets this.paddingNormal,
     required EdgeInsets this.paddingNormalWithIcons,
@@ -63,6 +67,7 @@ class ButtonLinkTokens {
       backgroundCritical: Palette.Transparent,
       fontSizeNormal: bases.fontSizeMedium,
       heightNormal: bases.sizeXlarge,
+      opacityDisabled: bases.opacitySmall,
       paddingWithoutText: EdgeInsets.zero,
       paddingNormal: EdgeInsets.symmetric(horizontal: bases.spaceMedium),
       paddingNormalWithIcons:

@@ -24,6 +24,13 @@ class ButtonLinkPage extends StatelessWidget {
         ButtonLink(child: Text('Label'), onPressed: () => {}, type: type),
         SizedBox(height: 8),
         ButtonLink(
+          child: Text('Label'),
+          onPressed: () => {},
+          type: type,
+          disabled: true,
+        ),
+        SizedBox(height: 8),
+        ButtonLink(
             child: Text('Label'),
             onPressed: () => {},
             iconLeft: OrbitIcons.airplane,
