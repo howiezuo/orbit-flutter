@@ -42,7 +42,7 @@ class CheckBoxTokens {
     );
   }
 
-  static CheckBoxTokens fromDefault(BuildContext context) {
+  factory CheckBoxTokens.fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
     return CheckBoxTokens.fromTokens(theme.colorTokens, theme.baseTokens);
   }

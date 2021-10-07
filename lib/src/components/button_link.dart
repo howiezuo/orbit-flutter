@@ -114,7 +114,7 @@ class ButtonLink extends StatelessWidget {
       switch (type) {
         case ButtonLinkType.secondary:
           return defaultStyle.colorTextSecondary!;
-        case ButtonLinkType.ciritcal:
+        case ButtonLinkType.critical:
           return theme.colorTokens.redNormal;
         default:
           return defaultStyle.colorTextPrimary!;
@@ -172,4 +172,4 @@ class ButtonLinkStyle {
   });
 }
 
-enum ButtonLinkType { primary, secondary, ciritcal }
+enum ButtonLinkType { primary, secondary, critical }

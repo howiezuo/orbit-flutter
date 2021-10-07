@@ -7,7 +7,8 @@ class DialogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
+      child: Wrap(
+        runSpacing: 8,
         children: [
           Button(
             child: Text('Show Dialog'),
@@ -46,8 +47,7 @@ class DialogPage extends StatelessWidget {
                   child: Text('Allow'),
                   onPressed: () => Navigator.pop(context),
                 ),
-                // TODO ButtonLink
-                secondaryAction: Button(
+                secondaryAction: ButtonLink(
                   child: Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
                 ),
@@ -66,8 +66,7 @@ class DialogPage extends StatelessWidget {
                   child: Text('Allow'),
                   onPressed: () => Navigator.pop(context),
                 ),
-                // TODO ButtonLink
-                secondaryAction: Button(
+                secondaryAction: ButtonLink(
                   child: Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
                 ),
@@ -88,13 +87,11 @@ class DialogPage extends StatelessWidget {
                     child: Text('Allow'),
                     onPressed: () => Navigator.pop(context),
                   ),
-                  // TODO ButtonLink
-                  Button(
+                  ButtonLink(
                     child: Text('Setting'),
                     onPressed: () => Navigator.pop(context),
                   ),
-                  // TODO ButtonLink
-                  Button(
+                  ButtonLink(
                     child: Text('Cancel'),
                     onPressed: () => Navigator.pop(context),
                   ),
@@ -117,11 +114,10 @@ class DialogPage extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                   type: ButtonType.critical,
                 ),
-                // TODO ButtonLink
-                secondaryAction: Button(
+                secondaryAction: ButtonLink(
                   child: Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
-                  type: ButtonType.critical,
+                  type: ButtonLinkType.critical,
                 ),
                 illustration: Image.asset('images/error.png'),
                 description:

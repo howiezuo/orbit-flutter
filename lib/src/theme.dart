@@ -10,6 +10,7 @@ import 'tokens/card_tokens.dart';
 import 'tokens/checkbox_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/icon_tokens.dart';
+import 'tokens/shadow_tokens.dart';
 import 'tokens/text_tokens.dart';
 import 'tokens/typography_tokens.dart';
 
@@ -40,6 +41,7 @@ class OrbitThemeData {
   final TextTokens textTokens;
   final BorderRadiusTokens borderRadius;
   final IconTokens iconTokens;
+  final ShadowTokens shadowTokens;
 
   final AlertTokens alertTokens;
   final BadgeTokens badgeTokens;
@@ -61,6 +63,7 @@ class OrbitThemeData {
     TextTokens? textTokens,
     BorderRadiusTokens? borderRadiusTokens,
     IconTokens? iconTokens,
+    ShadowTokens? shadowTokens,
     AlertTokens? alertTokens,
     BadgeTokens? badgeTokens,
     ButtonTokens? buttonTokens,
@@ -75,6 +78,7 @@ class OrbitThemeData {
     textTokens ??= TextTokens.fromTokens(colorTokens, baseTokens);
     borderRadiusTokens ??= BorderRadiusTokens.fromTokens(baseTokens);
     iconTokens ??= IconTokens.fromTokens(colorTokens, baseTokens);
+    shadowTokens ??= ShadowTokens.fromTokens(colorTokens);
     // component tokens
     alertTokens ??= AlertTokens.fromTokens(colorTokens, baseTokens);
     badgeTokens ??= BadgeTokens.fromTokens(colorTokens, baseTokens);
@@ -90,6 +94,7 @@ class OrbitThemeData {
       textTokens: textTokens,
       borderRadius: borderRadiusTokens,
       iconTokens: iconTokens,
+      shadowTokens: shadowTokens,
       alertTokens: alertTokens,
       badgeTokens: badgeTokens,
       buttonTokens: buttonTokens,
@@ -106,6 +111,7 @@ class OrbitThemeData {
     required this.textTokens,
     required this.borderRadius,
     required this.iconTokens,
+    required this.shadowTokens,
     required this.alertTokens,
     required this.badgeTokens,
     required this.buttonTokens,

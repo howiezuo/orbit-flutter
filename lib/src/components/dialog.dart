@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/widgets.dart';
-import 'package:orbit/src/foundation/palette.dart';
-import 'package:orbit/src/tokens/text_tokens.dart';
 
 import '../theme.dart';
 import 'heading.dart';
 
+/**
+ * TODO style
+ */
 class Dialog extends StatelessWidget {
   final String title;
   final Widget? primaryAction;
@@ -37,16 +38,25 @@ class Dialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = OrbitTheme.of(context);
+    final colors = theme.colorTokens;
     final baseTokens = theme.baseTokens;
+    final shadows = theme.shadowTokens;
     final textTokens = TextTokens.fromDefault(context);
 
     return material.Dialog(
       backgroundColor: Palette.Transparent,
+      elevation: 0,
       child: Container(
-        padding: EdgeInsets.all(baseTokens.spaceMedium),
+        padding: EdgeInsets.fromLTRB(
+          baseTokens.spaceMedium,
+          baseTokens.spaceLarge,
+          baseTokens.spaceMedium,
+          baseTokens.spaceMedium,
+        ),
         decoration: BoxDecoration(
-          color: theme.colorTokens.whiteNormal,
+          color: colors.whiteNormal,
           borderRadius: BorderRadius.all(Radius.circular(12)),
+          boxShadow: shadows.overlay,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
