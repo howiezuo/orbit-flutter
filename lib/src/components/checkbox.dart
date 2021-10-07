@@ -87,7 +87,7 @@ class CheckBox extends StatelessWidget {
                     style: TextStyle(
                       fontSize: formTokens.fontSizeFeedback,
                       color: defaultStyles.colorInfo,
-                      height: theme.typographyTokens.lineHeightTextSmall /
+                      height: theme.textTokens.lineHeightSmall! /
                           formTokens.fontSizeFeedback,
                     ),
                   ),

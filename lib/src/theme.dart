@@ -36,12 +36,12 @@ export 'tokens/text_tokens.dart';
 class OrbitThemeData {
   final ColorTokens colorTokens;
   final BaseTokens baseTokens;
-  final TypographyTokens typographyTokens;
 
-  final TextTokens textTokens;
   final BorderRadiusTokens borderRadius;
   final IconTokens iconTokens;
   final ShadowTokens shadowTokens;
+  final TextTokens textTokens;
+  final TypographyTokens typographyTokens;
 
   final AlertTokens alertTokens;
   final BadgeTokens badgeTokens;
@@ -59,11 +59,11 @@ class OrbitThemeData {
   factory OrbitThemeData({
     ColorTokens? colorTokens,
     BaseTokens? baseTokens,
-    TypographyTokens? typographyTokens,
-    TextTokens? textTokens,
     BorderRadiusTokens? borderRadiusTokens,
     IconTokens? iconTokens,
     ShadowTokens? shadowTokens,
+    TextTokens? textTokens,
+    TypographyTokens? typographyTokens,
     AlertTokens? alertTokens,
     BadgeTokens? badgeTokens,
     ButtonTokens? buttonTokens,
@@ -73,12 +73,12 @@ class OrbitThemeData {
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
-    typographyTokens ??= TypographyTokens();
 
-    textTokens ??= TextTokens.fromTokens(colorTokens, baseTokens);
     borderRadiusTokens ??= BorderRadiusTokens.fromTokens(baseTokens);
     iconTokens ??= IconTokens.fromTokens(colorTokens, baseTokens);
     shadowTokens ??= ShadowTokens.fromTokens(colorTokens);
+    textTokens ??= TextTokens.fromTokens(colorTokens, baseTokens);
+    typographyTokens ??= TypographyTokens.fromTokens(textTokens);
     // component tokens
     alertTokens ??= AlertTokens.fromTokens(colorTokens, baseTokens);
     badgeTokens ??= BadgeTokens.fromTokens(colorTokens, baseTokens);
@@ -90,11 +90,11 @@ class OrbitThemeData {
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
       baseTokens: baseTokens,
-      typographyTokens: typographyTokens,
-      textTokens: textTokens,
       borderRadius: borderRadiusTokens,
       iconTokens: iconTokens,
       shadowTokens: shadowTokens,
+      textTokens: textTokens,
+      typographyTokens: typographyTokens,
       alertTokens: alertTokens,
       badgeTokens: badgeTokens,
       buttonTokens: buttonTokens,
@@ -107,11 +107,11 @@ class OrbitThemeData {
   const OrbitThemeData.raw({
     required this.colorTokens,
     required this.baseTokens,
-    required this.typographyTokens,
-    required this.textTokens,
     required this.borderRadius,
     required this.iconTokens,
     required this.shadowTokens,
+    required this.textTokens,
+    required this.typographyTokens,
     required this.alertTokens,
     required this.badgeTokens,
     required this.buttonTokens,

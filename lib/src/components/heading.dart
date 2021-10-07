@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:orbit/orbit.dart';
+
+import '../theme.dart';
 
 class Heading extends StatelessWidget {
   final String data;
@@ -55,33 +56,22 @@ class Heading extends StatelessWidget {
     final color = this.color ?? theme.colorTokens.inkNormal;
 
     switch (type) {
+      case HeadingType.display:
+        return typography.display!.copyWith(color: color);
+      case HeadingType.displaySubtitle:
+        return typography.displaySubtitle!.copyWith(color: color);
+      case HeadingType.title1:
+        return typography.title1!.copyWith(color: color);
       case HeadingType.title2:
-        return TextStyle(
-          color: color,
-          fontSize: typography.fontSizeHeadingTitle2,
-          fontWeight: typography.fontWeightHeadingTitle2,
-          height: typography.lineHeightHeadingTitle2 /
-              typography.fontSizeHeadingTitle2,
-        );
+        return typography.title2!.copyWith(color: color);
       case HeadingType.title3:
-        return TextStyle(
-          color: color,
-          fontSize: typography.fontSizeHeadingTitle3,
-          fontWeight: typography.fontWeightHeadingTitle3,
-          height: typography.lineHeightHeadingTitle3 /
-              typography.fontSizeHeadingTitle3,
-        );
+        return typography.title3!.copyWith(color: color);
       case HeadingType.title4:
-        return TextStyle(
-          color: color,
-          fontSize: typography.fontSizeHeadingTitle4,
-          fontWeight: typography.fontWeightHeadingTitle4,
-          height: typography.lineHeightHeadingTitle4 /
-              typography.fontSizeHeadingTitle4,
-        );
+        return typography.title4!.copyWith(color: color);
+      case HeadingType.title5:
+        return typography.title5!.copyWith(color: color);
       default:
-        // TODO
-        throw Exception('TODO mission heading type');
+        return TextStyle();
     }
   }
 }

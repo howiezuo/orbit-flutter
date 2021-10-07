@@ -1,33 +1,85 @@
-import 'dart:ui';
+import 'package:flutter/widgets.dart';
 
-import 'package:orbit/src/foundation/base.dart';
+import '../theme.dart';
 
 class TypographyTokens {
-  final double fontSizeHeadingTitle2;
-  final double fontSizeHeadingTitle3;
-  final double fontSizeHeadingTitle4;
+  final TextStyle? display;
+  final TextStyle? displaySubtitle;
+  final TextStyle? title1;
+  final TextStyle? title2;
+  final TextStyle? title3;
+  final TextStyle? title4;
+  final TextStyle? title5;
 
-  final FontWeight fontWeightHeadingTitle2;
-  final FontWeight fontWeightHeadingTitle3;
-  final FontWeight fontWeightHeadingTitle4;
-
-  final double lineHeightHeadingTitle2;
-  final double lineHeightHeadingTitle3;
-  final double lineHeightHeadingTitle4;
-  final double lineHeightTextSmall;
-  final double lineHeightTextNormal;
-
-  TypographyTokens({
-    this.fontSizeHeadingTitle2 = 22,
-    this.fontSizeHeadingTitle3 = 16,
-    this.fontSizeHeadingTitle4 = Base.FontSizeMd,
-    this.fontWeightHeadingTitle2 = Base.FontWeightMedium,
-    this.fontWeightHeadingTitle3 = Base.FontWeightMedium,
-    this.fontWeightHeadingTitle4 = Base.FontWeightMedium,
-    this.lineHeightHeadingTitle2 = 28,
-    this.lineHeightHeadingTitle3 = 24,
-    this.lineHeightHeadingTitle4 = 20,
-    this.lineHeightTextSmall = 16,
-    this.lineHeightTextNormal = 20,
+  const TypographyTokens({
+    this.display,
+    this.displaySubtitle,
+    this.title1,
+    this.title2,
+    this.title3,
+    this.title4,
+    this.title5,
   });
+
+  const TypographyTokens.raw({
+    required TextStyle this.display,
+    required TextStyle this.displaySubtitle,
+    required TextStyle this.title1,
+    required TextStyle this.title2,
+    required TextStyle this.title3,
+    required TextStyle this.title4,
+    required TextStyle this.title5,
+  });
+
+  factory TypographyTokens.fromTokens(TextTokens textTokens) {
+    return TypographyTokens.raw(
+      display: TextStyle(
+        fontSize: textTokens.fontSizeHeadingDisplay,
+        fontWeight: textTokens.fontWeightHeadingDisplay,
+        height: textTokens.lineHeightHeadingDisplay! /
+            textTokens.fontSizeHeadingDisplay!,
+      ),
+      displaySubtitle: TextStyle(
+        fontSize: textTokens.fontSizeHeadingDisplaySubtitle,
+        fontWeight: textTokens.fontWeightHeadingDisplaySubtitle,
+        height: textTokens.lineHeightHeadingDisplaySubtitle! /
+            textTokens.fontSizeHeadingDisplaySubtitle!,
+      ),
+      title1: TextStyle(
+        fontSize: textTokens.fontSizeHeadingTitle1,
+        fontWeight: textTokens.fontWeightHeadingTitle1,
+        height: textTokens.lineHeightHeadingTitle1! /
+            textTokens.fontSizeHeadingTitle1!,
+      ),
+      title2: TextStyle(
+        fontSize: textTokens.fontSizeHeadingTitle2,
+        fontWeight: textTokens.fontWeightHeadingTitle2,
+        height: textTokens.lineHeightHeadingTitle2! /
+            textTokens.fontSizeHeadingTitle2!,
+      ),
+      title3: TextStyle(
+        fontSize: textTokens.fontSizeHeadingTitle3,
+        fontWeight: textTokens.fontWeightHeadingTitle3,
+        height: textTokens.lineHeightHeadingTitle3! /
+            textTokens.fontSizeHeadingTitle3!,
+      ),
+      title4: TextStyle(
+        fontSize: textTokens.fontSizeHeadingTitle4,
+        fontWeight: textTokens.fontWeightHeadingTitle4,
+        height: textTokens.lineHeightHeadingTitle4! /
+            textTokens.fontSizeHeadingTitle4!,
+      ),
+      title5: TextStyle(
+        fontSize: textTokens.fontSizeHeadingTitle5,
+        fontWeight: textTokens.fontWeightHeadingTitle5,
+        height: textTokens.lineHeightHeadingTitle5! /
+            textTokens.fontSizeHeadingTitle5!,
+      ),
+    );
+  }
+
+  factory TypographyTokens.fromDefault(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    return TypographyTokens.fromTokens(theme.textTokens);
+  }
 }

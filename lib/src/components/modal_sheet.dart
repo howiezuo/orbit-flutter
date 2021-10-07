@@ -34,10 +34,11 @@ class ModalSheet extends StatelessWidget {
                 children: [
                   Expanded(child: child),
                   // child,
-                  if (action != null) Padding(
-                    padding: EdgeInsets.only(top: baseTokens.spaceMedium),
-                    child: action!,
-                  ),
+                  if (action != null)
+                    Padding(
+                      padding: EdgeInsets.only(top: baseTokens.spaceMedium),
+                      child: action!,
+                    ),
                 ],
               ),
             ),
@@ -96,10 +97,7 @@ class ModalSheetHeader extends StatelessWidget {
     final iconTokens = IconTokens.fromDefault(context);
 
     return AppBar(
-      title: Heading.title2(
-        title,
-        color: theme.colorTokens.inkNormal,
-      ),
+      title: Heading.title2(title),
       backgroundColor: theme.colorTokens.whiteNormal,
       leading: IconButton(
         onPressed: () => Navigator.of(context).pop(),

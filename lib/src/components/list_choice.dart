@@ -30,7 +30,6 @@ class ListChoice extends StatelessWidget {
     final theme = OrbitTheme.of(context);
     final colors = theme.colorTokens;
     final baseTokens = theme.baseTokens;
-    final typography = theme.typographyTokens;
     final textStyles = TextTokens.fromDefault(context);
     final iconStyles = IconTokens.fromDefault(context);
 
@@ -79,7 +78,7 @@ class ListChoice extends StatelessWidget {
                               : textStyles.colorSecondary,
                           fontSize: baseTokens.fontSizeSmall,
                           fontWeight: baseTokens.fontWeightNormal,
-                          height: typography.lineHeightTextNormal /
+                          height: textStyles.lineHeightNormal! /
                               baseTokens.fontSizeSmall,
                         ),
                       ),

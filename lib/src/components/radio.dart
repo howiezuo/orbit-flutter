@@ -95,7 +95,7 @@ class Radio<T> extends StatelessWidget {
                         style: TextStyle(
                           fontSize: formTokens.fontSizeFeedback,
                           color: styles.infoColor,
-                          height: theme.typographyTokens.lineHeightTextSmall /
+                          height: theme.textTokens.lineHeightSmall! /
                               formTokens.fontSizeFeedback,
                         ),
                       ),

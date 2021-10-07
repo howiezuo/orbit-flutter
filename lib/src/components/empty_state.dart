@@ -30,7 +30,7 @@ class EmptyState extends StatelessWidget {
         children: [
           image,
           SizedBox(height: baseTokens.spaceMedium),
-          Heading.title3(title, color: colors.inkNormal),
+          Heading.title3(title),
           if (description != null)
             Padding(
               padding: EdgeInsets.all(baseTokens.spaceXsmall),
