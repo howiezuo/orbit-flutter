@@ -51,9 +51,7 @@ class Heading extends StatelessWidget {
   }
 
   TextStyle _resolveTextStyle(BuildContext context) {
-    final theme = OrbitTheme.of(context);
-    final typography = theme.typographyTokens;
-    final color = this.color ?? theme.colorTokens.inkNormal;
+    final typography = TypographyTokens.fromDefault(context);
 
     switch (type) {
       case HeadingType.display:

@@ -31,6 +31,7 @@ export 'tokens/input_tokens.dart';
 export 'tokens/radio_tokens.dart';
 export 'tokens/tag_tokens.dart';
 export 'tokens/text_tokens.dart';
+export 'tokens/typography_tokens.dart';
 
 @immutable
 class OrbitThemeData {
