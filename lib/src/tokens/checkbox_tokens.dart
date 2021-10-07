@@ -1,33 +1,49 @@
-import 'package:orbit/orbit.dart';
+import 'package:flutter/widgets.dart';
+
+import '../theme.dart';
 
 class CheckBoxTokens {
-  final Color colorInfoRadio;
-  final Color colorIconRadio;
-  final Color borderColorRadio;
-  final Color borderColorRadioError;
-  final double size;
-  final double opcityDisable;
+  final Color? colorInfo;
+  final Color? colorIcon;
+  final Color? colorIconDisabled;
+  final double? size;
+  final Color? borderColor;
+  final Color? borderColorError;
+  final double? opcityDisable;
 
-  CheckBoxTokens({
-    required this.colorInfoRadio,
-    required this.colorIconRadio,
-    required this.borderColorRadio,
-    required this.borderColorRadioError,
-    required this.size,
-    required this.opcityDisable,
+  const CheckBoxTokens({
+    this.colorInfo,
+    this.colorIcon,
+    this.colorIconDisabled,
+    this.size,
+    this.borderColor,
+    this.borderColorError,
+    this.opcityDisable,
   });
+
+  const CheckBoxTokens.raw({
+    required Color this.colorInfo,
+    required Color this.colorIcon,
+    required Color this.colorIconDisabled,
+    required double this.size,
+    required Color this.borderColor,
+    required Color this.borderColorError,
+    required double this.opcityDisable,
+  });
+
+  factory CheckBoxTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
+    return CheckBoxTokens(
+      colorInfo: colors.inkLight,
+      colorIcon: colors.whiteNormal,
+      borderColor: colors.cloudDarker,
+      borderColorError: colors.redNormal,
+      size: 20,
+      opcityDisable: bases.opacityMedium,
+    );
+  }
 
   static CheckBoxTokens fromDefault(BuildContext context) {
     final theme = OrbitTheme.of(context);
-    final colors = theme.colorTokens;
-
-    return CheckBoxTokens(
-      colorInfoRadio: colors.inkLight,
-      colorIconRadio: colors.productNormal,
-      borderColorRadio: colors.cloudDarker,
-      borderColorRadioError: colors.redNormal,
-      size: 20,
-      opcityDisable: theme.baseTokens.opacityMedium,
-    );
+    return CheckBoxTokens.fromTokens(theme.colorTokens, theme.baseTokens);
   }
 }

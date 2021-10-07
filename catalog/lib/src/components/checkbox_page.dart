@@ -15,152 +15,71 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: Wrap(
+          runSpacing: 8,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CheckBox(
                   value: isChecked,
                   onChanged: (value) => setState(() => isChecked = value!),
                 ),
-                SizedBox(width: 8),
+                Spacer(),
                 CheckBox(
-                  value: true,
-                  onChanged: (value) {},
+                  value: isChecked,
+                  onChanged: (value) => setState(() => isChecked = value!),
+                  label: 'Label',
                 ),
-                SizedBox(width: 8),
+                Spacer(),
                 CheckBox(
-                  value: false,
-                  onChanged: (value) {},
-                ),
-                SizedBox(width: 8),
-                CheckBox(
-                  value: true,
-                  onChanged: (value) {},
-                  disabled: true,
-                ),
-                SizedBox(width: 8),
-                CheckBox(
-                  value: false,
-                  onChanged: (value) {},
-                  disabled: true,
-                ),
-                SizedBox(width: 8),
-                CheckBox(
-                  value: true,
-                  onChanged: (value) {},
-                  hasError: true,
-                ),
-                SizedBox(width: 8),
-                CheckBox(
-                  value: false,
-                  onChanged: (value) {},
-                  hasError: true,
+                  value: isChecked,
+                  onChanged: (value) => setState(() => isChecked = value!),
+                  label: 'Label',
+                  info: 'Additional information for this choice',
                 ),
               ],
             ),
-            SizedBox(height: 16),
-            CheckBox(
-              value: isChecked,
-              onChanged: (value) => setState(() => isChecked = value!),
-              label: 'Label',
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: true,
-              onChanged: (value) {},
-              label: 'Label',
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: false,
-              onChanged: (value) {},
-              label: 'Label',
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: true,
-              onChanged: (value) {},
-              label: 'Label',
-              disabled: true,
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: false,
-              onChanged: (value) {},
-              label: 'Label',
-              disabled: true,
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: true,
-              onChanged: (value) {},
-              label: 'Label',
-              hasError: true,
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: false,
-              onChanged: (value) {},
-              label: 'Label',
-              hasError: true,
-            ),
-            SizedBox(height: 16),
-            CheckBox(
-              value: isChecked,
-              onChanged: (value) => setState(() => isChecked = value!),
-              label: 'Label',
-              info: 'Additional information for this choice',
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: true,
-              onChanged: (value) {},
-              label: 'Label',
-              info: 'Additional information for this choice',
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: false,
-              onChanged: (value) {},
-              label: 'Label',
-              info: 'Additional information for this choice',
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: true,
-              onChanged: (value) {},
-              label: 'Label',
-              info: 'Additional information for this choice',
-              disabled: true,
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: false,
-              onChanged: (value) {},
-              label: 'Label',
-              info: 'Additional information for this choice',
-              disabled: true,
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: true,
-              onChanged: (value) {},
-              label: 'Label',
-              info: 'Additional information for this choice',
-              hasError: true,
-            ),
-            SizedBox(height: 8),
-            CheckBox(
-              value: false,
-              onChanged: (value) {},
-              label: 'Label',
-              info: 'Additional information for this choice',
-              hasError: true,
-            ),
+            _checkboxes(true, false, false),
+            _checkboxes(false, false, false),
+            _checkboxes(true, true, false),
+            _checkboxes(false, true, false),
+            _checkboxes(true, false, true),
+            _checkboxes(false, false, true),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _checkboxes(bool value, bool disabled, bool hasError) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CheckBox(
+          value: value,
+          onChanged: (value) {},
+          disabled: disabled,
+          hasError: hasError,
+        ),
+        Spacer(),
+        CheckBox(
+          value: value,
+          onChanged: (value) {},
+          label: 'Label',
+          disabled: disabled,
+          hasError: hasError,
+        ),
+        Spacer(),
+        CheckBox(
+          value: value,
+          onChanged: (value) {},
+          label: 'Label',
+          info: 'Additional information for this choice',
+          disabled: disabled,
+          hasError: hasError,
+        ),
+      ],
     );
   }
 }

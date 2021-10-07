@@ -10,6 +10,7 @@ export 'package:flutter/material.dart'
         BottomSheet,
         ButtonStyle,
         Card,
+        Checkbox,
         Colors,
         Dialog,
         Radio,

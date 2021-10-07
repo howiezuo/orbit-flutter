@@ -7,6 +7,7 @@ import 'tokens/border_radius_tokens.dart';
 import 'tokens/button_link_tokens.dart';
 import 'tokens/button_tokens.dart';
 import 'tokens/card_tokens.dart';
+import 'tokens/checkbox_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/icon_tokens.dart';
 import 'tokens/text_tokens.dart';
@@ -14,15 +15,15 @@ import 'tokens/typography_tokens.dart';
 
 export 'foundation/icons.dart';
 export 'foundation/palette.dart';
-export 'tokens/base_tokens.dart';
 export 'tokens/alert_tokens.dart';
 export 'tokens/badge_tokens.dart';
+export 'tokens/base_tokens.dart';
 export 'tokens/border_radius_tokens.dart';
 export 'tokens/button_tokens.dart';
 export 'tokens/button_link_tokens.dart';
 export 'tokens/card_tokens.dart';
-export 'tokens/color_tokens.dart';
 export 'tokens/checkbox_tokens.dart';
+export 'tokens/color_tokens.dart';
 export 'tokens/form_tokens.dart';
 export 'tokens/icon_tokens.dart';
 export 'tokens/input_tokens.dart';
@@ -45,6 +46,7 @@ class OrbitThemeData {
   final ButtonTokens buttonTokens;
   final ButtonLinkTokens buttonLinkTokens;
   final CardTokens cardTokens;
+  final CheckBoxTokens checkBoxTokens;
 
   ThemeData get materialTheme => ThemeData(
         colorScheme: ColorScheme.light(
@@ -64,6 +66,7 @@ class OrbitThemeData {
     ButtonTokens? buttonTokens,
     ButtonLinkTokens? buttonLinkTokens,
     CardTokens? cardTokens,
+    CheckBoxTokens? checkBoxTokens,
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
@@ -78,6 +81,7 @@ class OrbitThemeData {
     buttonTokens ??= ButtonTokens.fromTokens(colorTokens, baseTokens);
     buttonLinkTokens ??= ButtonLinkTokens.fromTokens(colorTokens, baseTokens);
     cardTokens ??= CardTokens.fromTokens(colorTokens, baseTokens);
+    checkBoxTokens ??= CheckBoxTokens.fromTokens(colorTokens, baseTokens);
 
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
@@ -91,6 +95,7 @@ class OrbitThemeData {
       buttonTokens: buttonTokens,
       buttonLinkTokens: buttonLinkTokens,
       cardTokens: cardTokens,
+      checkBoxTokens: checkBoxTokens,
     );
   }
 
@@ -106,6 +111,7 @@ class OrbitThemeData {
     required this.buttonTokens,
     required this.buttonLinkTokens,
     required this.cardTokens,
+    required this.checkBoxTokens,
   });
 
   factory OrbitThemeData.light() => OrbitThemeData(
