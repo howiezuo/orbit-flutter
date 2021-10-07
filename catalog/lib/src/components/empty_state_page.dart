@@ -13,11 +13,17 @@ class EmptyStatePage extends StatelessWidget {
           children: [
             EmptyState(
               image: Image.asset('images/empty.png'),
-              message: 'Sorry, we couldn\'t find that connection. ',
+              title: 'Sorry, we couldn\'t find that connection. ',
             ),
             EmptyState(
               image: Image.asset('images/empty.png'),
-              message: 'Sorry, we couldn\'t find that connection. ',
+              title: 'Sorry, we couldn\'t find that connection. ',
+              description:
+                  'Try changing up your search a bit. We\'ll try harder next time.',
+            ),
+            EmptyState(
+              image: Image.asset('images/empty.png'),
+              title: 'Sorry, we couldn\'t find that connection. ',
               action: Button(
                 child: Text('Adjust serach'),
                 onPressed: () => {},
@@ -26,7 +32,7 @@ class EmptyStatePage extends StatelessWidget {
             ),
             EmptyState(
               image: Image.asset('images/empty.png'),
-              message: 'Sorry, we couldn\'t find that connection. ',
+              title: 'Sorry, we couldn\'t find that connection. ',
               action: Button(
                 child: Text('Adjust serach'),
                 onPressed: () => {},
