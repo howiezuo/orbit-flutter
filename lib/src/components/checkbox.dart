@@ -107,7 +107,7 @@ class CheckBox extends StatelessWidget {
 
     Color resolveBackground() {
       if (disabled) return value ? colors.cloudDarker : colors.cloudNormal;
-      return value ? colors.blueNormal : inputStyles.background;
+      return value ? colors.blueNormal : inputStyles.background!;
     }
 
     Color resolveBorderColor() {

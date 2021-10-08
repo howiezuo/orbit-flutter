@@ -11,6 +11,7 @@ import 'tokens/checkbox_tokens.dart';
 import 'tokens/color_tokens.dart';
 import 'tokens/form_tokens.dart';
 import 'tokens/icon_tokens.dart';
+import 'tokens/input_tokens.dart';
 import 'tokens/shadow_tokens.dart';
 import 'tokens/text_tokens.dart';
 import 'tokens/typography_tokens.dart';
@@ -52,6 +53,7 @@ class OrbitThemeData {
   final CardTokens cardTokens;
   final CheckBoxTokens checkBoxTokens;
   final FormTokens formTokens;
+  final InputTokens inputTokens;
 
   ThemeData get materialTheme => ThemeData(
         colorScheme: ColorScheme.light(
@@ -74,6 +76,7 @@ class OrbitThemeData {
     CardTokens? cardTokens,
     CheckBoxTokens? checkBoxTokens,
     FormTokens? formTokens,
+    InputTokens? inputTokens,
   }) {
     colorTokens ??= const ColorTokens();
     baseTokens ??= const BaseTokens();
@@ -91,6 +94,7 @@ class OrbitThemeData {
     cardTokens ??= CardTokens.fromTokens(colorTokens, baseTokens);
     checkBoxTokens ??= CheckBoxTokens.fromTokens(colorTokens, baseTokens);
     formTokens ??= FormTokens.fromTokens(colorTokens, baseTokens);
+    inputTokens ??= InputTokens.fromTokens(colorTokens, baseTokens);
 
     return OrbitThemeData.raw(
       colorTokens: colorTokens,
@@ -107,6 +111,7 @@ class OrbitThemeData {
       cardTokens: cardTokens,
       checkBoxTokens: checkBoxTokens,
       formTokens: formTokens,
+      inputTokens: inputTokens,
     );
   }
 
@@ -125,6 +130,7 @@ class OrbitThemeData {
     required this.cardTokens,
     required this.checkBoxTokens,
     required this.formTokens,
+    required this.inputTokens,
   });
 
   factory OrbitThemeData.light() => OrbitThemeData(

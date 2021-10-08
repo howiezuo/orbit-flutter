@@ -32,8 +32,8 @@ class Select<T> extends StatelessWidget {
     final formStyles = FormTokens.fromDefault(context);
 
     Color resolveBorderColor() {
-      if (state is SelectStateError) return inputStyles.borderColorError;
-      if (state is SelectStateHelp) return inputStyles.borderColorFocus;
+      if (state is SelectStateError) return inputStyles.borderColorError!;
+      if (state is SelectStateHelp) return inputStyles.borderColorFocus!;
       return Palette.Transparent;
     }
 
@@ -62,7 +62,7 @@ class Select<T> extends StatelessWidget {
             color: inputStyles.background,
             border: Border.all(
               color: resolveBorderColor(),
-              width: inputStyles.borderWidth,
+              width: inputStyles.borderWidth!,
             ),
             borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
           ),

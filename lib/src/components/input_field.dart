@@ -118,12 +118,12 @@ class _InputFieldState extends State<InputField> {
     Color resolveBorderColor() {
       if (widget.state is InputFieldStateError)
         return _isFocused
-            ? style.borderColorErrorFocus
-            : style.borderColorError;
+            ? style.borderColorErrorFocus!
+            : style.borderColorError!;
 
-      if (widget.state is InputFieldStateHelp) return style.borderColorFocus;
+      if (widget.state is InputFieldStateHelp) return style.borderColorFocus!;
 
-      return _isFocused ? style.borderColorFocus : style.borderColor;
+      return _isFocused ? style.borderColorFocus! : style.borderColor!;
     }
 
     final borderColor = resolveBorderColor();
@@ -151,7 +151,7 @@ class _InputFieldState extends State<InputField> {
             color: style.background,
             border: Border.all(
               color: borderColor,
-              width: style.borderWidth,
+              width: style.borderWidth!,
             ),
             borderRadius: BorderRadius.all(theme.baseTokens.borderRadius),
           ),

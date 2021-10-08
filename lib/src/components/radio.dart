@@ -36,7 +36,7 @@ class Radio<T> extends StatelessWidget {
     Color resolveBackground() {
       if (disabled) return _isChecked ? colors.cloudDarker : colors.cloudNormal;
 
-      return _isChecked ? colors.blueNormal : inputStyles.background;
+      return _isChecked ? colors.blueNormal : inputStyles.background!;
     }
 
     Color resolveBorderColor() {

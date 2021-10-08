@@ -1,59 +1,85 @@
-import 'package:orbit/orbit.dart';
 
+import 'package:flutter/widgets.dart';
+
+import '../theme.dart';
+
+@immutable
 class InputTokens {
-  final Color colorText;
-  final Color colorTextDisabled;
-  final Color colorIcon;
-  final Color colorPlaceholder;
-  final Color background;
+  final Color? colorText;
+  final Color? colorTextDisabled;
+  final Color? colorIcon;
+  final Color? colorPlaceholder;
+  final Color? background;
+  final Color? backgroundDisabled;
 
-  final double fontSizeNormal;
+  final double? fontSizeNormal;
 
-  final Color borderColor;
-  final Color borderColorFocus;
-  final Color borderColorError;
-  final Color borderColorErrorFocus;
-  final double borderWidth;
+  final double? heightNormal;
 
-  final double heightNormal;
+  final Color? borderColor;
+  final Color? borderColorFocus;
+  final Color? borderColorError;
+  final Color? borderColorErrorFocus;
 
-  final EdgeInsets paddingNormal;
+  final double? borderWidth;
 
-  InputTokens({
-    required this.colorText,
-    required this.colorTextDisabled,
-    required this.colorIcon,
-    required this.colorPlaceholder,
-    required this.background,
-    required this.fontSizeNormal,
-    required this.borderColor,
-    required this.borderColorFocus,
-    required this.borderColorError,
-    required this.borderColorErrorFocus,
-    required this.borderWidth,
-    required this.heightNormal,
-    required this.paddingNormal,
+  final EdgeInsets? paddingNormal;
+
+  const InputTokens({
+    this.colorText,
+    this.colorTextDisabled,
+    this.colorIcon,
+    this.colorPlaceholder,
+    this.background,
+    this.backgroundDisabled,
+    this.fontSizeNormal,
+    this.borderColor,
+    this.borderColorFocus,
+    this.borderColorError,
+    this.borderColorErrorFocus,
+    this.borderWidth,
+    this.heightNormal,
+    this.paddingNormal,
   });
 
-  static InputTokens fromDefault(BuildContext context) {
-    final theme = OrbitTheme.of(context);
-    final colors = theme.colorTokens;
-    final baseTokens = theme.baseTokens;
+  const InputTokens.raw({
+    required Color this.colorText,
+    required Color this.colorTextDisabled,
+    required Color this.colorIcon,
+    required Color this.colorPlaceholder,
+    required Color this.background,
+    required Color this.backgroundDisabled,
+    required double this.fontSizeNormal,
+    required Color this.borderColor,
+    required Color this.borderColorFocus,
+    required Color this.borderColorError,
+    required Color this.borderColorErrorFocus,
+    required double this.borderWidth,
+    required double this.heightNormal,
+    required EdgeInsets this.paddingNormal,
+  });
 
-    return InputTokens(
+  factory InputTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
+    return InputTokens.raw(
       colorText: colors.inkNormal,
       colorTextDisabled: colors.inkLighter,
       colorIcon: colors.cloudDarker,
       colorPlaceholder: colors.inkLighter,
-      background: colors.cloudNormal,
-      fontSizeNormal: baseTokens.fontSizeMedium,
+      background: colors.whiteNormal,
+      backgroundDisabled: colors.cloudNormal,
+      fontSizeNormal: bases.fontSizeMedium,
       borderColor: colors.cloudDarker,
       borderColorFocus: colors.blueNormal,
       borderColorError: colors.redNormal,
       borderColorErrorFocus: colors.redNormal,
       borderWidth: 1,
-      heightNormal: baseTokens.sizeXlarge,
-      paddingNormal: EdgeInsets.symmetric(horizontal: baseTokens.spaceSmall),
+      heightNormal: bases.sizeXlarge,
+      paddingNormal: EdgeInsets.symmetric(horizontal: bases.spaceSmall),
     );
+  }
+
+  factory InputTokens.fromDefault(BuildContext context) {
+    final theme = OrbitTheme.of(context);
+    return InputTokens.fromTokens(theme.colorTokens, theme.baseTokens);
   }
 }
