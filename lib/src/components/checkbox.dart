@@ -78,7 +78,7 @@ class CheckBox extends StatelessWidget {
                       fontSize: formTokens.fontSizeLabel,
                       fontWeight: baseTokens.fontWeightNormal,
                       color: formTokens.colorLabel,
-                      height: defaultStyles.size! / formTokens.fontSizeLabel,
+                      height: defaultStyles.size! / formTokens.fontSizeLabel!,
                     ),
                   ),
                 if (info != null)
@@ -88,7 +88,7 @@ class CheckBox extends StatelessWidget {
                       fontSize: formTokens.fontSizeFeedback,
                       color: defaultStyles.colorInfo,
                       height: theme.textTokens.lineHeightSmall! /
-                          formTokens.fontSizeFeedback,
+                          formTokens.fontSizeFeedback!,
                     ),
                   ),
               ],

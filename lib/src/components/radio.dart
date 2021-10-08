@@ -86,7 +86,7 @@ class Radio<T> extends StatelessWidget {
                         fontSize: formTokens.fontSizeLabel,
                         fontWeight: baseTokens.fontWeightNormal,
                         color: formTokens.colorLabel,
-                        height: styles.size / formTokens.fontSizeLabel,
+                        height: styles.size / formTokens.fontSizeLabel!,
                       ),
                     ),
                     if (info != null)
@@ -96,7 +96,7 @@ class Radio<T> extends StatelessWidget {
                           fontSize: formTokens.fontSizeFeedback,
                           color: styles.infoColor,
                           height: theme.textTokens.lineHeightSmall! /
-                              formTokens.fontSizeFeedback,
+                              formTokens.fontSizeFeedback!,
                         ),
                       ),
                   ],

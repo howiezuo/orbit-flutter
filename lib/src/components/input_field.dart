@@ -140,7 +140,7 @@ class _InputFieldState extends State<InputField> {
                 fontSize: formStyles.fontSizeLabel,
                 fontWeight: baseTokens.fontWeightMedium,
                 height: theme.textTokens.lineHeightSmall! /
-                    formStyles.fontSizeLabel,
+                    formStyles.fontSizeLabel!,
               ),
             ),
           ),
