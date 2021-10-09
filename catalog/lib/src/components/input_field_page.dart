@@ -27,7 +27,7 @@ class _InputFieldPageState extends State<InputFieldPage> {
             ),
             InputField(
               label: 'Label',
-              inlineLable: true,
+              compactLable: true,
               placeholder: 'Placeholder',
             ),
             InputField(
@@ -42,6 +42,13 @@ class _InputFieldPageState extends State<InputFieldPage> {
               label: 'Label',
               placeholder: 'Placeholder',
               state: InputFieldStateError(message: 'Error message'),
+            ),
+            InputField(
+              label: 'Label',
+              placeholder: 'Placeholder',
+              icon: OrbitIcons.search,
+              controller: TextEditingController.fromValue(TextEditingValue(text: 'Disabled')),
+              disabled: true,
             ),
           ],
         ),

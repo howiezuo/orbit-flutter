@@ -1,4 +1,3 @@
-
 import 'package:flutter/widgets.dart';
 
 import '../theme.dart';
@@ -6,6 +5,7 @@ import '../theme.dart';
 @immutable
 class InputTokens {
   final Color? colorText;
+  final Color? colorTextPrefix;
   final Color? colorTextDisabled;
   final Color? colorIcon;
   final Color? colorPlaceholder;
@@ -27,6 +27,7 @@ class InputTokens {
 
   const InputTokens({
     this.colorText,
+    this.colorTextPrefix,
     this.colorTextDisabled,
     this.colorIcon,
     this.colorPlaceholder,
@@ -44,6 +45,7 @@ class InputTokens {
 
   const InputTokens.raw({
     required Color this.colorText,
+    required Color this.colorTextPrefix,
     required Color this.colorTextDisabled,
     required Color this.colorIcon,
     required Color this.colorPlaceholder,
@@ -62,6 +64,7 @@ class InputTokens {
   factory InputTokens.fromTokens(ColorTokens colors, BaseTokens bases) {
     return InputTokens.raw(
       colorText: colors.inkNormal,
+      colorTextPrefix: colors.inkLight,
       colorTextDisabled: colors.inkLighter,
       colorIcon: colors.cloudDarker,
       colorPlaceholder: colors.inkLighter,
